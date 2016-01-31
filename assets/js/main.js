@@ -14,8 +14,29 @@ jQuery(document).ready(function($) {
 		e.preventDefault();
 		$(this).tab( 'show' );
 	});
+	$('#slider-2').owlCarousel({
+ 
+    // Most important owl features
+    items : 1,
+    
+ 
+});
+	$('#slider-1').owlCarousel({
+ 
+    // Most important owl features
+    items : 1,
+    
+ 
+	});
+	
+	$('#slider-3').owlCarousel({
+ 
+    // Most important owl features
+    items : 1,
+    
+ 
+});
 
 	// Tooltip.
 	$( '.odin-tooltip' ).tooltip();
-
 });

@@ -206,6 +206,9 @@ add_action( 'after_switch_theme', 'odin_flush_rewrite' );
  */
 function odin_enqueue_scripts() {
 	$template_url = get_template_directory_uri();
+	wp_enqueue_script( 'owl-js',$template_url .'/inc/owl-carousel/owl-carousel/owl.carousel.js', array(), null, true );
+	wp_enqueue_style( 'owl-style', $template_url .'/inc/owl-carousel/owl-carousel/owl.carousel.css', array(), null, 'all' );
+	wp_enqueue_style( 'owl-theme', $template_url .'/inc/owl-carousel/owl-carousel/owl.theme.css', array(), null, 'all' );
 
 	// Loads Odin main stylesheet.
 	wp_enqueue_style( 'odin-style', get_stylesheet_uri(), array(), null, 'all' );
@@ -214,7 +217,6 @@ function odin_enqueue_scripts() {
 	wp_enqueue_script( 'jquery' );
 
 	// General scripts.
-	if ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) {
 		// Bootstrap.
 		wp_enqueue_script( 'bootstrap', $template_url . '/assets/js/libs/bootstrap.min.js', array(), null, true );
 
@@ -223,10 +225,7 @@ function odin_enqueue_scripts() {
 
 		// Main jQuery.
 		wp_enqueue_script( 'odin-main', $template_url . '/assets/js/main.js', array(), null, true );
-	} else {
-		// Grunt main file with Bootstrap, FitVids and others libs.
-		wp_enqueue_script( 'odin-main-min', $template_url . '/assets/js/main.min.js', array(), null, true );
-	}
+
 
 	// Grunt watch livereload in the browser.
 	// wp_enqueue_script( 'odin-livereload', 'http://localhost:35729/livereload.js?snipver=1', array(), null, true );
@@ -292,6 +291,15 @@ require_once get_template_directory() . '/inc/optimize.php';
  * Custom template tags.
  */
 require_once get_template_directory() . '/inc/template-tags.php';
+/**
+*custom post types
+*/
+require_once get_template_directory() . '/inc/custom-post.php';
+/**
+*custom fields
+*/
+require_once get_template_directory() . '/inc/custom-fields.php';
+
 
 /**
  * WooCommerce compatibility files.
@@ -302,3 +310,17 @@ if ( is_woocommerce_activated() ) {
 	require get_template_directory() . '/inc/woocommerce/functions.php';
 	require get_template_directory() . '/inc/woocommerce/template-tags.php';
 }
+function menu() {
+  register_nav_menu('menu-topo',__( 'Menu Topo' ));
+  register_nav_menu('menu-categorias',__( 'Menu Categorias' ));
+  register_nav_menu('menu-footer',__( 'Menu Footer Suporte' ));
+  register_nav_menu('menu-footer-2',__( 'Menu Footer Minha' ));
+
+}
+
+add_action( 'init', 'menu' );
+add_action('init', 'add_excerpt_pages');
+function add_excerpt_pages() {
+add_post_type_support( 'page', 'excerpt' );
+}
+add_image_size( 'slider-1', 1270, 590, array( 'left', 'top' ) ); // Hard crop left top

@@ -31,26 +31,25 @@
 	</a>
 
 	<header id="header" role="banner">
+		<div id="top-navigation" class="navbar navbar-default col-sm-12">
+			<nav class=" " role="navigation">
+				<?php
+					wp_nav_menu(
+						array(
+							'theme_location' => 'menu-topo',
+							'depth'          => 2,
+							'container'      => false,
+							'menu_class'     => 'nav navbar-nav',
+							'fallback_cb'    => 'Odin_Bootstrap_Nav_Walker::fallback',
+							'walker'         => new Odin_Bootstrap_Nav_Walker()
+						)
+					);
+				?>
+				
+			</nav><!-- .navbar-collapse -->
+		</div>
 		<div class="container">
-			<div class="page-header hidden-xs">
-				<?php if ( is_home() ) : ?>
-					<h1 class="site-title">
-						<a href="<?php echo home_url(); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
-							<?php bloginfo( 'name' ); ?>
-						</a>
-					</h1>
-					<h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>
-				<?php else : ?>
-					<div class="site-title h1">
-						<a href="<?php echo home_url(); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
-							<?php bloginfo( 'name' ); ?>
-						</a>
-					</div>
-					<div class="site-description h2">
-						<?php bloginfo( 'description' ); ?>
-					</div>
-				<?php endif ?>
-
+			<div class="page-header col-sm-4">
 				<?php
 					$header_image = get_header_image();
 					if ( ! empty( $header_image ) ) :
@@ -61,7 +60,7 @@
 				<?php endif; ?>
 			</div><!-- .site-header-->
 
-			<div id="main-navigation" class="navbar navbar-default">
+			<div id="main-navigation" class="navbar navbar-default col-sm-8">
 				<div class="navbar-header">
 					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-navigation">
 					<span class="sr-only"><?php _e( 'Toggle navigation', 'odin' ); ?></span>
