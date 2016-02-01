@@ -207,6 +207,7 @@ add_action( 'after_switch_theme', 'odin_flush_rewrite' );
 function odin_enqueue_scripts() {
 	$template_url = get_template_directory_uri();
 	wp_enqueue_style( 'odin-custom-style', $template_url . '/assets/css/custom.css', array(), null, 'all' );
+	wp_enqueue_style( 'google-fonts', 'https://fonts.googleapis.com/css?family=Roboto+Condensed:700,400,300|Roboto:400,700,300', array(), null, 'all' );
 
 	wp_enqueue_script( 'owl-js',$template_url .'/inc/owl-carousel/owl-carousel/owl.carousel.js', array(), null, true );
 	wp_enqueue_style( 'owl-style', $template_url .'/inc/owl-carousel/owl-carousel/owl.carousel.css', array(), null, 'all' );
@@ -325,7 +326,9 @@ add_action('init', 'add_excerpt_pages');
 function add_excerpt_pages() {
 add_post_type_support( 'page', 'excerpt' );
 }
-add_image_size( 'slider-1', 1270, 590, array( 'left', 'top' ) ); // Hard crop left top
+add_image_size( 'slider-1', 1200, 557, array( 'left', 'top' ) ); // Hard crop left top
+add_image_size( 'slider-2', 642, 400, array( 'left', 'top' ) ); // Hard crop left top
+add_image_size( 'slider-3', 1200, 557, array( 'left', 'top' ) ); // Hard crop left top
 
 
 
@@ -357,3 +360,187 @@ function your_custom_menu_item ( $items, $args ) {
 
     return $items;
 }	
+
+
+/**
+ * Register meta box(es).
+ */
+function wpdocs_register_meta_boxes() {
+    add_meta_box( 'meta-box-id', __( 'My Meta Box', 'textdomain' ), 'wpdocs_my_display_callback', 'slide' );
+}
+add_action( 'add_meta_boxes', 'wpdocs_register_meta_boxes' );
+ 
+/**
+ * Meta box display callback.
+ *
+ * @param WP_Post $post Current post object.
+ */
+function wpdocs_my_display_callback( $post ) {
+	$terms = wp_get_post_terms( $post->ID, 'slider' ); 
+	$slider=$terms[0]->slug;
+	?>
+
+	<section>
+	
+	<div style="position:relative">
+		<?php
+			echo get_the_post_thumbnail($post->ID, $slider,  array( 'id' => 'thumb-canvas' ));
+		?>
+		<div id="conteudo">
+			<?php 
+				the_content($post->ID );
+			?>
+
+		</div>
+		<canvas id="canvas"  style="position:absolute;left:0;background:transparent;text-align:center;">
+			This text is displayed if your browser does not support HTML5 Canvas.
+		</canvas>
+
+	</div>
+	<div id="log"></div>
+</section>
+
+	<?php
+    // Display code/markup goes here. Don't forget to include nonces!
+}
+ 
+/**
+ * Save meta box content.
+ *
+ * @param int $post_id Post ID
+ */
+function wpdocs_save_meta_box( $post_id ) {
+    // Save logic goes here. Don't forget to include nonce checks!
+}
+add_action( 'save_post', 'wpdocs_save_meta_box' );
+
+
+function myposttype_admin_js($hook_suffix) {
+
+		global $typenow; if ($typenow=="slide") {
+
+			echo '<script type="text/javascript">
+// 		jQuery( document ).on( "mousemove", function( event ) {
+//   jQuery( "#log" ).text( "pageX: " + event.pageX + ", pageY: " + event.pageY );
+// });
+var canvas;
+var ctx;
+var x = 15;
+var y = 15;
+thumb = document.getElementById("thumb-canvas");
+var WIDTH = thumb.width;
+console.log(WIDTH)
+var HEIGHT = thumb.height;
+var dragok = false;
+canvas = document.getElementById("canvas");
+canvas.width=WIDTH;
+canvas.height=HEIGHT;
+var bodyRectY = document.body.getBoundingClientRect(),
+    elemRectY = canvas.getBoundingClientRect(),
+    offsetY   = elemRectY.top - bodyRectY.top + +40;
+
+var bodyRectX = document.body.getBoundingClientRect(),
+    elemRectX = canvas.getBoundingClientRect(),
+    offsetX   = elemRectX.left - bodyRectX.left ;
+
+function rect(x,y,w,h) {
+ ctx.beginPath();
+ ctx.rect(x,y,w,h);
+ ctx.closePath();
+ ctx.fill();
+ 
+}
+
+function clear() {
+ ctx.clearRect(0, 0, WIDTH, HEIGHT);
+}
+
+function init() {
+ canvas = document.getElementById("canvas");
+ ctx = canvas.getContext("2d");
+ return setInterval(draw, 10);
+}
+
+function draw() {
+ clear();
+ ctx.font = "30px Arial";
+ ctx.fillText("Hello World",10,10);
+}
+
+
+function myMove(e){
+
+
+ if (dragok){
+ 	var bodyRectY = document.body.getBoundingClientRect(),
+    elemRectY = canvas.getBoundingClientRect(),
+    offsetY   = elemRectY.top - bodyRectY.top + +40;
+
+var bodyRectX = document.body.getBoundingClientRect(),
+    elemRectX = canvas.getBoundingClientRect(),
+    offsetX   = elemRectX.left - bodyRectX.left ;
+  x = e.pageX - offsetX;
+  y = e.pageY - offsetY;
+ }
+}
+
+function myDown(e){
+	  jQuery( "#log" ).html( 
+  	"e.pageY: "+e.pageY+
+  	"<br>y:"+ y+
+	"<br>canvas.offsetTop:"+canvas.offsetTop +
+	"<br>pageY: " + event.pageY+
+	"<br>offsetY: " + offsetY+
+	"<br>canvas.scrollLeft: " + canvas.scrollLeft+
+
+
+	"<br>e.pageY< y + 15 + offsetY"+
+  	 "<br>"+e.pageY +"<"+ y + " + " + 15 +" + "+ offsetY+
+
+	"<br>e.pageY> y - 15 + offsetY"+
+  	 "<br>"+e.pageY +">"+ y + " - " + 15 +" + " + offsetY+
+
+  	"<br><br>e.pageX: "+e.pageX+
+  	"<br>x:"+ x+
+  	"<br>canvas.offsetLeft:"+canvas.offsetLeft +
+	"<br>offsetX: " + offsetX+
+
+  	"<br>pageX: " + event.pageX+
+  	"<br>e.pageX < x + 15 + offsetX"+
+  	"<br>"+ e.pageX +" < "+ x + " + " + 15 + " + " + offsetX+
+
+  	"<br>e.pageX > x - 15 + offsetX" +
+  	"<br>"+ e.pageX +" > "+ x + " - " + 15 + " + " + offsetX);
+
+ if (e.pageX < x + 15 + offsetX && 
+ 	e.pageX > x - 15 + offsetX &&
+ 	e.pageY < y + 15 + offsetY && 
+ 	e.pageY > y -15 + offsetY){
+ 		console.log("entrou");
+
+  x = e.pageX - offsetX;
+  y = e.pageY - offsetY;
+  dragok = true;
+  canvas.onmousemove = myMove;
+ }
+}
+
+function myUp(){
+	  // console.log(x);
+
+ dragok = false;
+ canvas.onmousemove = null;
+}
+
+init();
+canvas.onmousedown = myDown;
+canvas.onmouseup = myUp;
+
+</script>';		
+
+
+		}
+
+	}
+
+	add_action('admin_print_footer_scripts', 'myposttype_admin_js');

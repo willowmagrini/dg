@@ -95,6 +95,7 @@ get_header(); ?>
 					$WP_query_slider->the_post();
 					?>
 					<div class="slide-2">
+					<div class="borda"></div>
 					<?php
 
 					the_content( );	
@@ -148,7 +149,7 @@ get_header(); ?>
 						?>
 						</div>
 						<?php
-						the_post_thumbnail( 'slider-3' );	
+						the_post_thumbnail( 'slider-1' );	
 						?>					
 					</div>
 					<?php 

@@ -1,6 +1,11 @@
+*{
+font-family: 'Roboto Condensed', sans-serif;
+}
 html body {
     margin-bottom: 0px;
+    height:100%;
 }
+
 *:active, *:focus{
 	border:0;
 	outline:0!important;
@@ -180,11 +185,19 @@ input::-webkit-input-placeholder {
 #slider-2{
 	margin-top: 45px!important;
 }
+#slider-2  .borda{
+	min-width:100%;
+	height:100%;
+	position:absolute; 
+	
+}
+.slide-2:hover .borda{
+	-webkit-box-shadow:inset 0px 0px 0px 10px #FCEA0D!important;
+    -moz-box-shadow:inset 0px 0px 0px 10px #FCEA0D!important;
+    box-shadow:inset 0px 0px 0px 10px #FCEA0D!important;
+}
 .slide-2:hover {
-    padding: 10px;
-	-webkit-box-shadow:inset 0px 0px 0px 10px #f00!important;
-    -moz-box-shadow:inset 0px 0px 0px 10px #f00!important;
-    box-shadow:inset 0px 0px 0px 10px #f00!important;
+    
 
 }
 .slide-2 h2{
@@ -401,15 +414,52 @@ html #footer{
 
 
 }
+#cadastro-footer h3{
+	text-transform: uppercase;
+	margin:0;
+	padding:25px 0;
+	color:#fff;
+	text-align: center;
+}
+#cadastro-footer{
+	background-color: #20B8D4;
+}
+#cadastro-footer .wpcf7{
+	display:inline-block;
+}
+#cadastro-footer .wpcf7-text{
+	width:283px;
+	border:none;
+	border-radius: 0;
+	box-shadow: none;
+	outline: none;
+	height:30px;
+    vertical-align: bottom;
+    margin-left: 30px;
+
+}
+#cadastro-footer >div{
+	text-align: center;
+}
+#cadastro-footer .wpcf7-submit{
+	width: 130px;
+	background: #000;
+	border:none;
+	border-radius: 0;
+	box-shadow: none;
+	outline: none;
+	color:#fff;
+	height: 30px;
+}
 #fale{
 	color:#FCEA0D;
-	font-size:15px;
+	font-size:13px;
 }
 #footer h2{
-	font-size:25px;
+	font-size:23px;
 }
 #footer h3{
-	font-size:18px;
+	font-size:15px;
 }
 #menu-menu-suporte-footer, #menu-menu-footer-conta{
 	list-style: none;
@@ -420,13 +470,18 @@ html #footer{
 	color:#fff;
 }
 #footer p, #footer ul li a{
-	font-size: 13px
-}
+    font-family:'Roboto', sans-serif!important;
+
+	font-size: 12px;
+    font-weight: 100;}
 #footer input, #footer textarea {
 	width: 100%;
 	border:none;
 	box-shadow: none;
-    font-size: 21px;
+    font-size: 14px;
+    color: #000;
+    padding: 10px;
+
 
 }
 #footer textarea {
@@ -437,7 +492,7 @@ html #footer{
 	background-color: #000;
 	color: #fff;
 	text-transform: uppercase;
-	font-size: 11px;
+	font-size: 13px;
 	width:130px;
 	padding:10px 0;
 	border-radius: 0
@@ -447,4 +502,8 @@ html #footer{
 }
 #footer .rodape{
 	color:#FCEA0D;
+}
+#footer ul li{
+	    height: 16px;
+
 }

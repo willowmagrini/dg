@@ -11,7 +11,12 @@
 ?>
 
 	</div><!-- #wrapper -->
-
+	<div id="cadastro-footer" class="">
+		<div>
+			<h3 class="inline-block">cadastre-se para receber nossas <span>novidades</span> e <span>promoções</span></h3> 
+		<?php echo do_shortcode( '[contact-form-7 id="116" title="cadastro" class=inline-block]' );?>
+		</div>
+	</div>
 	<footer id="footer" role="contentinfo">
 		<div  class="row">
 			<div class="col-sm-3">

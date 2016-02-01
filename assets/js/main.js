@@ -75,7 +75,10 @@ jQuery(document).ready(function($) {
 			$(this).val(min);
 		}
 	});
+	
 
-
+$('body').on("load", function() {
+	var h = document.getElementById("slider-2").offsetHeight;
+	$('.borda').css('height', h -10 + "px");});
 
 });
