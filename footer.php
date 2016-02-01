@@ -10,21 +10,22 @@
  */
 ?>
 
-		</div><!-- .row -->
 	</div><!-- #wrapper -->
 
 	<footer id="footer" role="contentinfo">
 		<div  class="row">
 			<div class="col-sm-3">
 				<h2>DEEP GEEK</h2>
-				<p>R. Estavão Lopes, 49 - Butantã</p>
-				<p>São Paulo, SP, Brasil</p>
-				<h3 id="fale">Fale conosco:</h3>
-				<p>Whats App (11) 9 8757 3800 Tel. (11)3097 8443</p>
-				<p>Tel. (11)3097 8443</p>
+				<p>Uma empresa do grupo SUPE
+				<br>R. Estavão Lopes, 49 - Butantã
+				<br>São Paulo, SP, Brasil</p>
+				<h3 id="fale">FALE CONOSCO:</h3>
+				<p>Whats App (11) 9 8757 3800 
+				<br>Tel. (11)3097 8443</p>
+				<p>STARTUP E COMMERCE COMERCIAL LTDA - ME<br> CNPJ. 22.968.470/0001-86</p>
 			</div>
 			<div class="col-sm-3">
-				<h3>Sobre nós</h3>
+				<h3>SOBRE NÓS</h3>
 				<p>
 					<?php 
 					$page = get_page_by_title( 'sobre nos' );
@@ -40,18 +41,18 @@
 				</div>
 			</div>
 			<div class="col-sm-3">
-				<h3>Suporte</h3>
+				<h3>SUPORTE</h3>
 				<?php
 					wp_nav_menu(array('theme_location' => 'menu-footer',));
 				?>
-				<h3>Minha Conta</h3>
+				<h3>MINHA CONTA</h3>
 				<?php 
 					wp_nav_menu(array('theme_location' => 'menu-footer-2',));
 				?>
 
 			</div>
 			<div class="col-sm-3">
-				<h3>Contate-nos</h3>
+				<h3>CONTATE-NOS</h3>
 				<p>
 					<?php
 					echo do_shortcode( '[contact-form-7 id="45" title="Footer"]' );;
@@ -61,8 +62,8 @@
 			</div>
 
 		</div>
-		<div class="container">
-			<p>&copy; <?php echo date( 'Y' ); ?> <a href="<?php echo home_url(); ?>"><?php bloginfo( 'name' ); ?></a> - <?php _e( 'All rights reserved', 'odin' ); ?> | <?php echo sprintf( __( 'Powered by the <a href="%s" rel="nofollow" target="_blank">Odin</a> forces and <a href="%s" rel="nofollow" target="_blank">WordPress</a>.', 'odin' ), 'http://wpod.in/', 'http://wordpress.org/' ); ?></p>
+		<div class=" rodape container">
+			<p>&copy; 2015  SUPE - startup e commerce comercial.</p>
 		</div><!-- .container -->
 	</footer><!-- #footer -->
 

@@ -206,6 +206,8 @@ add_action( 'after_switch_theme', 'odin_flush_rewrite' );
  */
 function odin_enqueue_scripts() {
 	$template_url = get_template_directory_uri();
+	wp_enqueue_style( 'odin-custom-style', $template_url . '/assets/css/custom.css', array(), null, 'all' );
+
 	wp_enqueue_script( 'owl-js',$template_url .'/inc/owl-carousel/owl-carousel/owl.carousel.js', array(), null, true );
 	wp_enqueue_style( 'owl-style', $template_url .'/inc/owl-carousel/owl-carousel/owl.carousel.css', array(), null, 'all' );
 	wp_enqueue_style( 'owl-theme', $template_url .'/inc/owl-carousel/owl-carousel/owl.theme.css', array(), null, 'all' );
@@ -324,3 +326,34 @@ function add_excerpt_pages() {
 add_post_type_support( 'page', 'excerpt' );
 }
 add_image_size( 'slider-1', 1270, 590, array( 'left', 'top' ) ); // Hard crop left top
+
+
+
+///////add to cart
+function cs_wc_loop_add_to_cart_scripts() {
+    if ( is_shop() || is_product_category() || is_product_tag() || is_product()  || is_home() ): ?>
+
+<script>
+    jQuery( document ).ready( function( $ ) {
+        $( document ).on( 'change', '.quantity .qty', function() {
+            $( this ).parent( '.quantity' ).next( '.add_to_cart_button' ).attr( 'data-quantity', $( this ).val() );
+        });
+    });
+</script>
+
+    <?php endif;
+}
+add_action( 'wp_footer', 'cs_wc_loop_add_to_cart_scripts' );
+
+///adiciona no menu///
+add_filter( 'wp_nav_menu_items', 'your_custom_menu_item', 10, 2 );
+function your_custom_menu_item ( $items, $args ) {
+    if ( $args->theme_location == 'menu-topo') {
+        $items .= "<li class='menu-item menu-item-type-post_type menu-item-object-page carrinho-menu'>
+			<div class='inline-block carrinho-link'><a class='inline-block cart-contents' href='".WC()->cart->get_cart_url()."'>
+			<img src='".get_template_directory_uri()."/assets/images/carrinho.png' alt=''></a></div>
+			<div class='inline-block carrinho-cont'>". WC()->cart->get_cart_contents_count() ."</div> <div class='inline-block carrinho-valor' ".WC()->cart->get_cart_total()."</li>";
+    }
+
+    return $items;
+}	

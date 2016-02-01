@@ -45,11 +45,14 @@
 						)
 					);
 				?>
-				
+			
+			
+
 			</nav><!-- .navbar-collapse -->
+
 		</div>
 		<div class="container">
-			<div class="page-header col-sm-4">
+			<div class="logo  col-sm-2">
 				<?php
 					$header_image = get_header_image();
 					if ( ! empty( $header_image ) ) :
@@ -60,7 +63,7 @@
 				<?php endif; ?>
 			</div><!-- .site-header-->
 
-			<div id="main-navigation" class="navbar navbar-default col-sm-8">
+			<div id="main-navigation" class="navbar navbar-default col-sm-10">
 				<div class="navbar-header">
 					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-navigation">
 					<span class="sr-only"><?php _e( 'Toggle navigation', 'odin' ); ?></span>
@@ -90,9 +93,11 @@
 							<?php _e( 'Search:', 'odin' ); ?>
 						</label>
 						<div class="form-group">
-							<input type="search" class="form-control" name="s" id="navbar-search" />
+							<input placeholder="busca"type="search" class="form-control" name="s" id="navbar-search" />
 						</div>
-						<button type="submit" class="btn btn-default"><?php _e( 'Search', 'odin' ); ?></button>
+						<button type="submit" class="btn btn-default">	
+							<img src="<?php echo get_template_directory_uri(); ?>/assets/images/lupa.png" alt="">
+						</button>
 					</form>
 				</nav><!-- .navbar-collapse -->
 			</div><!-- #main-navigation-->
@@ -101,4 +106,3 @@
 	</header><!-- #header -->
 
 	<div id="wrapper" class="container">
-		<div class="row">
