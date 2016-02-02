@@ -33,7 +33,7 @@ function slide_cpt() {
 		'hierarchical'       => false,
 		'menu_position'      => null,
 		'menu_icon' => 'dashicons-images-alt2',
-		'supports'           => array( 'title', 'editor', 'thumbnail')
+		'supports'           => array( 'title', 'thumbnail')
 	);
 
 	register_post_type( 'slide', $args );

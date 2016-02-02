@@ -366,7 +366,7 @@ function your_custom_menu_item ( $items, $args ) {
  * Register meta box(es).
  */
 function wpdocs_register_meta_boxes() {
-    add_meta_box( 'meta-box-id', __( 'My Meta Box', 'textdomain' ), 'wpdocs_my_display_callback', 'slide' );
+    add_meta_box( 'customizador', __( 'Customização do texto', 'textdomain' ), 'wpdocs_my_display_callback', 'slide' );
 }
 add_action( 'add_meta_boxes', 'wpdocs_register_meta_boxes' );
  
@@ -376,25 +376,58 @@ add_action( 'add_meta_boxes', 'wpdocs_register_meta_boxes' );
  * @param WP_Post $post Current post object.
  */
 function wpdocs_my_display_callback( $post ) {
+
+
+
 	$terms = wp_get_post_terms( $post->ID, 'slider' ); 
 	$slider=$terms[0]->slug;
-	?>
-
-	<section>
 	
+
+	?>
+<style>
+#acf-tamanho_da_fonte_do_titulo,#acf-cor_da_fonte_do_titulo, #acf-tamanho_da_fonte_do_texto, #acf-cor_do_texto, #acf-preco{
+	display:inline-block;
+	margin:0 20px;
+}
+#edit-slug-box{
+	display:none;
+}
+#acf-tamanho_da_fonte_do_titulo, #acf-tamanho_da_fonte_do_texto {
+	text-align: center;
+}
+#acf-tamanho_da_fonte_do_titulo input, #acf-tamanho_da_fonte_do_texto input{
+	width:40px;
+
+}
+	#customizador{
+		overflow:scroll;
+}
+	#customizador img{
+		width:initial;
+		height: initial;
+}
+#dummyId div{
+	line-height: initial;
+
+}
+</style>	
+	<!-- <img src="<?php echo get_template_directory_uri();?>/inc/imagem.php" width="200" height="80"> -->
+
 	<div style="position:relative">
-		<?php
+		<div style="position:relative;z-index:9"></div>
+<?php
 			echo get_the_post_thumbnail($post->ID, $slider,  array( 'id' => 'thumb-canvas' ));
 		?>
-		<div id="conteudo">
-			<?php 
-				the_content($post->ID );
-			?>
+		<canvas id="canvas"  style="position:absolute;top:0;z-index:999;left:0;background:transparent;text-align:center;"> -->
+			This text is displayed if your browser does not support HTML5 Canvas.
+
+		</canvas>
+		
+		<div id="dummyId">
+			
 
 		</div>
-		<canvas id="canvas"  style="position:absolute;left:0;background:transparent;text-align:center;">
-			This text is displayed if your browser does not support HTML5 Canvas.
-		</canvas>
+		
 
 	</div>
 	<div id="log"></div>
@@ -420,19 +453,50 @@ function myposttype_admin_js($hook_suffix) {
 		global $typenow; if ($typenow=="slide") {
 
 			echo '<script type="text/javascript">
-// 		jQuery( document ).on( "mousemove", function( event ) {
-//   jQuery( "#log" ).text( "pageX: " + event.pageX + ", pageY: " + event.pageY );
-// });
+			jQuery(document).ready(function($) {
 var canvas;
 var ctx;
-var x = 15;
-var y = 15;
+var x = 50;
+var y = 50;
+var dx = 5;
+var dy = 3;
+
+var determineFontHeight = function(fontStyle) {
+  var body = document.getElementById("dummyId");
+  var dummy = document.createElement("div");
+
+  var dummyText = document.createTextNode("M");
+  dummy.appendChild(dummyText);
+
+  dummy.setAttribute("style", fontStyle);
+	dummy.className="dummyclass";
+  	body.appendChild(dummy);
+  var result = dummy.clientHeight;
+  body.removeChild(dummy);
+
+  return result;
+};
+ tam_tit = document.getElementById("acf-field-tamanho_da_fonte_do_titulo").value;
+cor_tit = document.getElementById("acf-field-cor_da_fonte_do_titulo").value;
+tam_txt = document.getElementById("acf-field-tamanho_da_fonte_do_texto").value;
+cor_txt = document.getElementById("acf-field-cor_do_texto").value;
+ console.log( tam_tit )
+ console.log( cor_tit )
+ console.log( tam_txt )
+ console.log( cor_txt )
+var style = "font-family: Roboto; font-size: " + tam_tit + ";";
+var pixelHeight = determineFontHeight(style);
+	var dragok = false,
+	 tit1 = document.getElementById("acf-field-titulo_linha_1"),
+  	canvas = document.getElementById("canvas");
+text1=tit1.value;
+console.log("text1:"+text1)
 thumb = document.getElementById("thumb-canvas");
-var WIDTH = thumb.width;
-console.log(WIDTH)
+console.log(WIDTH);
+var WIDTH = thumb.offsetWidth;
+console.log(WIDTH);
+
 var HEIGHT = thumb.height;
-var dragok = false;
-canvas = document.getElementById("canvas");
 canvas.width=WIDTH;
 canvas.height=HEIGHT;
 var bodyRectY = document.body.getBoundingClientRect(),
@@ -444,11 +508,8 @@ var bodyRectX = document.body.getBoundingClientRect(),
     offsetX   = elemRectX.left - bodyRectX.left ;
 
 function rect(x,y,w,h) {
- ctx.beginPath();
- ctx.rect(x,y,w,h);
- ctx.closePath();
- ctx.fill();
- 
+ ctx.font = tam_tit+"px Roboto";
+ ctx.fillText(text1, x, y);
 }
 
 function clear() {
@@ -463,29 +524,30 @@ function init() {
 
 function draw() {
  clear();
- ctx.font = "30px Arial";
- ctx.fillText("Hello World",10,10);
+ ctx.fillStyle = "#FAF7F8";
+ ctx.fillStyle = cor_tit;
+ textLength = ctx.measureText(text1); // TextMetrics object
+ textLength = textLength.width
+    
+ 
+ rect(x - 15, y + 15, textLength, 30);
+
 }
 
 
+
+	 
+
 function myMove(e){
 
-
  if (dragok){
- 	var bodyRectY = document.body.getBoundingClientRect(),
-    elemRectY = canvas.getBoundingClientRect(),
-    offsetY   = elemRectY.top - bodyRectY.top + +40;
-
-var bodyRectX = document.body.getBoundingClientRect(),
-    elemRectX = canvas.getBoundingClientRect(),
-    offsetX   = elemRectX.left - bodyRectX.left ;
-  x = e.pageX - offsetX;
-  y = e.pageY - offsetY;
+  x = e.pageX - offsetX -textLength/2;
+  y = e.pageY - offsetY-pixelHeight/2;
  }
 }
 
 function myDown(e){
-	  jQuery( "#log" ).html( 
+jQuery( "#log" ).html( 
   	"e.pageY: "+e.pageY+
   	"<br>y:"+ y+
 	"<br>canvas.offsetTop:"+canvas.offsetTop +
@@ -506,28 +568,27 @@ function myDown(e){
 	"<br>offsetX: " + offsetX+
 
   	"<br>pageX: " + event.pageX+
-  	"<br>e.pageX < x + 15 + offsetX"+
-  	"<br>"+ e.pageX +" < "+ x + " + " + 15 + " + " + offsetX+
+  	"<br>e.pageX < x + textLength + offsetX"+
+  	"<br>"+ e.pageX +" < "+ textLength + " + " + 15 + " + " + offsetX+
 
   	"<br>e.pageX > x - 15 + offsetX" +
   	"<br>"+ e.pageX +" > "+ x + " - " + 15 + " + " + offsetX);
 
- if (e.pageX < x + 15 + offsetX && 
- 	e.pageX > x - 15 + offsetX &&
- 	e.pageY < y + 15 + offsetY && 
- 	e.pageY > y -15 + offsetY){
- 		console.log("entrou");
 
-  x = e.pageX - offsetX;
-  y = e.pageY - offsetY;
+
+ if (
+ 	e.pageX < x + textLength + offsetX &&
+  	e.pageX > x - textLength + offsetX &&
+   	e.pageY < y + pixelHeight + offsetY &&
+	e.pageY > y - pixelHeight + offsetY){
+  x = (e.pageX - offsetX) - textLength/2;
+  y = (e.pageY - offsetY) - pixelHeight/2;
   dragok = true;
   canvas.onmousemove = myMove;
  }
 }
 
 function myUp(){
-	  // console.log(x);
-
  dragok = false;
  canvas.onmousemove = null;
 }
@@ -536,6 +597,7 @@ init();
 canvas.onmousedown = myDown;
 canvas.onmouseup = myUp;
 
+});
 </script>';		
 
 
