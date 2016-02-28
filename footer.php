@@ -46,17 +46,21 @@
 				</div>
 			</div>
 			<div class="col-sm-3">
-				<h3>SUPORTE</h3>
-				<?php
-					wp_nav_menu(array('theme_location' => 'menu-footer',));
-				?>
-				<h3>MINHA CONTA</h3>
-				<?php 
-					wp_nav_menu(array('theme_location' => 'menu-footer-2',));
-				?>
+				<div class="menus-footer">
+					<h3>SUPORTE</h3>
+					<?php
+						wp_nav_menu(array('theme_location' => 'menu-footer',));
+					?>
+				</div>
+				<div class="menus-footer">
+					<h3>MINHA CONTA</h3>
+					<?php 
+						wp_nav_menu(array('theme_location' => 'menu-footer-2',));
+					?>
+				</div>
 
 			</div>
-			<div class="col-sm-3">
+			<div id="contato-footer"class="col-sm-3">
 				<h3>CONTATE-NOS</h3>
 				<p>
 					<?php

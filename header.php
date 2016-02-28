@@ -10,6 +10,7 @@
 ?><!DOCTYPE html>
 <html class="no-js" <?php language_attributes(); ?>>
 <head>
+
 	<meta charset="<?php bloginfo( 'charset' ); ?>" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<link rel="profile" href="http://gmpg.org/xfn/11" />
@@ -21,6 +22,12 @@
 	<script src="<?php echo get_template_directory_uri(); ?>/assets/js/html5.js"></script>
 	<![endif]-->
 	<?php wp_head(); ?>
+
+	<script async defer src="//assets.pinterest.com/js/pinit.js"></script>
+	</head>
+<body>
+
+
 </head>
 
 <body <?php body_class(); ?>>
@@ -52,7 +59,7 @@
 
 		</div>
 		<div class="container">
-			<div class="logo  col-sm-2">
+			<div class="logo  col-sm-3">
 				<?php
 					$header_image = get_header_image();
 					if ( ! empty( $header_image ) ) :
@@ -63,7 +70,7 @@
 				<?php endif; ?>
 			</div><!-- .site-header-->
 
-			<div id="main-navigation" class="navbar navbar-default col-sm-10">
+			<div id="main-navigation" class="navbar navbar-default col-sm-9">
 				<div class="navbar-header">
 					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-navigation">
 					<span class="sr-only"><?php _e( 'Toggle navigation', 'odin' ); ?></span>

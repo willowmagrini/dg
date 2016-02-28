@@ -18,10 +18,14 @@ jQuery(document).ready(function($) {
  
     // Most important owl features
     items : 2,
+    itemsDesktop : [1000,2], //5 items between 1000px and 901px
+      itemsDesktopSmall : [900,2], // betweem 900px and 601px
+     
     autoPlay : true,
     navigation : true,
     navigationText : ["<div class='prev-slider-2 nav-slider'></div>","<div class='prox-slider-2 nav-slider'></div>"],
     pagination:false
+
     
  
 });
@@ -30,18 +34,27 @@ jQuery(document).ready(function($) {
     // Most important owl features
     items : 1,
     autoPlay:true,
+    itemsDesktop : [1000,1], //5 items between 1000px and 901px
+      itemsDesktopSmall : [900,1], // betweem 900px and 601px
+      itemsTablet: [600,1], //2 items between 600 and 0
+      itemsMobile : false // itemsMobile disabled - inherit from itemsTablet option
     
  
 	});
 	
 	$('#slider-3').owlCarousel({
- 
+     itemsDesktop : [1000,1], //5 items between 1000px and 901px
+     itemsDesktopSmall : [900,1], // betweem 900px and 601px
+     itemsTablet: [600,1], //2 items between 600 and 0
+
+
     // Most important owl features
     items : 1,
     autoPlay:true,
     navigation : true,
     navigationText : ["<div class='prev-slider-2 nav-slider'></div>","<div class='prox-slider-2 nav-slider'></div>"],
     pagination:false
+
     
  
 });
@@ -74,11 +87,18 @@ jQuery(document).ready(function($) {
 		if ($(this).val() < min){
 			$(this).val(min);
 		}
+
 	});
 	
+	var ativa=$('.menu-item.active a').attr('href');
+	var variavel = $('#menu-menu-categorias a[href="' + ativa + '"]');
+	variavel.addClass('ativo');
+		console.log(variavel);
 
 $('body').on("load", function() {
 	var h = document.getElementById("slider-2").offsetHeight;
-	$('.borda').css('height', h -10 + "px");});
+	$('.borda').css('height', h -10 + "px");
+});
 
 });
+
