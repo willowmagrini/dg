@@ -1,0 +1,56 @@
+GERAL
+- ocultar tipos de produtos nao existente, ocultar permitir encomenda e vender individualmente ocultar classe de entrega, ocultar produtos relacionados, remover avaliacao e campo avaliacao, remover tags de produtos
+
+- Alinhar na direita o copy
+- Travar header cinza no topo position fixed margin
+- Add logos paypal e pagseguro no rodapé (embaixo do cnpj)
+- Páginas curtas, ampliar o BG vermelho do rodapé fundo do html vermelho
+- add text input (nome, email, mensagem)
+
+
+
+
+ - pente fino nos textos dos botoes
+- Atualizar links social no rodapé via admin (campos options)
+- Mostrar confirmação após cadastro Newsletter - remover o campo, rodape nao sumir
+
+HOME
+- Tirar transição automática Slider 2 e 3
+- Loading home corrigir sobreposição sumir ate carregar tudo
+
+
+
+
+- configurar os h1, h2, h3, h4 e p nos sliders
+- Add link nas imagens Slider 2 e 3
+
+PRODUTOS
+- remover campo facebook no editor
+
+
+
+- Add link nos thumbs/imagens
+- Mostrar todas as categorias na interna
+- Alinhar botão comprar ---caindo
+- Add filtro ordem: alfabética e preço e mais recentes
+- ver o trabalho de realocar campos no admin
+
+PRODUTO
+- Ocultar campos em branco
+- Mostrar nome do produto quando abre o lightbox ou nada
+- Corrigir pixel player youtube - margem negativa
+- Padronizar fonte do preço nos produtos relacionados - tamanhos de preco grande
+- Trocar frase “QUEM VIU, VIU TAMBÉM” nos  - colocar base amarela e centralizar o titulo
+- Alinhar setas do slider 2
+- Criar botão “adicionar ao carrinho” e o “comprar” vai direto - ver o trabalho de abrir um modal perguntando se quer finalizar
+- Rever layout e diagramação - aumentar margem inferior da referencia
+-mudar galeria de produtos para galeria de fotos
+
+SUPORTE
+- Tornar editável as páginas de suporte no rodapé (mostrar links na lateral da interna)
+- colocar menu suporte e conta no lugar de categorias em páginas comuns
+
+COMPRA
+- Obrigatório cálculo de frete
+- Verificar Entrega “Não existe nenhum método de entrega disponível”
+- Enviar cópia do pedido ao cliente com cópia p/ atendimento@supe.com.br

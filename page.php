@@ -11,7 +11,10 @@
  */
 
 get_header(); ?>
-
+	<?php if (is_cart() OR is_account_page()  OR is_checkout()){
+		get_sidebar('taxonomy');
+	} ?>
+		
 	<main id="content" class="<?php echo odin_classes_page_full(); ?>" tabindex="-1" role="main">
 
 			<?php

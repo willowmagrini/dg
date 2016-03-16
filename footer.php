@@ -28,6 +28,10 @@
 				<p>Whats App (11) 9 8757 3800 
 				<br>Tel. (11)3097 8443</p>
 				<p>STARTUP E COMMERCE COMERCIAL LTDA - ME<br> CNPJ. 22.968.470/0001-86</p>
+				<div id="logos-footer">
+					<img src="<?php echo get_template_directory_uri(); ?>/assets/images/pay.png" alt="">
+					<img src="<?php echo get_template_directory_uri(); ?>/assets/images/pag.png" alt="">
+				</div>
 			</div>
 			<div class="col-sm-3">
 				<h3>SOBRE NÓS</h3>

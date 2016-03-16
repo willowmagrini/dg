@@ -21,10 +21,24 @@ jQuery(document).ready(function($) {
     itemsDesktop : [1000,2], //5 items between 1000px and 901px
       itemsDesktopSmall : [900,2], // betweem 900px and 601px
      
-    autoPlay : true,
+    autoPlay : false,
     navigation : true,
     navigationText : ["<div class='prev-slider-2 nav-slider'></div>","<div class='prox-slider-2 nav-slider'></div>"],
     pagination:false
+
+    
+ 
+});
+	$('#slider-prod').owlCarousel({
+ 
+    // Most important owl features
+    items : 1,
+    itemsDesktop : [1000,1], //5 items between 1000px and 901px
+      itemsDesktopSmall : [900,1], // betweem 900px and 601px
+     
+    autoPlay : true,
+    navigation : false,
+    pagination:true
 
     
  
@@ -50,7 +64,7 @@ jQuery(document).ready(function($) {
 
     // Most important owl features
     items : 1,
-    autoPlay:true,
+    autoPlay:false,
     navigation : true,
     navigationText : ["<div class='prev-slider-2 nav-slider'></div>","<div class='prox-slider-2 nav-slider'></div>"],
     pagination:false
@@ -99,6 +113,15 @@ $('body').on("load", function() {
 	var h = document.getElementById("slider-2").offsetHeight;
 	$('.borda').css('height', h -10 + "px");
 });
+ $(window).load(function() {  $('body').fadeIn();  });
+
+$("#cadastro-footer .wpcf7").on('mailsent.wpcf7',function(e){
+	$('#cadastro-footer input').parent().hide();
+});
+$("#cadastro-footer .wpcf7").on('invalid.wpcf7',function(e){
+	$('#cadastro-footer input[type="email"]').css('outline','solid red 1px');
+});
+
 
 });
 

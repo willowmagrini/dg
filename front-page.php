@@ -42,14 +42,23 @@ get_header(); ?>
 					<div class="slide-1">
 						<div class="texto-slider">
 							<?php
-
 							the_content( );	
-
 							// get_template_part('content', 'slider-1');
+							if (get_field('link2' )!="") {
+									?>
+									<button style="border-color:<?php echo get_field('cor_do_botao'); ?>" class="comprar-slider"><a style="color:<?php echo get_field('cor_do_botao'); ?>" href="<?php 
 							
+							echo get_field('link2' );
+							?>
+							">
+								Comprar
+							</a></button>	
+							<?php 
+							
+							}
 							?>
 							
-							<button class="comprar-slider">Comprar</button>						
+					
 
 						</div>
 						<?php
@@ -100,9 +109,18 @@ get_header(); ?>
 					?>
 					<div class="slide-2">
 					<div class="borda"></div>
+					<?php 
+						if (get_field('link2' )!="") {
+ 					?>
+						<a href="<?php echo get_field('link2' ); ?>">
 					<?php
+						}
 
 					the_content( );	
+					?>					
+					</a>
+
+					<?php 
 					the_post_thumbnail( 'slider-2' );			
 					// get_template_part('content', 'slider-1');
 					?>
@@ -150,7 +168,18 @@ get_header(); ?>
 						<div class="texto-slider">
 						<?php
 						$titulo=get_the_taxonomies($post->ID);
-						the_content( );	
+						?>
+						<?php 
+						if (get_field('link2' )!="") {
+ 						?>
+							<a href="<?php echo get_field('link2' ); ?>">
+						<?php the_content( );
+							?>
+							</a>
+							<?php 
+
+						}
+
 						// get_template_part('content', 'slider-1');
 						?>
 						</div>
@@ -197,7 +226,7 @@ get_header(); ?>
 				{
 					$WP_Query_produtos->the_post();
 					?>
-					<div class="col-sm-3 produto-home produto">
+					<div class="col-md-3 produto-home produto">
 						<?php
 
 						$product = wc_get_product( get_the_ID() );
@@ -208,13 +237,12 @@ get_header(); ?>
 						<div class="produto-imagem">
 						<?php
 							echo $product->get_image( 'shop_catalog');
-
 							do_action( 'woocommerce_after_shop_loop_item_title' );
 						?>
 						</div>
 						<div class="produto-fundo">
 							<?php
-							echo '<h4>'.$product->get_title().'</h4>';
+							echo '<h4><a href="'.get_permalink($post->ID).'">'.$product->get_title().'</a></h4>';
 							the_excerpt();
 							?>
 

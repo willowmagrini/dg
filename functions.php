@@ -319,7 +319,7 @@ if ( is_woocommerce_activated() ) {
 	require get_template_directory() . '/inc/woocommerce/template-tags.php';
 }
 
-add_action( 'init', 'menu' );
+// add_action( 'init', 'menu' );
 add_action('init', 'add_excerpt_pages');
 function add_excerpt_pages() {
 add_post_type_support( 'page', 'excerpt' );
@@ -327,6 +327,9 @@ add_post_type_support( 'page', 'excerpt' );
 add_image_size( 'slider-1', 1200, 557, array( 'left', 'top' ) ); // Hard crop left top
 add_image_size( 'slider-2', 642, 400, array( 'left', 'top' ) ); // Hard crop left top
 add_image_size( 'slider-3', 1200, 557, array( 'left', 'top' ) ); // Hard crop left top
+add_image_size( 'video', 500, 280, array( 'left', 'top' ) ); // Hard crop left top
+add_image_size( 'produto-galeria', 450, 700, array( 'left', 'top' ) ); // Hard crop left top
+add_image_size( 'produto-single', 500, 420, array( 'left', 'top' ) ); // Hard crop left top
 
 
 
@@ -347,6 +350,17 @@ function cs_wc_loop_add_to_cart_scripts() {
 add_action( 'wp_footer', 'cs_wc_loop_add_to_cart_scripts' );
 
 ///adiciona no menu///
+add_filter( 'wp_nav_menu_items', 'add_loginout_link', 10, 2 );
+function add_loginout_link( $items, $args ) {
+    if (is_user_logged_in() && $args->theme_location == 'menu-topo') {
+        $items .= '<li class="menu-item menu-item-type-post_type menu-item-object-page carrinho-menu"><a href="'. wp_logout_url( get_permalink( woocommerce_get_page_id( 'myaccount' ) ) ) .'">Sair</a></li>';
+         $items .= '<li class="menu-item menu-item-type-post_type menu-item-object-page page_item page-item-9  menu-item-28"><a title="Minha conta" href="' . get_permalink( wc_get_page_id( 'myaccount' )).' ">Minha conta</a></li>';
+    }
+    elseif (!is_user_logged_in() && $args->theme_location == 'menu-topo') {
+        $items .= '<li class="menu-item menu-item-type-post_type menu-item-object-page carrinho-menu"><a href="' . get_permalink( wc_get_page_id( 'myaccount' ) ) . '">Entrar</a></li>';
+    }
+    return $items;
+}
 add_filter( 'wp_nav_menu_items', 'your_custom_menu_item', 10, 2 );
 function your_custom_menu_item ( $items, $args ) {
     if ( $args->theme_location == 'menu-topo') {
@@ -363,10 +377,10 @@ function your_custom_menu_item ( $items, $args ) {
 /**
  * Register meta box(es).
  */
-function wpdocs_register_meta_boxes() {
-    add_meta_box( 'customizador', __( 'Customização do texto', 'textdomain' ), 'wpdocs_my_display_callback', 'slide' );
-}
-add_action( 'add_meta_boxes', 'wpdocs_register_meta_boxes' );
+// function wpdocs_register_meta_boxes() {
+//     add_meta_box( 'customizador', __( 'Customização do texto', 'textdomain' ), 'wpdocs_my_display_callback', 'slide' );
+// }
+// add_action( 'add_meta_boxes', 'wpdocs_register_meta_boxes' );
  
 /**
  * Meta box display callback.
@@ -637,3 +651,82 @@ function DG_customize_register($wp_customize){
 
 add_action('customize_register', 'DG_customize_register');
 // remove_all_filters( 'get_the_excerpt');
+function adiciona_coupon(){
+	echo 'teste';
+}
+// add_action('woocommerce_cart_totals_before_order_total', 'adiciona_coupon');
+remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40);
+add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta', 6);
+remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_excerpt', 20);
+remove_action( 'woocommerce_product_tabs', 'woocommerce_product_reviews_tab', 30);
+remove_action( 'woocommerce_product_tab_panels', 'woocommerce_product_reviews_panel', 30);
+add_filter( 'woocommerce_product_tabs', 'sb_woo_remove_reviews_tab', 98);
+function sb_woo_remove_reviews_tab($tabs) {
+
+ unset($tabs['reviews']);
+
+ return $tabs;
+}
+	
+		add_filter('woocommerce_variable_price_html','custom_from',10,2);
+		add_filter('woocommerce_grouped_price_html','custom_from',10,2);
+		add_filter('woocommerce_variable_sale_price_html','custom_from',10,2);
+		function custom_from($price, $product){
+			 $prices = $product->get_variation_prices( true );
+			 $min_price = current( $prices['regular_price']);
+			 $min2 = current($prices['sale_price']);
+			 if ($min_price==$min2){
+			
+			 	return '<ins><span class="amount">R$'
+			 	.$min_price
+			 	.'</span></ins>';
+
+			 }
+			 else{
+			//  	 	echo '<pre>';
+			// 	print_r($prices);
+			// 	echo 'teste'.$min_price;
+			// echo "</pre>";
+			 	return '<del><span class="amount">R$'
+			 	.$min_price.'</span></del> <ins><span class="amount">R$'
+			 	.$min2
+			 	.'</span></ins>';
+
+			 }
+		}	
+	
+
+add_filter( 'manage_slide_posts_columns', 'set_custom_edit_slide_columns' );
+add_action( 'manage_slide_posts_custom_column' , 'custom_slide_column', 10, 2 );
+
+function set_custom_edit_slide_columns($columns) {
+    $columns['slider'] = __( 'Slider', 'your_text_domain' );
+
+    return $columns;
+}
+
+function custom_slide_column( $column, $post_id ) {
+    switch ( $column ) {
+
+        case 'slider' :
+            $terms = get_the_term_list( $post_id , 'slider' , '' , ',' , '' );
+            if ( is_string( $terms ) )
+                echo $terms;
+            else
+                _e( 'Nenhum Slider', 'your_text_domain' );
+            break;
+    }
+} show_admin_bar( false); 
+add_action('admin_head', 'my_custom_fonts');
+
+function my_custom_fonts() {
+  echo '<style>
+    
+    .advanced_options, #product-type option[value="external"], #product-type option[value="grouped"],  ._backorders_field , ._sold_individually_field, .options_group:nth-child(2) .dimensions_field, #tagsdiv-product_tag, .linked_product_tab, #commentsdiv{
+		display:none!important;
+    } 
+    #product-type option[value="external"]{
+
+}
+  </style>';
+}

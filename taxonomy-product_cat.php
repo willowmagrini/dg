@@ -62,7 +62,7 @@ get_header(); ?>
 						</div>
 						<div class="produto-fundo">
 							<?php
-							echo '<h4>'.$product->get_title().'</h4>';
+							echo '<h4><a href="'.get_permalink($post->ID).'">'.$product->get_title().'</a></h4>';
 							the_excerpt();
 							?>
 							<div class="sociais">
@@ -135,12 +135,13 @@ get_header(); ?>
 					?>
 					<div class="slide-2">
 					<div class="borda"></div>
+					<a href="<?php echo get_field('link2' ); ?>">
 					<?php
 
 					the_content( );	
 					the_post_thumbnail( 'slider-2' );			
 					// get_template_part('content', 'slider-1');
-					?>
+					?></a>
 					</div>
 					<?php
 				}

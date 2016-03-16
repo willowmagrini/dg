@@ -65,7 +65,7 @@
 					if ( ! empty( $header_image ) ) :
 				?>
 					<a href="<?php echo esc_url( home_url( '/' ) ); ?>">
-						<img src="<?php echo esc_url( $header_image ); ?>" height="<?php esc_attr_e( $header_image->height ); ?>" width="<?php esc_attr_e( $header_image->width ); ?>" alt="" />
+						<img src="<?php echo esc_url( $header_image ); ?>" alt="" />
 					</a>
 				<?php endif; ?>
 			</div><!-- .site-header-->
@@ -101,8 +101,9 @@
 						</label>
 						<div class="form-group">
 							<input placeholder="busca"type="search" class="form-control" name="s" id="navbar-search" />
+							<input type="hidden" name="post_type" value="product">
 						</div>
-						<button type="submit" class="btn btn-default">	
+						<button type="submit" class="busca btn btn-default">	
 							<img src="<?php echo get_template_directory_uri(); ?>/assets/images/lupa.png" alt="">
 						</button>
 					</form>

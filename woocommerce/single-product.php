@@ -19,8 +19,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
-get_header( 'shop' ); ?>
+	get_header(  ); 
+	get_sidebar('taxonomy');
 
+	?>
 	<?php
 		/**
 		 * woocommerce_before_main_content hook.
@@ -33,7 +35,9 @@ get_header( 'shop' ); ?>
 
 		<?php while ( have_posts() ) : the_post(); ?>
 
-			<?php wc_get_template_part( 'content', 'single-product' ); ?>
+			<?php
+			 	wc_get_template_part( 'content', 'single-product' ); 
+			 ?>
 
 		<?php endwhile; // end of the loop. ?>
 
@@ -45,14 +49,61 @@ get_header( 'shop' ); ?>
 		 */
 		do_action( 'woocommerce_after_main_content' );
 	?>
+	<div class="clearfix"></div>
+<?php $odin_general_opts = get_option( 'odin_general' );
+		echo "<h3 class='legenda-slider' >".$odin_general_opts['slider_2']."</h3>";?>
 
-	<?php
-		/**
-		 * woocommerce_sidebar hook.
-		 *
-		 * @hooked woocommerce_get_sidebar - 10
-		 */
-		do_action( 'woocommerce_sidebar' );
+
+			<div class="row" id="slider-2">
+				<?php
+		$paged = ( get_query_var('paged') ) ? get_query_var('paged') : 1;
+		
+		$args = array(
+					'post_type' => 'slide',
+					'tax_query' => array(
+						array(
+							'taxonomy' => 'slider',
+							'field'    => 'slug',
+							'terms'    => 'slider-2',
+						),
+					),
+				);
+	
+		$WP_query_slider = new WP_Query( $args );
+	
+		if( $WP_query_slider->have_posts()  )
+		{
+			?>
+			<?php
+				while ( $WP_query_slider->have_posts() ) 
+				{
+					$WP_query_slider->the_post();
+					?>
+					<div class="slide-2">
+					<div class="borda"></div>
+					<a href="<?php echo get_field('link2' ); ?>">
+					<?php
+
+					the_content( );	
+					?>					
+					</a>
+
+					<?php 
+					the_post_thumbnail( 'slider-2' );			
+					// get_template_part('content', 'slider-1');
+					?>
+					</div>
+					<?php
+				}
+				?>
+		<?php 
+		
+			?>
+				<?php
+			
+		wp_reset_postdata(); // IMPORTANT - reset the $post object so the rest of the page works correctly
+	}
 	?>
+			</div>
 
 <?php get_footer( 'shop' ); ?>
