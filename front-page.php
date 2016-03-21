@@ -108,24 +108,19 @@ get_header(); ?>
 					$WP_query_slider->the_post();
 					?>
 					<div class="slide-2">
-					<div class="borda"></div>
+					<a href="<?php echo get_field('link2' ); ?>">
+
+					<div class="borda"></div></a>
 					<?php 
-						if (get_field('link2' )!="") {
- 					?>
-						<a href="<?php echo get_field('link2' ); ?>">
-					<?php
-						}
+
 
 					the_content( );	
-					?>					
-					</a>
-
-					<?php 
 					the_post_thumbnail( 'slider-2' );			
 					// get_template_part('content', 'slider-1');
 					?>
 					</div>
 					<?php
+					
 				}
 				?>
 		<?php 
@@ -166,29 +161,20 @@ get_header(); ?>
 					?>
 					<div class="slide-3">
 						<div class="texto-slider">
+						<a href="<?php echo get_field('link2' ); ?>">
 						<?php
 						$titulo=get_the_taxonomies($post->ID);
+						the_content( );
 						?>
-						<?php 
-						if (get_field('link2' )!="") {
- 						?>
-							<a href="<?php echo get_field('link2' ); ?>">
-						<?php the_content( );
-							?>
-							</a>
-							<?php 
-
-						}
-
-						// get_template_part('content', 'slider-1');
-						?>
+						</a>			
 						</div>
+						<a href="<?php echo get_field('link2' ); ?>">
 						<?php
 						the_post_thumbnail( 'slider-1' );	
-						?>					
+						?>		
+						</a>			
 					</div>
 					<?php 
-		
 					}
 					?>
 		<?php 

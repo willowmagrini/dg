@@ -247,12 +247,12 @@ input::-webkit-input-placeholder {
     
 
 }
-.slide-2 h2{
+.slide-2 h1, .slide-2 h2, .slide-2 h3, .slide-2 h4, .slide-2 h5, .slide-2 h6{
 	position: absolute;
 	bottom: 43px;
 	left: 55px;
 	color:#fff;
-	font-size: 30px;
+	/*font-size: 30px;*/
 	text-transform: uppercase;
 	font-weight:200;
 }
@@ -569,7 +569,7 @@ html #footer{
 	font-size:18px;
 	font-weight: 100;
 }
-#menu-menu-suporte-footer, #menu-menu-footer-conta, #footer ul{
+#menu-menu-suporte-footer, #menu-menu-footer-conta, #footer ul, #sidebar #menu-menu-footer-suporte, #sidebar #menu-menu-footer-conta{
 	list-style: none;
 	padding: 0;
 
@@ -1684,7 +1684,65 @@ html .single-product .related  span.price .amount{
 	width: initial;
 }
 #ordem {
-	border: 0;
+	    border: 0;
+    float: right;
     outline: 0!important;
+    margin-right: 23px;
 }
+#slider-1 h1, #slider-3 h1{
+    font-size: 75px;
+
+}
+#slider-1 h2, #slider-3 h2{
+	font-size: 60px;
+    text-transform: uppercase;
+
+}
+#slider-1 h3, #slider-3 h3{
+	font-size: 50px;
+    text-transform: uppercase;
+
+}
+#slider-1 h4, #slider-3 h4{
+	font-size: 40px;
+    text-transform: uppercase;
+
+}
+#slider-1 h5, #slider-3 h5{
+	font-size: 30px;
+    text-transform: uppercase;
+
+}
+#slider-1 h6, #slider-3 h6{
+	font-size: 20px;
+    text-transform: uppercase;
+
+}
+
+#slider-2 h1{
+	font-size:45px;
+}
+#slider-2 h2{
+	font-size: 35px;
+}
+#slider-2 h3{
+	font-size:30px;
+}
+#slider-2 h4{
+	font-size:25px;
+}
+#slider-2 h5{
+	font-size:20px;
+}
+#slider-2 h6{
+	font-size:18px;
+}
+#sidebar #menu-menu-suporte-footer a, #sidebar #menu-menu-footer-conta a, #sidebar #footer ul a, #sidebar #menu-menu-footer-suporte a{
+    text-transform: uppercase;
+    font-size: 13px;
+    text-decoration: none;
+    color: #4C4C4C;
+}
+html .wpcf7-not-valid-tip{
+	color:#fff!important;
 }

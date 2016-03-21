@@ -121,6 +121,11 @@ $("#cadastro-footer .wpcf7").on('mailsent.wpcf7',function(e){
 $("#cadastro-footer .wpcf7").on('invalid.wpcf7',function(e){
 	$('#cadastro-footer input[type="email"]').css('outline','solid red 1px');
 });
+$( ".wpcf7-form-control" ).focus(function() {
+  	if ($(this).val()=='Mensagem' || $(this).val()=="Nome" || $(this).val()=="E-mail"){
+  		$(this).val('');
+  	}
+});
 
 $('#ordem').change(function(e) {
 		e.preventDefault();

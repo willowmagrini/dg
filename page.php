@@ -10,12 +10,12 @@
  * @since 2.2.0
  */
 
-get_header(); ?>
-	<?php if (is_cart() OR is_account_page()  OR is_checkout()){
-		get_sidebar('taxonomy');
-	} ?>
+get_header();
+	
+		get_sidebar('page');
+		 ?>
 		
-	<main id="content" class="<?php echo odin_classes_page_full(); ?>" tabindex="-1" role="main">
+	<main id="content" class="col-sm-9" tabindex="-1" role="main">
 
 			<?php
 				// Start the Loop.

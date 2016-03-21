@@ -36,6 +36,26 @@ function opcoes_tema() {
                         'label'      => __( 'Texto do Slider 3', 'odin' ), // Required
                         'type'       => 'text', // Required
                     ),
+                    array(
+                        'id'         => 'facebook', // Required
+                        'label'      => __( 'Facebook', 'odin' ), // Required
+                        'type'       => 'text', // Required
+                    ),
+                    array(
+                        'id'         => 'twitter', // Required
+                        'label'      => __( 'Twitter', 'odin' ), // Required
+                        'type'       => 'text', // Required
+                    ),
+                    array(
+                        'id'         => 'instagram', // Required
+                        'label'      => __( 'Instagram', 'odin' ), // Required
+                        'type'       => 'text', // Required
+                    ),
+                    array(
+                        'id'         => 'pinterest', // Required
+                        'label'      => __( 'Pinterest', 'odin' ), // Required
+                        'type'       => 'text', // Required
+                    ),
 					
 					
 				)

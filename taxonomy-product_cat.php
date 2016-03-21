@@ -18,10 +18,12 @@ get_header(); ?>
 	?>
 
 	<main id="content" class="col-sm-9" tabindex="-1" role="main">
+		
 		<select name="ordem" id="ordem">
-			<option value="0">Recentes</option>
-			<option value="1">Alfabética</option>
-			<option value="2">Por preço</option>
+			
+			<option value="0">Mais recentes</option>
+			<option value="1">Ordem alfabética</option>
+			<option value="2">Menor preço</option>
 		</select>
 		<input type='hidden' name='tax' id="taxAjax" value='<?php echo $term->slug; ?>'>
 		<div class="clearfix"></div>

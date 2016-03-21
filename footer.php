@@ -41,12 +41,13 @@
 					echo $page->post_excerpt; 
 					?>
 				</p>
+					<?php $odin_general_opts = get_option( 'odin_general' );?>
 				<p>Conheça nossas redes sociais</p>
 				<div class="sociais">
-					<img src="<?php echo get_template_directory_uri(); ?>/assets/images/face.png" alt="">
-					<img src="<?php echo get_template_directory_uri(); ?>/assets/images/twitter.png" alt="">
-					<img src="<?php echo get_template_directory_uri(); ?>/assets/images/instagram.png" alt="">
-					<img src="<?php echo get_template_directory_uri(); ?>/assets/images/pinterest.png" alt="">
+					<a target="_blank" href="<?php echo $odin_general_opts['facebook'] ?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/face.png" alt=""></a>
+					<a target="_blank" href="<?php echo $odin_general_opts['twitter'] ?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/twitter.png" alt=""></a>
+					<a target="_blank" href="<?php echo $odin_general_opts['instagram'] ?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/instagram.png" alt=""></a>
+					<a target="_blank" href="<?php echo $odin_general_opts['pinterest'] ?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/pinterest.png" alt=""></a>
 				</div>
 			</div>
 			<div class="col-sm-3">
