@@ -719,7 +719,8 @@ function custom_slide_column( $column, $post_id ) {
                 _e( 'Nenhum Slider', 'your_text_domain' );
             break;
     }
-} show_admin_bar( false); 
+} 
+show_admin_bar( false); 
 add_action('admin_head', 'my_custom_fonts');
 
 function my_custom_fonts() {

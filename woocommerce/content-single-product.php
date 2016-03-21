@@ -37,8 +37,24 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <div itemscope itemtype="<?php echo woocommerce_get_product_schema(); ?>" id="product-<?php the_ID(); ?>" <?php post_class(); ?>>
 		<div class="summary entry-summary">
-
+		
 		<?php
+		$product = get_product( get_the_ID() );
+		// echo $product->get_children();
+		$variacoes = $product->get_children();
+		// print_r($product->get_children());
+		$valores=array();
+		foreach ($variacoes as $variacao) {
+			$preco = get_post_meta( $variacao,'_price', 1);
+			array_push($valores, $preco);
+		}
+		$valores=array_unique($valores);
+		if (count($valores) >1){
+			echo "<style>.single-product .product-type-variable .preco{
+				display:none;}</style>";
+		}
+		
+		
 			/**
 			 * woocommerce_single_product_summary hook.
 			 *
@@ -51,6 +67,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 			 * @hooked woocommerce_template_single_sharing - 50
 			 */
 			do_action( 'woocommerce_single_product_summary' );
+		
+		
 		?>
 
 	</div><!-- .summary -->

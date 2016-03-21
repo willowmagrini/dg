@@ -913,6 +913,7 @@ button:hover {
 .single-product .entry-summary .amount, .single-product .entry-summary span.amount, html .single-product .entry-summary p.price, .woocommerce-variation-price{
 	font-size: 42px!important;
 	color: #000!important;
+	font-weight: 400!important;
 }
 .single-product .entry-summary .product_meta{
 	opacity: 0.7;
@@ -1081,7 +1082,7 @@ font-size: 14px;
     z-index: 9999;
 }
 .single-product .product-type-variable .preco{
-	display: none;
+	/*display: none;*/
 }
 .single-product  .single_add_to_cart_button{
 	width: initial;
@@ -1290,6 +1291,14 @@ form .busca:hover {
 #wpadminbar{
 	display: none;
 }
+
+
+/*resoponsivo*/
+/*resoponsivo*/
+/*resoponsivo*/
+/*resoponsivo*/
+/*resoponsivo*/
+/*resoponsivo*/
 /*resoponsivo*/
 
 @media (max-width: 1200px){
