@@ -41,24 +41,42 @@ ob_start();
 			<?php echo ( $sku = $product->get_sku() ) ? $sku : __( 'N/A', 'woocommerce' ); ?>
 		</td>
 	</tr>
+	
+	<?php
+	if (get_field('marca')!="") { ?>
 	<tr>			
 		<th>Fabricante</th>
 		<td>
-			<?php echo get_field( 'marca'); ?>
+		<?php
+			echo get_field( 'marca');?>
 		</td>
 	</tr>
+	<?php } ?>
+
+	<?php
+	if (get_field('escala')!="") { ?>
 	<tr>			
 		<th>Escala</th>
 		<td>
-			<?php echo get_field( 'escala'); ?>
+		<?php
+			echo get_field( 'escala');
+		 ?>
 		</td>
 	</tr>
+	<?php } ?>
+
+
+	<?php
+	if (get_field('conteudo_da_embalagem')!="") { ?>
 	<tr>			
 		<th>Contém na embalagem</th>
 		<td>
-			<?php echo get_field( 'conteudo_da_embalagem'); ?>
+		<?php
+			echo get_field( 'conteudo_da_embalagem');
+		 ?>
 		</td>
 	</tr>
+	<?php } ?>
 	
 
 	<?php if ( $product->enable_dimensions_display() ) : ?>
@@ -79,12 +97,19 @@ ob_start();
 
 	<?php endif; ?>
 
+
+	
+	<?php
+	if (get_field('dimensoes')!="") { ?>
 	<tr>			
 		<th>Dimensões da embalagem</th>
 		<td>
 			<?php echo get_field( 'dimensoes'); ?><span> (altura x largura x profundidade)</span>
 		</td>
 	</tr>
+	<?php } ?>
+
+
 	<?php foreach ( $attributes as $attribute ) :
 		if ( empty( $attribute['is_visible'] ) || ( $attribute['is_taxonomy'] && ! taxonomy_exists( $attribute['name'] ) ) ) {
 			continue;

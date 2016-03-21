@@ -72,7 +72,7 @@ get_header( 'shop' ); ?>
 
 				<?php while ( have_posts() ) : the_post(); ?>
 
-					<?php wc_get_template_part( 'content', 'busca' ); ?>
+					<?php wc_get_template_part( 'content', 'prod-lista' ); ?>
 
 				<?php endwhile; // end of the loop. ?>
 

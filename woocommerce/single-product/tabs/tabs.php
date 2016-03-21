@@ -49,9 +49,13 @@ $heading = apply_filters( 'woocommerce_product_additional_information_heading', 
 	<h2><?php echo $heading; ?></h2>
 <?php endif; ?>
 
-<?php $product->list_attributes(); ?>
-<div id="img-fab">
-	<img src="<?php echo get_field('imagem_do_fabricante'); ?>">
-</div>
+<?php $product->list_attributes(); 
+if (get_field('imagem_do_fabricante')!="") {
+?>
+	<div id="img-fab">
+		<img src="<?php echo get_field('imagem_do_fabricante'); ?>">
+	</div>
+	<?php }
+  ?>
 
 </div>

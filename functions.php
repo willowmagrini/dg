@@ -27,6 +27,8 @@ require_once get_template_directory() . '/core/classes/class-bootstrap-nav.php';
 require_once get_template_directory() . '/core/classes/class-shortcodes.php';
 require_once get_template_directory() . '/core/classes/class-thumbnail-resizer.php';
 require_once get_template_directory() . '/core/classes/class-theme-options.php';
+require_once get_template_directory() . '/inc/ajax-functions.php';
+
 // require_once get_template_directory() . '/core/classes/class-options-helper.php';
 // require_once get_template_directory() . '/core/classes/class-post-type.php';
 // require_once get_template_directory() . '/core/classes/class-taxonomy.php';
@@ -231,8 +233,9 @@ function odin_enqueue_scripts() {
 		wp_enqueue_script( 'fitvids', $template_url . '/assets/js/libs/jquery.fitvids.js', array(), null, true );
 
 		// Main jQuery.
-		wp_enqueue_script( 'odin-main', $template_url . '/assets/js/main.js', array(), null, true );
+wp_enqueue_script( 'odin-main', $template_url . '/assets/js/main.js', array(), null, true );
 
+	wp_localize_script( 'odin-main', 'odin_main', array('ajaxurl' => admin_url( 'admin-ajax.php' ) ) );
 
 	// Grunt watch livereload in the browser.
 	// wp_enqueue_script( 'odin-livereload', 'http://localhost:35729/livereload.js?snipver=1', array(), null, true );
@@ -729,4 +732,13 @@ function my_custom_fonts() {
 
 }
   </style>';
+}
+
+
+function load_template_part($template_name, $part_name=null) {
+    ob_start();
+    get_template_part($template_name, $part_name);
+    $var = ob_get_contents();
+    ob_end_clean();
+    return $var;
 }

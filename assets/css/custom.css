@@ -369,6 +369,8 @@ input::-webkit-input-placeholder {
 .produto p{
     font-size: 12px;
     margin:0 15px 0;
+        padding-bottom: 10px;
+
 
 }
 	.produto .amount{
@@ -377,7 +379,7 @@ input::-webkit-input-placeholder {
 	width: 85px;
     display: inline-block;
     text-align:center;
-    margin-left: -4px;
+    /*margin-left: -4px;*/
 
 
 }
@@ -416,9 +418,10 @@ input::-webkit-input-placeholder {
 	width:30px!important;
 	height: 30px;
 	text-align: center!important;
-    margin: 0 -3px!important;
+    margin: 0!important;
     color:#4D4D4D;
     border: none!important;
+    float: left;
 
 
 }
@@ -426,6 +429,7 @@ input::-webkit-input-placeholder {
 	border:none;
 	border-radius: 0;
 	margin:0;
+	float: left;
 }
 .single-product .quantity input::-webkit-outer-spin-button,
 .single-product .quantity input::-webkit-inner-spin-button,
@@ -615,11 +619,11 @@ html #footer{
 /*///tax///*//*///tax///*/
 .tax-product_cat .produto .sociais, .archive .produto .sociais {
 
-    background-color: #FCEA0D;
+    /*background-color: #FCEA0D;
     height: 30px;
     display: inline-block;
     width: 105px;
-    text-align: center;
+    text-align: center;*/
 }
 #titulo-tax{
 	font-size: 19px;
@@ -672,6 +676,7 @@ html .woocommerce-cart table.cart img {
 .single-product .control-prod, .cart_item .control-prod{
 	background-color: #F2F2F2;
     vertical-align: top;
+    float: left;
 
 }
 /*carrinho*/
@@ -992,7 +997,7 @@ top: -15px;
     vertical-align: top;
 }
 .video-thumb iframe{
-	margin-bottom:-4px;
+	vertical-align: bottom;
 }
 .galeria-single-product .owl-controls {
 	position: absolute;
@@ -1069,13 +1074,17 @@ font-size: 14px;
     right: 10px;
 
 }
-.single-product .sociais {
+
+.galeria-single-product  .sociais {
     position: absolute;
-  
+  	width: 100px;
     z-index: 9999;
 }
 .single-product .product-type-variable .preco{
 	display: none;
+}
+.single-product  .single_add_to_cart_button{
+	width: initial;
 }
 .single-product .product-type-variable  .woocommerce-variation-price span.price {
     color: #77a464;
@@ -1103,6 +1112,73 @@ html .woocommerce .related button.button{
     position: absolute;
     top: -55px;
     right: 10px;
+}
+
+
+
+.single-product div.product .entry-summary span.price del span{
+	text-decoration: line-through!important;
+}
+#img-fab{
+	width:150px;
+	text-align: left
+}
+.wpcf7-response-output{
+	margin-top: 0!important;
+
+
+}
+#cadastro-footer .wpcf7-response-output{
+	    margin-left: 61px;
+	    border:none;
+	    color: #fff;
+	}
+ #cadastro-footer div.wpcf7-validation-errors {
+ 	display: none!important;
+ }
+ #cadastro-footer .wpcf7-not-valid-tip{
+	display: none;
+ }
+.rodape.container{
+	padding-right: 8px;
+}
+#top-navigation{
+	position: fixed;
+	top:0;
+	z-index: 9999;
+}
+body{
+	margin-top:45px!important;
+	display: none;
+	}
+	html{
+		/*background-color: #E5332A;*/
+}
+.pp_woocommerce .ppt{
+	display: none;
+	visibility: hidden;
+}
+.related.products h2{
+	background-color:#FCEA0D; 
+	text-align:center;
+	    padding: 8px;
+
+}
+#footer .wpcf7-response-output {
+	border:none;
+}
+.tax-product_cat .lista-produtos  .col-md-3, .post-type-archive-product .products  .col-md-3, .single-product .related.products .col-md-3{
+
+	width:33%;
+}
+.tax-product_cat #content, .post-type-archive-product #content, .single-product #content { 
+	padding: 0;
+}
+.single-product .related div.quantity{
+	margin:0!important;
+}
+.single-product div.product .related form.cart div.quantity{
+	margin:0!important;
 }
 @media (min-width: 768px){
 	.woocommerce-cart main, .woocommerce-checkout main, .woocommerce-account main{
@@ -1223,7 +1299,9 @@ form .busca:hover {
 }
 .control-prod {
     height: 30px;
-    width: 27px;
+    padding: 0;
+
+    width: 26px;
     border: none;
     border-radius: 0;
 }
@@ -1234,7 +1312,7 @@ form .busca:hover {
     width: 66%;
 }
 .woocommerce.tax-product_cat a.button{
-    width: 148px;
+    /*width: 148px;*/
 }
 	.produto .add_to_cart_button{
 		padding:7px!important;
@@ -1258,6 +1336,9 @@ form .busca:hover {
 
 }
 @media (max-width: 992px){
+	.tax-product_cat .lista-produtos .col-md-3, .post-type-archive-product .products  .col-md-3, .single-product .related.products .col-md-3  {
+    width: 100%;
+}
 	.produto-fundo, .produto-imagem{
 		max-width:265px;
 		margin: 0 auto;
@@ -1268,12 +1349,10 @@ form .busca:hover {
 
 }
 	.archive .col-md-9{
-		width: 75%;
+		width: 100%;
 		float: left;
 	}
-	.woocommerce.tax-product_cat a.button{
-    width: 100%;
-}
+
 	html .woocommerce-checkout #payment div.payment_box{
 		width: 90%;
 	}
@@ -1292,12 +1371,10 @@ form .busca:hover {
 }
 	.tax-product_cat .produto .qty {
     width: 32px!important;
-}.tax-product_cat .produto .add_to_cart_button, .archive .produto .add_to_cart_button{
-    width: 65px;
 }
-	.produto .sociais,.tax-product_cat .produto .sociais, .archive .produto .sociais{
-		/*width:100%;*/
-	}
+.tax-product_cat .produto .add_to_cart_button, .archive .produto .add_to_cart_button{
+    /*width: 65px;*/
+}
 	
 	.produto .sociais img {
     height: 20px;
@@ -1335,8 +1412,38 @@ form .busca:hover {
     padding: 6px 7px;
 
 }
+ .produto .quantity input
+	 {
+   		 width: 34px!important;
+   	}
+
+   	.control-prod {
+    
+    width: 35px;
+}
 }
 @media (max-width: 768px){
+
+	.produto form {
+    /*width: 58%;*/
+	}
+.control-prod{
+    width: 34px;
+
+}
+.produto .quantity{
+	    width: 60%;
+
+}
+.produto .sociais, .single-product .sociais {
+
+    /*width: 42%;*/
+
+}
+.produto .sociais img, .single-product .sociais img {
+ 
+    margin: 6px 3px;
+}
 	.single-product #slider-2 .owl-buttons {
     position: absolute;
     top: -44px;
@@ -1379,7 +1486,20 @@ html .checkout_coupon span{
 	}
 	.video-thumb, .galeria-single-product{
 		max-width: 100%;
+		float: none;
+		margin:0 auto;
 	}
+.single-product #content{
+	margin:0 20px;
+}
+#footer .sociais {
+ 	background-color: transparent;
+    height: 30px;
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    float: left;
+}
 	html .woocommerce table.shop_table_responsive tr:nth-child(2n) td, html .woocommerce-page table.shop_table_responsive tr:nth-child(2n) td{
 		background-color: transparent;
 	}
@@ -1396,6 +1516,7 @@ html .checkout_coupon span{
 		padding-right:10px;
 	}
 	#top-navigation {
+		right:0;
 		padding: 0;
 	}
 	.carrinho-menu div{
@@ -1503,17 +1624,9 @@ height:24px;
 	margin: 0 0 5px;
 	font-size: 12px;
 }
-.produto .sociais img {
-   margin: initial;
-}
-.tax-product_cat .produto .sociais {
-    width: 122px;
-}
-.produto .sociais {
-    padding: 5px;
 
-    width: 112px;
-}
+
+
 header .container{
 	margin-bottom: 10px;
 }
@@ -1533,6 +1646,12 @@ header .container{
 }
 
 }
+/*resoponsivo*/
+/*resoponsivo*/
+/*resoponsivo*/
+/*resoponsivo*/
+/*resoponsivo*/
+
 .woocommerce .produto-fundo a.button{
 	background-color: #000!important;
 	    float: right;
@@ -1541,53 +1660,31 @@ header .container{
 .button{
 	text-align: center;
 }
-/*resoponsivo*/
-.single-product div.product .entry-summary span.price del span{
-	text-decoration: line-through!important;
+.woocommerce-cart .woocommerce .cart .button, .woocommerce .cart input.button {
+    width: initial;
 }
-#img-fab{
-	width:150px;
-	text-align: left
+.woocommerce-cart .wc-proceed-to-checkout a.checkout-button{
+	width: initial;
 }
-.wpcf7-response-output{
-	margin-top: 0!important;
-
-
+html div.pp_woocommerce .pp_close{
+	right:0px;
+	top:2px;
 }
-#cadastro-footer .wpcf7-response-output{
-	    margin-left: 61px;
-	    border:none;
-	    color: #fff;
-	}
- #cadastro-footer div.wpcf7-validation-errors {
- 	display: none!important;
- }
- #cadastro-footer .wpcf7-not-valid-tip{
-	display: none;
- }
-.rodape.container{
-	padding-right: 8px;
+html .single-product .product_meta{
+	margin-bottom: 30px;
 }
-#top-navigation{
-	position: fixed;
-	top:0;
-	z-index: 9999;
+html .single-product .related  span.price .amount{
+	font-size: 14px;
+	font-weight: 200;
 }
-body{
-	margin-top:45px!important;
-	display: none;
-	}
-	html{
-		/*background-color: #E5332A;*/
+.woocommerce-variation.single_variation{
+	overflow: visible!important;
 }
-.pp_woocommerce .ppt{
-	display: none;
-	visibility: hidden;
+.single-product  div.product form.cart .single_add_to_cart_button.button, html .single-product #wc-correios-simulator button.button, html .woocommerce .woocommerce-message a.button, html .woocommerce .woocommerce-error a.button, html .woocommerce .place-order input.button, html .woocommerce .return-to-shop a.button  {
+	width: initial;
 }
-.related.products h2{
-	background-color:#FCEA0D; 
-	text-align:center;
+#ordem {
+	border: 0;
+    outline: 0!important;
 }
-#footer .wpcf7-response-output {
-	border:none;
 }

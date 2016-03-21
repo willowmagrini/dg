@@ -26,25 +26,28 @@ HOME
 
 PRODUTOS
 - remover campo facebook no editor
-
-
-
 - Add link nos thumbs/imagens
-- Mostrar todas as categorias na interna
 - Alinhar botão comprar ---caindo
+- Mostrar todas as categorias na interna
+
 - Add filtro ordem: alfabética e preço e mais recentes
+
+
 - ver o trabalho de realocar campos no admin
 
 PRODUTO
 - Ocultar campos em branco
 - Mostrar nome do produto quando abre o lightbox ou nada
 - Corrigir pixel player youtube - margem negativa
-- Padronizar fonte do preço nos produtos relacionados - tamanhos de preco grande
-- Trocar frase “QUEM VIU, VIU TAMBÉM” nos  - colocar base amarela e centralizar o titulo
 - Alinhar setas do slider 2
-- Criar botão “adicionar ao carrinho” e o “comprar” vai direto - ver o trabalho de abrir um modal perguntando se quer finalizar
+- Padronizar fonte do preço nos produtos relacionados - tamanhos de preco grande
 - Rever layout e diagramação - aumentar margem inferior da referencia
+- Trocar frase “QUEM VIU, VIU TAMBÉM” nos  - colocar base amarela e centralizar o titulo
 -mudar galeria de produtos para galeria de fotos
+
+
+
+- Criar botão “adicionar ao carrinho” e o “comprar” vai direto - ver o trabalho de abrir um modal perguntando se quer finalizar
 
 SUPORTE
 - Tornar editável as páginas de suporte no rodapé (mostrar links na lateral da interna)

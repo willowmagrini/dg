@@ -122,6 +122,22 @@ $("#cadastro-footer .wpcf7").on('invalid.wpcf7',function(e){
 	$('#cadastro-footer input[type="email"]').css('outline','solid red 1px');
 });
 
+$('#ordem').change(function(e) {
+		e.preventDefault();
+		// console.log('change');
+		var data = {
+				'action': 'ordena_prod',
+				'tax':$('#taxAjax').val(),
+				'ordem': $(this).val()
+		};		
+		$.post(odin_main.ajaxurl, data, function(response) {
+			// console.log(response);
+			$('#produtos-home').html(response);
+		});
+
+	});
+
+
 
 });
 
