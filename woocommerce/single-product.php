@@ -80,13 +80,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 					$WP_query_slider->the_post();
 					?>
 					<div class="slide-2">
-					<div class="borda"></div>
 					<a href="<?php echo get_field('link2' ); ?>">
+					<div class="borda"></div>
+					</a>
 					<?php
 
 					the_content( );	
 					?>					
-					</a>
 
 					<?php 
 					the_post_thumbnail( 'slider-2' );			

@@ -333,6 +333,7 @@ add_image_size( 'slider-3', 1200, 557, array( 'left', 'top' ) ); // Hard crop le
 add_image_size( 'video', 500, 280, array( 'left', 'top' ) ); // Hard crop left top
 add_image_size( 'produto-galeria', 450, 700, array( 'left', 'top' ) ); // Hard crop left top
 add_image_size( 'produto-single', 500, 420, array( 'left', 'top' ) ); // Hard crop left top
+add_image_size( 'sub-video', 407, 280, array( 'left', 'top' ) ); // Hard crop left top
 
 
 
@@ -726,7 +727,7 @@ add_action('admin_head', 'my_custom_fonts');
 function my_custom_fonts() {
   echo '<style>
     
-    .advanced_options, #product-type option[value="external"], #product-type option[value="grouped"],  ._backorders_field , ._sold_individually_field, .options_group:nth-child(2) .dimensions_field, #tagsdiv-product_tag, .linked_product_tab, #commentsdiv{
+    .advanced_options, #product-type option[value="external"], #product-type option[value="grouped"], ._sold_individually_field, .options_group:nth-child(2) .dimensions_field, #tagsdiv-product_tag, .linked_product_tab, #commentsdiv{
 		display:none!important;
     } 
     #product-type option[value="external"]{
@@ -743,3 +744,32 @@ function load_template_part($template_name, $part_name=null) {
     ob_end_clean();
     return $var;
 }
+
+add_filter( 'woocommerce_add_to_cart_redirect', 'rv_redirect_on_add_to_cart' );
+function rv_redirect_on_add_to_cart() {
+	
+	if ( isset( $_GET['add-to-cart'] ) ) {
+
+	
+		$product_id =  $_GET['add-to-cart'];
+
+			return get_permalink( $product_id );
+	}
+	
+}
+function wcmvp_set_view_count( $post_id ) {
+	$count_key = 'wcmvp_product_view_count';
+	$count     = get_post_meta( $post_id, $count_key, true );
+	if ( $count == '' ) {
+		delete_post_meta( $post_id, $count_key );
+		update_post_meta( $post_id, $count_key, '1' );
+	} else {
+		$count ++;
+		update_post_meta( $post_id, $count_key, (string) $count );
+	}
+}
+function wcmvp_set_view_count_products() {
+	global $product;
+	wcmvp_set_view_count( $product->id );
+}
+	add_action( 'woocommerce_after_single_product', 'wcmvp_set_view_count_products' );

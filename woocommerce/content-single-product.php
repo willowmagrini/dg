@@ -39,9 +39,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<div class="summary entry-summary">
 		
 		<?php
-		$product = get_product( get_the_ID() );
+		$product2 = get_product( get_the_ID() );
 		// echo $product->get_children();
-		$variacoes = $product->get_children();
+		$variacoes = $product2->get_children();
 		// print_r($product->get_children());
 		$valores=array();
 		foreach ($variacoes as $variacao) {

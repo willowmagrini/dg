@@ -454,7 +454,7 @@ input::-webkit-input-placeholder {
     border-radius: 0;
 
 }
-.archive .produto .add_to_cart_button, .produto .button.product_type_variable, .produto .add_to_cart_button, html .woocommerce #respond input#submit, .woocommerce a.button, html  .woocommerce button.button, html  .woocommerce input.button, .related.products .add_to_cart_butto{
+.produto-fundo a.button, .archive .produto .add_to_cart_button, .produto .button.product_type_variable, .produto .add_to_cart_button, html .woocommerce #respond input#submit, .woocommerce a.button, html  .woocommerce button.button, html  .woocommerce input.button, .related.products .add_to_cart_butto{
 	background-color:#000!important;
 	color: #fff;
 	height: 30px;
@@ -466,7 +466,7 @@ input::-webkit-input-placeholder {
 
 
 }
-.produto .button.product_type_variable{
+.produto-fundo a.button, .produto .button.product_type_variable{
 	float:right;
     width: 58%;
     text-align: center;
@@ -485,6 +485,9 @@ input::-webkit-input-placeholder {
     text-align: center;
     float: left;
 
+}
+.produto .sociais a:hover{
+	text-decoration: none!important;
 }
 .produto-home.produto{
 	margin-top: 20px;
@@ -688,8 +691,9 @@ html .woocommerce-cart table.cart img {
 .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:hover, .navbar-default .navbar-nav>.active>a:focus.dropdown-menu>.active>a, .dropdown-menu>.active>a:hover, .dropdown-menu>.active>a:focus, #menu-menu-categorias a.ativo{
 	background-color: transparent!important;
 	color: #E5332A!important;
-}.current-menu-item, .current-menu-ancestor{
+}.current-menu-item, .current-menu-ancestor, #menu-menu-categorias a.ativo, .current-menu-parent> a{
 	text-decoration: underline;
+	font-weight: 700!important;
 }
 .pin-btn{
 	cursor: pointer;
@@ -997,7 +1001,7 @@ top: -15px;
     width: 407px;
     vertical-align: top;
 }
-.video-thumb iframe{
+.video-thumb iframe, .video-thumb .video-sub{
 	vertical-align: bottom;
 }
 .galeria-single-product .owl-controls {
@@ -1501,14 +1505,7 @@ html .checkout_coupon span{
 .single-product #content{
 	margin:0 20px;
 }
-#footer .sociais {
- 	background-color: transparent;
-    height: 30px;
-    display: inline-block;
-    width: 100%;
-    text-align: center;
-    float: left;
-}
+
 	html .woocommerce table.shop_table_responsive tr:nth-child(2n) td, html .woocommerce-page table.shop_table_responsive tr:nth-child(2n) td{
 		background-color: transparent;
 	}
@@ -1754,4 +1751,13 @@ html .single-product .related  span.price .amount{
 }
 html .wpcf7-not-valid-tip{
 	color:#fff!important;
+}
+#footer .sociais {
+ 	background-color: transparent;
+    height: 30px;
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    float: left;
+    text-align: left;
 }

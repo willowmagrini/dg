@@ -26,7 +26,16 @@ global $post, $woocommerce, $product;
 	<?php do_action( 'woocommerce_product_thumbnails' ); ?>
 </div>
 <div class="video-thumb">
-	<?php the_field('link_do_video');?>
+	<?php 
+		if (get_field('link_do_video')!="") {
+			the_field('link_do_video');
+		}
+		elseif (get_field('img_sub')!="") {
+			echo '<img class="video-sub" src="'.get_field('img_sub')['sizes']['sub-video'].'">';
+			
+		}
+			?>
+
 
 <?php
 	if ( has_post_thumbnail() ) {

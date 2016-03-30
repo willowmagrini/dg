@@ -40,31 +40,32 @@ get_header(); ?>
 					$WP_query_slider->the_post();
 					?>
 					<div class="slide-1">
+						<?php 
+						if (!get_field('bot_slider_1' )) {?>
 						<div class="texto-slider">
-							<?php
-							the_content( );	
-							// get_template_part('content', 'slider-1');
-							if (get_field('link2' )!="") {
-									?>
-									<button style="border-color:<?php echo get_field('cor_do_botao'); ?>" class="comprar-slider"><a style="color:<?php echo get_field('cor_do_botao'); ?>" href="<?php 
-							
-							echo get_field('link2' );
-							?>
-							">
-								Comprar
-							</a></button>	
+							<a style="color:<?php echo get_field('cor_do_botao'); ?>" href="<?php echo get_field('link2' );?>">
 							<?php 
-							
-							}
-							?>
-							
-					
-
+								the_content( );	?>
+							</a>
 						</div>
-						<?php
-	 						the_post_thumbnail( 'slider-1' );	
+						<a style="color:<?php echo get_field('cor_do_botao'); ?>" href="<?php echo get_field('link2' );?>">
+							<?php the_post_thumbnail( 'slider-1' );?>
+						</a>
+						<?php 
+						} 
+						else{?>
+						<div class="texto-slider">
+							<?php the_content( );?>
+							<button style="border-color:<?php echo get_field('cor_do_botao'); ?>" class="comprar-slider">
+								<a style="color:<?php echo get_field('cor_do_botao'); ?>" href="<?php echo get_field('link2' );?>">
+									Comprar
+								</a>
+							</button>
+						</div>
+						<?php the_post_thumbnail( 'slider-1' );
+						}?>
 
-	 					?>
+
 					</div>
 					<?php
 				}
@@ -194,12 +195,9 @@ get_header(); ?>
 		$args = array(
 					'posts_per_page' => 8,
 					'post_type' => 'product',
-					'meta_query' => array(
-						array(
-							'key'     => '_featured',
-							'value'   => 'yes',
-						),
-					),
+					'orderby'        => 'meta_value_num',
+					'order'          => 'DESC',
+					'meta_key'       => 'wcmvp_product_view_count',
 				);
 	
 		$WP_Query_produtos = new WP_Query( $args );

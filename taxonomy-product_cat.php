@@ -105,14 +105,13 @@ get_header(); ?>
 					$WP_query_slider->the_post();
 					?>
 					<div class="slide-2">
-					<div class="borda"></div>
 					<a href="<?php echo get_field('link2' ); ?>">
+					<div class="borda"></div>
+					</a>
 					<?php
 
-					the_content( );	
-					the_post_thumbnail( 'slider-2' );			
-					// get_template_part('content', 'slider-1');
-					?></a>
+					the_content( );	?>
+					<?php the_post_thumbnail( 'slider-2' );	?>
 					</div>
 					<?php
 				}

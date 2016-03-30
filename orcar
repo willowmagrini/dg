@@ -1,0 +1,37 @@
+orcar
+22:26
+GERAL
+<!-- - Atualizar img logo - só subir pelo painel, aparencia/cabecalho -->
+
+HOME
+<!-- - Opção ocultar o botão "comprar" do slider 1 (checkbox botao ou nao e mudar campo pra texto)
+	custom field e mudança na home 1h
+ -->
+
+- Mostrar os 8 produtos mais vistos 2h
+	pesquisar como fazer isso
+
+- orçar para fazer aparecer uma categoria especifica *destaques home) 1h30m
+
+  
+
+ <!-- - botão comprar leva para o produto
+ redirecionar para o produto quando adidiona ao carrinho 40min -->
+
+PRODUTOS
+<!-- - Melhorar resolução logos share (tw, fb e pin) - feito -->
+<!-- - Substituir "ver opções" por "comprar" - 30 min
+	Tradução
+ -->
+
+- Mostrar flag "esgotado" e abrir form-mail "avise-me quando chegar" 5h
+
+<!-- - Ressaltar bold no nome das categorias pai menu lateral 
+	css - 30 min -->
+
+PRODUTO
+<!-- - Opção img para os produtos que não tiverem vídeo - 30 min
+	custom field e checagem na página de single product
+ -->
+- Rever layout title/preço/parcelamento/variações (alinhamento) 
+	-ver se tem jeito no css
