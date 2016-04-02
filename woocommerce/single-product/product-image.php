@@ -31,8 +31,11 @@ global $post, $woocommerce, $product;
 			the_field('link_do_video');
 		}
 		elseif (get_field('img_sub')!="") {
-			echo '<img class="video-sub" src="'.get_field('img_sub')['sizes']['sub-video'].'">';
-			
+			// echo "<pre>";
+			$campo=get_field('img_sub');
+			// print_r($campo['sizes']);
+			echo '<img class="video-sub" src="'.$campo['sizes']['sub-video'].'">';
+			// echo "</pre>";
 		}
 			?>
 

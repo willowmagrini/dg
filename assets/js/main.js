@@ -126,7 +126,14 @@ $( ".wpcf7-form-control" ).focus(function() {
   		$(this).val('');
   	}
 });
+function fecha(){
 
+			$('#fundo-modal').attr('modal-estado','inativo');
+	 		$('#modal-conteudo').attr('modal-estado','inativo');
+			$('#modal-conteudo #html').fadeOut();
+			$(' #botao-fechar').fadeOut();
+			$('#modal-conteudo .wpcf7-response-output').hide();
+		}
 $('#ordem').change(function(e) {
 		e.preventDefault();
 		// console.log('change');
@@ -141,8 +148,23 @@ $('#ordem').change(function(e) {
 		});
 
 	});
+	$('.encomendarAdd').click(function(e){
+		e.preventDefault();
+	 	$('#fundo-modal').attr('modal-estado','ativo');
+	 	$('#modal-conteudo').attr('modal-estado','ativo');
+		$('#modal-conteudo #html').fadeIn();
+		$(' #botao-fechar').fadeIn();
+		$('#encomendaLink').val($(this).attr('data-link'));
+		$('#encomendaNome').val($(this).attr('data-nome'));
+	 	$(' #botao-fechar, #fundo-modal').click(function(e){
+			e.preventDefault();
+	 		fecha();
+	 		});
+	 });
+	$("#modal-conteudo .wpcf7").on('mailsent.wpcf7',function(e){
+		setTimeout(fecha, 1000);
 
-
-
+		
+	});	 
 });
 

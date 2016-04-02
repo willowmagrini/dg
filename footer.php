@@ -80,7 +80,16 @@
 			<p>&copy; 2015  SUPE - startup e commerce comercial.</p>
 		</div><!-- .container -->
 	</footer><!-- #footer -->
-
+	<div id="fundo-modal">	<img id="ajax-loader" style="display:none" src="<?php echo get_template_directory_uri(); ?>/assets/images/ajax-loader.gif">
+	</div>
+	<div id="modal-conteudo">
+		<a href="#">
+			<div style="display:none" id="botao-fechar">x</div>
+		</a>
+		<div style="display:none;" class="animated fadeIn" id="html">
+			<?php echo do_shortcode('[contact-form-7 id="182" title="Encomenda"]' ); ?>
+		</div>		
+	</div>
 	<?php wp_footer(); ?>
 </body>
 </html>

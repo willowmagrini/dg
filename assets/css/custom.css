@@ -182,6 +182,9 @@ input::-webkit-input-placeholder {
     padding: 9.5px 0;
     text-transform: uppercase;
 }
+#slider-1 a{
+	text-decoration: none;
+}
 #slider-1 .texto-slider{
 	width:40%;
 	position:absolute;
@@ -691,9 +694,14 @@ html .woocommerce-cart table.cart img {
 .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:hover, .navbar-default .navbar-nav>.active>a:focus.dropdown-menu>.active>a, .dropdown-menu>.active>a:hover, .dropdown-menu>.active>a:focus, #menu-menu-categorias a.ativo{
 	background-color: transparent!important;
 	color: #E5332A!important;
-}.current-menu-item, .current-menu-ancestor, #menu-menu-categorias a.ativo, .current-menu-parent> a{
+}.current-menu-item, .current-menu-ancestor,  .current-menu-parent> a{
 	text-decoration: underline;
-	font-weight: 700!important;
+	font-weight: 900!important;
+	color: #000!important;
+}
+#menu-menu-categorias a.ativo{
+	text-decoration: underline;
+	font-weight: 900!important;
 }
 .pin-btn{
 	cursor: pointer;
@@ -1760,4 +1768,147 @@ html .wpcf7-not-valid-tip{
     text-align: center;
     float: left;
     text-align: left;
+}
+#fundo-modal[modal-estado="ativo"]{
+	-ms-transform: translate(0,0);
+	-webkit-transform: translate(0,0);
+	transform: translate(0,0);
+	-webkit-transition: all  ease-out 0.5s;
+	    -moz-transition: all  ease-out 0.5s;
+	    -o-transition: all  ease-out 0.5s;
+	    transition: all  ease-out 0.5s;
+}
+#fundo-modal{
+	-webkit-transition: all  ease-out 0.5s;
+	    -moz-transition: all  ease-out 0.5s;
+	    -o-transition: all  ease-out 0.5s;
+	    transition: all  ease-out 0.5s;
+	width: 100vw;
+    height: 100vh;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.75);
+    top: 0;
+    left: 0;
+    z-index: 99999;
+	-ms-transform: translate(0,-100%);
+	-webkit-transform: translate(0,-100%);
+	transform: translate(0,-100%);
+}
+#modal-conteudo{
+	width: initial;
+}
+#modal-conteudo .wpcf7{
+	width: initial;
+    background: #fff;
+    padding: 20px;
+    border: 5px solid #FCEA0D;
+
+
+}
+#modal-conteudo .wpcf7 h2{
+	margin-top:0;
+}
+#modal-conteudo .wpcf7-form{
+	width: 261px;
+}
+#modal-conteudo[modal-estado="ativo"]{
+	-ms-transform: translate(-50%,-50%);
+	-webkit-transform: translate(-50%,-50%);
+	transform: translate(-50%,-50%);
+	-webkit-transition: all  ease-out 0.5s;
+	    -moz-transition: all  ease-out 0.5s;
+	    -o-transition: all  ease-out 0.5s;
+	    transition: all  ease-out 0.5s;
+	
+}
+#modal-conteudo .btn-default,#modal-conteudo input[type="submit"], #modal-conteudo input[type="reset"]{
+    color: white;
+    background-color: black;
+    border: none!important;
+    border-radius: 0;
+}
+#ajax-loader{
+	position: fixed;
+	    top: 25vh;
+	    left: 47%;
+}
+#modal-conteudo a, #modal-conteudo a:hover,#modal-conteudo a:active{
+	text-decoration:none;
+}
+#modal-conteudo .attachment-thumbnail{
+	border-radius:200px;
+	margin-bottom:30px;
+}
+#botao-fechar{
+    font-weight: 100;
+    position: relative;
+    right: -20px;
+    text-align: right;
+    font-size: 35px;
+	color:#fff;
+}
+#modal-conteudo{
+    z-index: 9999999;
+    top: 50%;
+    left: 50%;
+    padding: 1% 4%;
+    height: auto;
+    position: fixed;
+    -webkit-transition: all ease-out 0.7s;
+    -moz-transition: all ease-out 0.7s;
+    -o-transition: all ease-out 0.7s;
+    transition: all ease-out 0.7s;
+    -ms-transform: translate(0,300%);
+    -webkit-transform: translate(0,300%);
+    transform: translate(0,300%);
+    max-width: 900px;
+}
+#modal-conteudo img{
+    display: block;
+    margin: 0 auto;
+	max-width:100%;
+	max-height: 90vh;
+    
+}
+svg:active, svg:focus{
+	outline:none;
+}
+.owl-theme .owl-controls .owl-buttons div {
+    color: #FFF;
+    display: inline-block;
+    zoom: 1;
+    margin: 5px;
+     padding: 0; 
+    font-size: 12px;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    background: transparent;
+    filter: Alpha(Opacity=50);
+    opacity: 0.5;
+}
+.pag-modal{
+	position:absolute;
+	top: 50%;
+    
+}
+.pag-modal.esq{
+	left:0;
+}
+.pag-modal.dir{
+	right:0;
+}
+.pag-modal svg{
+	width: 47px;
+	    height: 70px;
+	}
+#legenda{
+	text-align:center;
+	color:#fff;
+}
+.single-product .botao-comprar a.encomendarAdd{
+	width: initial;
+}
+.produto-fundo a{
+	text-decoration: none!important;
 }

@@ -773,3 +773,51 @@ function wcmvp_set_view_count_products() {
 	wcmvp_set_view_count( $product->id );
 }
 	add_action( 'woocommerce_after_single_product', 'wcmvp_set_view_count_products' );
+
+
+
+function remove_loop_button(){
+remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart', 10 );
+}
+add_action('init','remove_loop_button');
+
+
+
+/*STEP 2 -ADD NEW BUTTON THAT LINKS TO PRODUCT PAGE FOR EACH PRODUCT */
+
+add_action('woocommerce_after_shop_loop_item','replace_add_to_cart');
+function replace_add_to_cart() {
+	global $product;
+	if ($product->get_stock_quantity()==0 && $product->get_type() !='variable' ){
+		$link = $product->get_permalink();
+		echo '<a data-link="'.$link.'" data-nome="'.$product->get_title().'"class="encomendarAdd button" href="#" class="button addtocartbutton">Encomendar</a>';
+	}
+	else{
+		woocommerce_template_loop_add_to_cart();
+	}	
+
+}
+
+
+add_action( 'wpcf7_init', 'custom_add_shortcode_encomenda' );
+ 
+function custom_add_shortcode_encomenda() {
+    wpcf7_add_shortcode( 'encomenda', 'custom_encomenda_shortcode_handler' ); 
+}
+ 
+function custom_encomenda_shortcode_handler( $tag ) {
+    return  '<input id="encomendaLink" type="hidden" name="link"value=""><input id="encomendaNome" type="hidden" name="produto"value="">';
+}
+add_filter( 'woocommerce_get_availability', 'wcs_custom_get_availability', 1, 2);
+function wcs_custom_get_availability( $availability, $_product ) {
+   
+    // Change Out of Stock Text
+    if ( $_product->get_stock_quantity()==0 && $_product->get_type() !='variation' ) {
+		$link = $_product->get_permalink();
+		echo 'Esgotado!<br>';
+   		echo '<a data-link="'.$link.'" data-nome="'.$_product->get_title().'"class="encomendarAdd button" href="#" class="button addtocartbutton">Encomendar</a>';
+    }
+    elseif ($_product->get_type() !='variation'){
+
+    }
+}
