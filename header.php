@@ -7,11 +7,13 @@
  * @package Odin
  * @since 2.2.0
  */
-?><!DOCTYPE html>
+?>
+<!DOCTYPE html>
 <html class="no-js" <?php language_attributes(); ?>>
 <head>
+	
 
-	<meta charset="<?php bloginfo( 'charset' ); ?>" />
+	<meta charset="<?php bloginfo( 'charset' ); ?>" /> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<link rel="profile" href="http://gmpg.org/xfn/11" />
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
@@ -22,15 +24,14 @@
 	<script src="<?php echo get_template_directory_uri(); ?>/assets/js/html5.js"></script>
 	<![endif]-->
 	<?php wp_head(); ?>
-
+	<script src="https://cdn.rawgit.com/meetselva/attrchange/master/js/attrchange.js"></script>
+	<script src="https://cdn.rawgit.com/meetselva/attrchange/master/js/attrchange_ext.js"></script>
 	<script async defer src="//assets.pinterest.com/js/pinit.js"></script>
-	</head>
-<body>
 
 
 </head>
 
-<body <?php body_class(); ?>>
+<body  >
 	<a id="skippy" class="sr-only sr-only-focusable" href="#content">
 		<div class="container">
 			<span class="skiplink-text"><?php _e( 'Skip to content', 'odin' ); ?></span>

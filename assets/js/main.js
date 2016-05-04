@@ -1,4 +1,5 @@
 jQuery(document).ready(function($) {
+	
 	// fitVids.
 	$( '.entry-content' ).fitVids();
 
@@ -166,5 +167,48 @@ $('#ordem').change(function(e) {
 
 		
 	});	 
+		
+	$( "select").click(function() {
+		if ($('.single_add_to_cart_button').attr('disabled')=='disabled') {
+
+		}
+		else{
+		}
+
+  	});
+  	if ($("body").hasClass('single-product')){
+  		$('.single_add_to_cart_button').attrchange({
+  	trackValues: true, 
+ 	 callback: function (event) {
+ 	 	if (event.attributeName == 'disabled'){
+ 	 		if(event.newValue=='disabled'){
+	 	 		$(' #encomenda').fadeIn();
+	 	 		if ($('.single_add_to_cart_button').attr('title')===undefined) {
+	 	 			$('#encomenda').html('');
+	 	 		}
+	 	 		else{
+		 	 		$('#encomenda').html($('.single_add_to_cart_button').attr('title'));
+	 	 		}
+ 	 		}
+ 	 		else if(event.newValue===undefined){
+ 	 			if ($('.single_add_to_cart_button').attr('title')===undefined) {
+	 	 			$('#encomenda').html('');
+	 	 		}
+	 	 		else{
+
+	 	 			$('#encomenda').html($('.single_add_to_cart_button').attr('title'));
+	 	 		}
+ 	 		}
+ 	 		
+ 	 	}
+ 	 	
+	//event.attributeName - Attribute Name
+	//event.oldValue - Prev Value
+	//event.newValue - New Value
+  	}
+	});
+  	}
+  	
+  
 });
 

@@ -792,11 +792,103 @@ function replace_add_to_cart() {
 		$link = $product->get_permalink();
 		echo '<a data-link="'.$link.'" data-nome="'.$product->get_title().'"class="encomendarAdd button" href="#" class="button addtocartbutton">Encomendar</a>';
 	}
+	elseif($product->get_type() =='variable'){
+		$filhas=$product->get_children();
+		$estoque=0;
+		foreach ($filhas as $filha => $id) {
+			$produto = get_product($id);
+			if ($produto->get_stock_quantity()!=0) {
+				$estoque=1;
+				
+			}
+
+		// 	echo '<prev>';
+		// print_r($produto->get_stock_quantity());
+		// echo '</prev>';
+		}
+		if ($estoque ==0) {
+			$link = $product->get_permalink();
+			echo '<a data-link="'.$link.'" data-nome="'.$product->get_title().'"class="encomendarAdd button" href="#" class="button addtocartbutton">Encomendar</a>';
+		}
+		else{
+		woocommerce_template_loop_add_to_cart();
+	}	
+		
+	
+	}
 	else{
 		woocommerce_template_loop_add_to_cart();
 	}	
 
 }
+
+
+
+
+
+
+remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 30 );
+add_action( 'woocommerce_single_product_summary', 'custom_woocommerce_template_single_add_to_cart' );
+
+function custom_woocommerce_template_single_add_to_cart(){
+	global $product;
+
+	if($product->get_type() =='variable'){
+    	   
+
+		$filhas=$product->get_children();
+		$estoque=0;
+		foreach ($filhas as $filha => $id) {
+			$produto = get_product($id);
+			if ($produto->get_stock_quantity()!=0) {
+				$estoque=1;
+				
+			}
+
+		// 	echo '<prev>';
+		// print_r($produto->get_stock_quantity());
+		// echo '</prev>';
+		}
+		if ($estoque ==0) {
+			$link = $product->get_permalink();
+			$prices = $product->get_variation_prices( true );
+			$min_price = current( $prices['regular_price']);
+			
+			echo '';
+			echo '<div class="preco" style="display:block;float:left;width:initial" itemprop="offers" itemscope="" itemtype="http://schema.org/Offer">
+				<p class="price"> <ins><span class="amount">R$'.$min_price.'</span></ins></p>
+				<meta itemprop="price" content="10">
+				<meta itemprop="priceCurrency" content="BRL">
+				<link itemprop="availability" href="http://schema.org/OutOfStock">
+				
+				</div>
+				<div class="botao-comprar">
+				Esgotado!<br><a data-link="'.$link.'" data-nome="'.$product->get_title().'"class="encomendarAdd button" href="#" class="button addtocartbutton">Encomendar</a>
+				</div>';
+		}
+		else{
+		woocommerce_template_single_add_to_cart();
+		}	
+
+	}
+	else{
+		woocommerce_template_single_add_to_cart();
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 add_action( 'wpcf7_init', 'custom_add_shortcode_encomenda' );
@@ -810,14 +902,19 @@ function custom_encomenda_shortcode_handler( $tag ) {
 }
 add_filter( 'woocommerce_get_availability', 'wcs_custom_get_availability', 1, 2);
 function wcs_custom_get_availability( $availability, $_product ) {
-   
     // Change Out of Stock Text
     if ( $_product->get_stock_quantity()==0 && $_product->get_type() !='variation' ) {
 		$link = $_product->get_permalink();
 		echo 'Esgotado!<br>';
    		echo '<a data-link="'.$link.'" data-nome="'.$_product->get_title().'"class="encomendarAdd button" href="#" class="button addtocartbutton">Encomendar</a>';
     }
-    elseif ($_product->get_type() !='variation'){
-
-    }
+    	// echo $_product;
+  //   	echo '<pre>';
+		// print_r($_product);
+		// echo '</pre>';
 }
+
+
+/* Adding the Add-To-Cart button so that it would go after the main product description.
+ */
+// add_action( 'woocommerce_after_single_product_summary', 'woocommerce_template_single_add_to_cart', 12 );

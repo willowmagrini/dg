@@ -362,8 +362,14 @@ input::-webkit-input-placeholder {
 	background-color:#F2F2F2;
 	padding-top:15px;
 }
+.produto-fundo h4{
+		margin:  0 15px;
+
+}
+.produto-fundo .clearfix{
+	height: 0;
+}
 .produto-fundo h4 a, .produto-fundo h4 a:hover{
-	margin:  0 15px;
     font-weight: 500;
     text-transform: uppercase;
     color: #000;
@@ -1911,4 +1917,13 @@ svg:active, svg:focus{
 }
 .produto-fundo a{
 	text-decoration: none!important;
+}
+#encomenda{
+    margin-top: 40px;
+    clear: left;
+    font-size: 12px;
+    opacity: 0.8;
+}
+.dropdown-menu>.active>a, .dropdown-menu>.active>a:hover, .dropdown-menu>.active>a:focus{
+	color: #000!important;
 }
