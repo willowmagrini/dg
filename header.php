@@ -24,14 +24,14 @@
 	<script src="<?php echo get_template_directory_uri(); ?>/assets/js/html5.js"></script>
 	<![endif]-->
 	<?php wp_head(); ?>
-	<script src="https://cdn.rawgit.com/meetselva/attrchange/master/js/attrchange.js"></script>
-	<script src="https://cdn.rawgit.com/meetselva/attrchange/master/js/attrchange_ext.js"></script>
+	<script src="<?php echo get_template_directory_uri(); ?>/assets//js/attrchange.js"></script>
+	<script src="<?php echo get_template_directory_uri(); ?>/assets//js/attrchange_ext.js"></script>
 	<script async defer src="//assets.pinterest.com/js/pinit.js"></script>
 
 
 </head>
 
-<body  >
+<body <?php body_class(); ?>>
 	<a id="skippy" class="sr-only sr-only-focusable" href="#content">
 		<div class="container">
 			<span class="skiplink-text"><?php _e( 'Skip to content', 'odin' ); ?></span>

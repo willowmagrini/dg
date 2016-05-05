@@ -79,8 +79,10 @@ get_header(); ?>
 	}
 	?>
 			</div>
-	<?php $odin_general_opts = get_option( 'odin_general' );
-		echo "<h3 class='legenda-slider' >".$odin_general_opts['slider_2']."</h3>";?>
+	<?php 
+		$term_id= get_term_by( 'slug', 'slider-2' ,'slider');
+		$description=term_description( $term_id->term_id, 'slider' ) ;
+		echo "<h3 class='legenda-slider' >".$description."</h3>";?>
 
 
 			<div class="row" id="slider-2">
@@ -147,8 +149,7 @@ get_header(); ?>
 							'field'    => 'slug',
 							'terms'    => 'slider-3',
 						),
-					),
-				);
+					),				);
 	
 		$WP_query_slider = new WP_Query( $args );
 	
@@ -186,8 +187,11 @@ get_header(); ?>
 	}
 	?>
 			</div>
-<?php 
-					echo "<h3 class='legenda-slider' >".$odin_general_opts['slider_3']."</h3>";?>
+			<?php 
+		
+		$term_id= get_term_by( 'slug', 'slider-3' ,'slider');
+		$description=term_description( $term_id->term_id, 'slider' ) ;
+					echo "<h3 class='legenda-slider' >".$description."</h3>";?>
 			<?php echo get_theme_mod('legenda');?>
 			<div class="row lista-produtos" id="produtos-home">
 				<?php

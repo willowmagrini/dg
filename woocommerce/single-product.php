@@ -50,8 +50,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 		do_action( 'woocommerce_after_main_content' );
 	?>
 	<div class="clearfix"></div>
-<?php $odin_general_opts = get_option( 'odin_general' );
-		echo "<h3 class='legenda-slider' >".$odin_general_opts['slider_2']."</h3>";?>
+<?php 
+		$term_id= get_term_by( 'slug', 'slider-2' ,'slider');
+		$description=term_description( $term_id->term_id, 'slider' ) ;
+		echo "<h3 class='legenda-slider' >".$description."</h3>";?>
 
 
 			<div class="row" id="slider-2">
