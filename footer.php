@@ -44,10 +44,27 @@
 					<?php $odin_general_opts = get_option( 'odin_general' );?>
 				<p>Conheça nossas redes sociais</p>
 				<div class="sociais">
-					<a target="_blank" href="<?php echo $odin_general_opts['facebook'] ?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/face.png" alt=""></a>
-					<a target="_blank" href="<?php echo $odin_general_opts['twitter'] ?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/twitter.png" alt=""></a>
-					<a target="_blank" href="<?php echo $odin_general_opts['instagram'] ?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/instagram.png" alt=""></a>
-					<a target="_blank" href="<?php echo $odin_general_opts['pinterest'] ?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/pinterest.png" alt=""></a>
+					<?php if ($odin_general_opts['facebook'] != ''){?>
+						<a target="_blank" href="<?php echo $odin_general_opts['facebook'] ?>">
+							<img src="<?php echo get_template_directory_uri(); ?>/assets/images/face.png" alt="">
+						</a>
+					<?php }?>
+					<?php if ($odin_general_opts['twitter'] != ''){?>
+						<a target="_blank" href="<?php echo $odin_general_opts['twitter'] ?>">
+							<img src="<?php echo get_template_directory_uri(); ?>/assets/images/twitter.png" alt="">
+						</a>
+					<?php }?>
+					<?php if ($odin_general_opts['instagram'] != ''){?>
+						<a target="_blank" href="<?php echo $odin_general_opts['instagram'] ?>">
+							<img src="<?php echo get_template_directory_uri(); ?>/assets/images/instagram.png" alt="">
+						</a>
+					<?php }?>
+					<?php if ($odin_general_opts['pinterest'] != ''){?>
+						<a target="_blank" href="<?php echo $odin_general_opts['pinterest'] ?>">
+							<img src="<?php echo get_template_directory_uri(); ?>/assets/images/pinterest.png" alt="">
+						</a>
+					<?php }?>
+				
 				</div>
 			</div>
 			<div class="col-sm-3">

@@ -36,7 +36,6 @@ jQuery(document).ready(function($) {
     items : 1,
     itemsDesktop : [1000,1], //5 items between 1000px and 901px
       itemsDesktopSmall : [900,1], // betweem 900px and 601px
-     
     autoPlay : true,
     navigation : false,
     pagination:true
@@ -46,9 +45,9 @@ jQuery(document).ready(function($) {
 });
 	$('#slider-1').owlCarousel({
  
-    // Most important owl features
+  
     items : 1,
-    autoPlay:true,
+    autoPlay:8000,
     itemsDesktop : [1000,1], //5 items between 1000px and 901px
       itemsDesktopSmall : [900,1], // betweem 900px and 601px
       itemsTablet: [600,1], //2 items between 600 and 0

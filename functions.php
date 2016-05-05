@@ -356,11 +356,11 @@ add_action( 'wp_footer', 'cs_wc_loop_add_to_cart_scripts' );
 ///adiciona no menu///
 add_filter( 'wp_nav_menu_items', 'add_loginout_link', 10, 2 );
 function add_loginout_link( $items, $args ) {
-    if (is_user_logged_in() && $args->theme_location == 'menu-topo') {
+    if (is_user_logged_in() && ($args->theme_location == 'menu-topo' OR  $args->theme_location == 'menu-footer-2')) {
         $items .= '<li class="menu-item menu-item-type-post_type menu-item-object-page carrinho-menu"><a href="'. wp_logout_url( get_permalink( woocommerce_get_page_id( 'myaccount' ) ) ) .'">Sair</a></li>';
          $items .= '<li class="menu-item menu-item-type-post_type menu-item-object-page page_item page-item-9  menu-item-28"><a title="Minha conta" href="' . get_permalink( wc_get_page_id( 'myaccount' )).' ">Minha conta</a></li>';
     }
-    elseif (!is_user_logged_in() && $args->theme_location == 'menu-topo') {
+    elseif (!is_user_logged_in() && ($args->theme_location == 'menu-topo' OR  $args->theme_location == 'menu-footer-2')) {
         $items .= '<li class="menu-item menu-item-type-post_type menu-item-object-page carrinho-menu"><a href="' . get_permalink( wc_get_page_id( 'myaccount' ) ) . '">Entrar</a></li>';
     }
     return $items;

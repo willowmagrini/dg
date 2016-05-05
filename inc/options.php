@@ -26,16 +26,7 @@ function opcoes_tema() {
                 'tab'   => 'odin_general', // Tab ID/Slug (Required)
                 'title' => __( 'Configurações do tema', 'odin' ), // Section title (Required)
                 'fields' => array( // Section fields (Required)
-					array(
-                        'id'         => 'slider_2', // Required
-                        'label'      => __( 'Texto do Slider 2', 'odin' ), // Required
-                        'type'       => 'text', // Required
-                    ),
-                    array(
-                        'id'         => 'slider_3', // Required
-                        'label'      => __( 'Texto do Slider 3', 'odin' ), // Required
-                        'type'       => 'text', // Required
-                    ),
+					
                     array(
                         'id'         => 'facebook', // Required
                         'label'      => __( 'Facebook', 'odin' ), // Required
