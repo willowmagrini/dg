@@ -41,14 +41,22 @@ get_header(); ?>
 					?>
 					<div class="slide-1">
 						<?php 
+							 if (get_field('link_externo')=="") {
+								$link = get_field('link2' );
+							}
+							else{
+								$link=get_field('link_externo');
+							}
 						if (!get_field('bot_slider_1' )) {?>
 						<div class="texto-slider">
-							<a style="color:<?php echo get_field('cor_do_botao'); ?>" href="<?php echo get_field('link2' );?>">
+							
+							<a style="color:<?php echo get_field('cor_do_botao'); ?>" href="<?php echo $link;?>">
 							<?php 
 								the_content( );	?>
 							</a>
 						</div>
-						<a style="color:<?php echo get_field('cor_do_botao'); ?>" href="<?php echo get_field('link2' );?>">
+
+						<a style="color:<?php echo get_field('cor_do_botao'); ?>" href="<?php echo $link;?>">
 							<?php the_post_thumbnail( 'slider-1' );?>
 						</a>
 						<?php 
@@ -57,7 +65,7 @@ get_header(); ?>
 						<div class="texto-slider">
 							<?php the_content( );?>
 							<button style="border-color:<?php echo get_field('cor_do_botao'); ?>" class="comprar-slider">
-								<a style="color:<?php echo get_field('cor_do_botao'); ?>" href="<?php echo get_field('link2' );?>">
+								<a style="color:<?php echo get_field('cor_do_botao'); ?>" href="<?php echo $link;?>">
 									Comprar
 								</a>
 							</button>
@@ -111,7 +119,13 @@ get_header(); ?>
 					$WP_query_slider->the_post();
 					?>
 					<div class="slide-2">
-					<a href="<?php echo get_field('link2' ); ?>">
+						<?php if (get_field('link_externo')=="") {
+								$link = get_field('link2' );
+							}
+							else{
+								$link=get_field('link_externo');
+							} ?>
+					<a href="<?php echo $link; ?>">
 
 					<div class="borda"></div></a>
 					<?php 
@@ -162,15 +176,21 @@ get_header(); ?>
 					$WP_query_slider->the_post();
 					?>
 					<div class="slide-3">
+						<?php if (get_field('link_externo')=="") {
+								$link = get_field('link2' );
+							}
+							else{
+								$link=get_field('link_externo');
+							} ?>
 						<div class="texto-slider">
-						<a href="<?php echo get_field('link2' ); ?>">
+						<a href="<?php echo $link; ?>">
 						<?php
 						$titulo=get_the_taxonomies($post->ID);
 						the_content( );
 						?>
 						</a>			
 						</div>
-						<a href="<?php echo get_field('link2' ); ?>">
+						<a href="<?php echo $link; ?>">
 						<?php
 						the_post_thumbnail( 'slider-1' );	
 						?>		

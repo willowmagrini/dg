@@ -34,9 +34,11 @@ global $post, $woocommerce, $product;
 			// echo "<pre>";
 			$campo=get_field('img_sub');
 			// print_r($campo['sizes']);
-			echo '<img class="video-sub" src="'.$campo['sizes']['sub-video'].'">';
-			// echo "</pre>";
-		}
+			?>
+				<a href="<?php echo $campo['url']; ?>" itemprop="image" class="woocommerce-main-image zoom" title="" data-rel="prettyPhoto[product-gallery]">
+					<img  src="<?php echo $campo['sizes']['sub-video']; ?>" class="video-sub attachment-produto-single size-produto-single wp-post-image" alt="thumb-prod-01" title="thumb-prod-01"  >
+				</a>
+		<?php }
 			?>
 
 

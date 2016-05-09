@@ -30,8 +30,14 @@
 
 
 </head>
+<?php if (is_search()) {
+	$classe="archive post-type-archive-product woocommerce";
+}
+else{
+	$classe="";
+} ?>
 
-<body <?php body_class(); ?>>
+<body <?php body_class($classe); ?>>
 	<a id="skippy" class="sr-only sr-only-focusable" href="#content">
 		<div class="container">
 			<span class="skiplink-text"><?php _e( 'Skip to content', 'odin' ); ?></span>
@@ -102,7 +108,7 @@
 						</label>
 						<div class="form-group">
 							<input placeholder="busca"type="search" class="form-control" name="s" id="navbar-search" />
-							<input type="hidden" name="post_type" value="product">
+							<!-- <input type="hidden" name="post_type" value="product"> -->
 						</div>
 						<button type="submit" class="busca btn btn-default">	
 							<img src="<?php echo get_template_directory_uri(); ?>/assets/images/lupa.png" alt="">

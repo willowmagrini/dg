@@ -52,6 +52,16 @@ ob_start();
 		</td>
 	</tr>
 	<?php } ?>
+	<?php
+	if (get_field('serie')!="") { ?>
+	<tr>			
+		<th>Série</th>
+		<td>
+		<?php
+			echo get_field( 'serie');?>
+		</td>
+	</tr>
+	<?php } ?>
 
 	<?php
 	if (get_field('escala')!="") { ?>

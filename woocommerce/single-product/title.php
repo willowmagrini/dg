@@ -21,5 +21,5 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 ?>
 <h1 itemprop="name" class="product_title entry-title"><?php the_title(); ?>
-	<!-- <span>  <?php 	echo get_field('marca'); ?> -->
+	<h5>  <?php 	echo get_field('parcelamento'); ?></h5>
 </h1>

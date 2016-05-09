@@ -100,7 +100,7 @@ main.col-sm-12, #wrapper{
 }
 .logo img{
 	margin: 0 0 0 30px;
-    width: 117px;
+    width: 190px;
 
 }
 #header .container #main-navigation{
@@ -112,7 +112,7 @@ main.col-sm-12, #wrapper{
 #main-navigation a{
 	text-transform: uppercase;
 	font-weight:500;
-	font-size: 12px;
+	font-size: 13px;
 }
 #main-navigation .dropdown-menu a{
 	font-weight: 200;
@@ -655,7 +655,7 @@ html #footer{
 }
 #menu-menu-categorias a{
 	text-transform: uppercase;
-	font-size:13px;
+    font-size: 15px;
 	text-decoration: none;
 	color: #4C4C4C;
 }
@@ -1056,6 +1056,9 @@ top: -15px;
 	vertical-align:top;
 }
 .woocommerce-variation-add-to-cart.variations_button{}
+.woocommerce table.shop_attributes th {
+    padding: 8px 0!important;
+}
 #descricao-ficha h2{
 	font-size: 16px;
 	color: #7E7F84;
@@ -1363,6 +1366,10 @@ form .busca:hover {
 
 }
 @media (max-width: 992px){
+	.logo img {
+    margin: 0 0 0 30px;
+    width: 125px;
+}
 	.tax-product_cat .lista-produtos .col-md-3, .post-type-archive-product .products  .col-md-3, .single-product .related.products .col-md-3  {
     width: 100%;
 }

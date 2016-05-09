@@ -361,7 +361,8 @@ function add_loginout_link( $items, $args ) {
          $items .= '<li class="menu-item menu-item-type-post_type menu-item-object-page page_item page-item-9  menu-item-28"><a title="Minha conta" href="' . get_permalink( wc_get_page_id( 'myaccount' )).' ">Minha conta</a></li>';
     }
     elseif (!is_user_logged_in() && ($args->theme_location == 'menu-topo' OR  $args->theme_location == 'menu-footer-2')) {
-        $items .= '<li class="menu-item menu-item-type-post_type menu-item-object-page carrinho-menu"><a href="' . get_permalink( wc_get_page_id( 'myaccount' ) ) . '">Entrar</a></li>';
+        $items .= '<li class="menu-item menu-item-type-post_type menu-item-object-page carrinho-menu"><a href="' . get_permalink( wc_get_page_id( 'myaccount' ) ) . '">Entrar</a></li>
+        			<li class="menu-item menu-item-type-post_type menu-item-object-page carrinho-menu"><a href="' . get_permalink( wc_get_page_id( 'myaccount' ) ) . '">Criar conta</a></li>';
     }
     return $items;
 }
