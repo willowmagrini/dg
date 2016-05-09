@@ -669,9 +669,10 @@ html #footer{
 	text-transform: uppercase;
 	margin-left:10px;
 }
+
 #menu-menu-categorias ul,#menu-menu-categorias{
 	text-indent: none;
-	padding: 5px;
+	padding: 3px;
 	list-style: none;
 	text-transform: uppercase;
 
@@ -1345,7 +1346,11 @@ form .busca:hover {
 .ajax-load-more-wrap.blue button.alm-load-more-btn, .ajax-load-more-wrap.blue button.alm-load-more-btn:hover, .ajax-load-more-wrap.blue button.alm-load-more-btn.done {
     background-color: #E7332C!important;
 }
-
+#menu-menu-categorias{
+	display: inline-block;
+	margin-left: 50%;
+    transform: translate(-50%);
+}
 /*resoponsivo*/
 /*resoponsivo*/
 /*resoponsivo*/
