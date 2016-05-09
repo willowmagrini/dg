@@ -31,7 +31,7 @@
 
 </head>
 <?php if (is_search()) {
-	$classe="archive post-type-archive-product woocommerce";
+	$classe="archive post-type-archive-product  woocommerce";
 }
 else{
 	$classe="";

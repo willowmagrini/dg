@@ -35,7 +35,7 @@ get_header(); ?>
 				<?php
 		
 		$args = array(
-					'posts_per_page' => 8,
+					'posts_per_page' => 10,
 					'post_type' => 'product',
 					'tax_query' => array(
 						array(
@@ -48,27 +48,28 @@ get_header(); ?>
 		?>
 
 		<?php 
-		$WP_Query_produtos = new WP_Query( $args );
+		echo do_shortcode('[ajax_load_more taxonomy="product_cat" button_loading_label="carregando" taxonomy_terms="'.$term->slug.'" scroll_distance ="-200" button_label="Mais" repeater="repeater1" post_type="product"  posts_per_page="9"  scroll="true"]');
+	// 	$WP_Query_produtos = new WP_Query( $args );
 	
-		if( $WP_Query_produtos->have_posts()  )
-		{
-			?>
-			<?php
-				while ( $WP_Query_produtos->have_posts() ) 
-				{
+	// 	if( $WP_Query_produtos->have_posts()  )
+	// 	{
+	// 		?>
+	 		<?php
+	// 			while ( $WP_Query_produtos->have_posts() ) 
+	// 			{
 				
 
-					$WP_Query_produtos->the_post();
-					get_template_part( 'content', 'prod-lista' );
+	// 				$WP_Query_produtos->the_post();
+	// 				get_template_part( 'content', 'prod-lista' );
 
-				}
-				?>
-		<?php 
-			?>
+	// 			}
+	// 			?>
+	 	<?php 
+	// 		?>
 				<?php
 			
-		wp_reset_postdata(); // IMPORTANT - reset the $post object so the rest of the page works correctly
-	}
+	// 	wp_reset_postdata(); // IMPORTANT - reset the $post object so the rest of the page works correctly
+	// }
 	?>
 			</div>
 			
@@ -107,7 +108,15 @@ get_header(); ?>
 					$WP_query_slider->the_post();
 					?>
 					<div class="slide-2">
-					<a href="<?php echo get_field('link2' ); ?>">
+						<?php 
+							 if (get_field('link_externo')=="") {
+								$link = get_field('link2' );
+							}
+							else{
+								$link=get_field('link_externo');
+							}
+						?>
+					<a href="<?php echo $link; ?>">
 					<div class="borda"></div>
 					</a>
 					<?php

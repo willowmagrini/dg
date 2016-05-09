@@ -82,7 +82,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 					$WP_query_slider->the_post();
 					?>
 					<div class="slide-2">
-					<a href="<?php echo get_field('link2' ); ?>">
+						<?php 
+							 if (get_field('link_externo')=="") {
+								$link = get_field('link2' );
+							}
+							else{
+								$link=get_field('link_externo');
+							}
+						?>
+					<a href="<?php echo $link; ?>">
 					<div class="borda"></div>
 					</a>
 					<?php

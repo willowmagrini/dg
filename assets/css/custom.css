@@ -435,13 +435,13 @@ input::-webkit-input-placeholder {
 	position:relative;
 }
 .produto:nth-child(4n+1){
-	clear:left;
+	/*clear:left;*/
 }
 .tax-product_cat .produto:nth-child(4n+1), .archive .produto:nth-child(4n+1){
 	clear:initial;
 }
 .tax-product_cat .produto:nth-child(3n+1), .archive .produto:nth-child(3n+1){
-	clear:left;
+	/*clear:left;*/
 }
 .produto .quantity{
 	display:inline-block;
@@ -1215,7 +1215,7 @@ body{
 #footer .wpcf7-response-output {
 	border:none;
 }
-.tax-product_cat .lista-produtos  .col-md-3, .post-type-archive-product .products  .col-md-3, .single-product .related.products .col-md-3{
+.tax-product_cat .lista-produtos  .col-md-3, .post-type-archive-product .products  .col-md-3, .search .busca-produtos .col-md-3, .single-product .related.products .col-md-3{
 
 	width:33%;
 }
@@ -1330,7 +1330,7 @@ form .busca:hover {
 	background-color: transparent;
 }
 .archive .produto:nth-child(4n+1) {
- clear:initial;
+ /*clear:initial;*/
 }
 #top-navigation .inline-block{
 	display: inline-block;
@@ -1338,7 +1338,13 @@ form .busca:hover {
 #wpadminbar{
 	display: none;
 }
-
+.alm-btn-wrap{
+	clear:both;
+	width:100%;
+}
+.ajax-load-more-wrap.blue button.alm-load-more-btn, .ajax-load-more-wrap.blue button.alm-load-more-btn:hover, .ajax-load-more-wrap.blue button.alm-load-more-btn.done {
+    background-color: #E7332C!important;
+}
 
 /*resoponsivo*/
 /*resoponsivo*/

@@ -19,89 +19,30 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
-get_header( 'shop' ); ?>
-<?php
-		/**
-		 * woocommerce_sidebar hook.
-		 *
-		 * @hooked woocommerce_get_sidebar - 10
-		 */
-		do_action( 'woocommerce_sidebar' );
-	?>
-	<?php
-		/**
-		 * woocommerce_before_main_content hook.
-		 *
-		 * @hooked woocommerce_output_content_wrapper - 10 (outputs opening divs for the content)
-		 * @hooked woocommerce_breadcrumb - 20
-		 */
-		do_action( 'woocommerce_before_main_content' );
-	?>
+get_header( '' ); 
+get_sidebar('taxonomy');
 
-		<?php if ( apply_filters( 'woocommerce_show_page_title', true ) ) : ?>
+?>
+ <main id="content" class="col-sm-9" tabindex="-1" role="main">
+ 	<?php $term = $_GET['s'];?>
+	<h1>Resultados da busca por:<b><?php echo $term; ?></b></h1>
 
-			<h1 class="page-title"><?php woocommerce_page_title(); ?></h1>
-
-		<?php endif; ?>
-
+	<?php 
+	echo "<h2>Produtos:</h2>";?>
+	<div class="busca-produtos">
 		<?php
-			/**
-			 * woocommerce_archive_description hook.
-			 *
-			 * @hooked woocommerce_taxonomy_archive_description - 10
-			 * @hooked woocommerce_product_archive_description - 10
-			 */
-			do_action( 'woocommerce_archive_description' );
-		?>
-
-		<?php if ( have_posts() ) : ?>
-
-			<?php
-				/**
-				 * woocommerce_before_shop_loop hook.
-				 *
-				 * @hooked woocommerce_result_count - 20
-				 * @hooked woocommerce_catalog_ordering - 30
-				 */
-				do_action( 'woocommerce_before_shop_loop' );
-			?>
-
-			<?php woocommerce_product_loop_start(); ?>
-
-				<?php woocommerce_product_subcategories(); ?>
-
-				<?php while ( have_posts() ) : the_post(); ?>
-
-					<?php wc_get_template_part( 'content', 'prod-lista' ); ?>
-
-				<?php endwhile; // end of the loop. ?>
-
-			<?php woocommerce_product_loop_end(); ?>
-
-			<?php
-				/**
-				 * woocommerce_after_shop_loop hook.
-				 *
-				 * @hooked woocommerce_pagination - 10
-				 */
-				do_action( 'woocommerce_after_shop_loop' );
-			?>
-
-		<?php elseif ( ! woocommerce_product_subcategories( array( 'before' => woocommerce_product_loop_start( false ), 'after' => woocommerce_product_loop_end( false ) ) ) ) : ?>
-
-			<?php wc_get_template( 'loop/no-products-found.php' ); ?>
-
-		<?php endif; ?>
-
-	<?php
-		/**
-		 * woocommerce_after_main_content hook.
-		 *
-		 * @hooked woocommerce_output_content_wrapper_end - 10 (outputs closing divs for the content)
-		 */
-		do_action( 'woocommerce_after_main_content' );
+	echo do_shortcode('[ajax_load_more repeater="repeater1" post_type="product"  posts_per_page="3" search="'. $term .'" scroll="false" button_label="Mais resultados"]');
 	?>
+	</div>
 
-	
+	<!-- busca-produtos -->
+	<?php 
+	echo '<h2>Páginas:</h2>
+	<div class="busca-paginas">';
+	echo do_shortcode('[ajax_load_more repeater="repeater2" post_type="page"  posts_per_page="3" search="'. $term .'" scroll="false" button_label="Mais resultados"]');
+	echo '</div>';
 
-<?php get_footer( 'shop' ); ?>
+?>
+</main>
+<?php 
+ get_footer( '' ); ?>
