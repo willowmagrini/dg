@@ -363,7 +363,8 @@ input::-webkit-input-placeholder {
 	padding-top:15px;
 }
 .produto-fundo h4{
-		margin:  0 15px;
+	margin:  0 15px;
+    height: 70px;
 
 }
 .produto-fundo .clearfix{
@@ -385,19 +386,43 @@ input::-webkit-input-placeholder {
 	.produto .amount{
 	background-color:#FCEA0D;
 	padding: 4px 11px;
-	width: 85px;
     display: inline-block;
+    width: 100%;
     text-align:center;
     /*margin-left: -4px;*/
+    font-size: 18px;
 
 
+}
+.price .amount:nth-child(2){
+	width:33%;
+}
+.produto ins, .produto del{
+	text-decoration:none;
+	float:left;
+	width: 33%;
+}
+.produto .amount span{
+	display:none;
+}
+.produto del{
+	width:34%;
 }
 .produto .price{
 	position:absolute;
 	font-weight: 500;
     bottom: 0;
     right: 0px;
+    width: 100%;
+    font-weight: bolder;
 
+
+}
+.sem-bold .amount{
+	background-color: #2eb8d2
+}
+.sem-bold{
+	font-weight: 200;
 }
 .produto-home {
 	position:relative;
@@ -483,7 +508,8 @@ input::-webkit-input-placeholder {
 
 }
 .produto .price{
-	background-color: #FCEA0D;
+	width: 100%;
+	/*background-color: #FCEA0D;*/
 }
 
 .produto .sociais, .single-product .sociais{

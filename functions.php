@@ -919,3 +919,4 @@ function wcs_custom_get_availability( $availability, $_product ) {
 /* Adding the Add-To-Cart button so that it would go after the main product description.
  */
 // add_action( 'woocommerce_after_single_product_summary', 'woocommerce_template_single_add_to_cart', 12 );
+// remove_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_price', 10 ); 

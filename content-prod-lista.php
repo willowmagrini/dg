@@ -17,7 +17,7 @@
 						<div class="produto-fundo">
 							<?php
 							echo '<h4><a href="'.get_permalink($post->ID).'">'.$product->get_title().'</a></h4>';
-							the_excerpt();
+							// the_excerpt();
 							?>
 
 							
