@@ -1339,7 +1339,20 @@ form .busca:hover {
 #wpadminbar{
 	display: none;
 }
+.alm-btn-wrap #load-more{
+	visibility: hidden;
+    background: transparent;
+    color: #000;	
+
+}
+.search .alm-btn-wrap #load-more{
+	visibility: visible;
+}
+.alm-btn-wrap #load-more.loading{
+	visibility: visible;
+}
 .alm-btn-wrap{
+	
 	clear:both;
 	width:100%;
 }
