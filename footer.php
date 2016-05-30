@@ -32,6 +32,8 @@
 					<img src="<?php echo get_template_directory_uri(); ?>/assets/images/pay.png" alt="">
 					<img src="<?php echo get_template_directory_uri(); ?>/assets/images/pag.png" alt="">
 				</div>
+						<div class="clearfix"></div>
+
 			</div>
 			<div class="col-sm-3">
 				<h3>SOBRE NÓS</h3>
@@ -66,6 +68,8 @@
 					<?php }?>
 				
 				</div>
+						<div class="clearfix"></div>
+
 			</div>
 			<div class="col-sm-3">
 				<div class="menus-footer">
@@ -80,6 +84,7 @@
 						wp_nav_menu(array('theme_location' => 'menu-footer-2',));
 					?>
 				</div>
+			<div class="clearfix"></div>
 
 			</div>
 			<div id="contato-footer"class="col-sm-3">
@@ -90,15 +95,22 @@
 
 					?>
 				</p>
+						<div class="clearfix"></div>
+
 			</div>
+		<div class="clearfix"></div>
 
 		</div>
+		<div class="clearfix"></div>
+
 		<div class=" rodape container">
 			<p>&copy; 2015  SUPE - startup e commerce comercial.</p>
 		</div><!-- .container -->
 	</footer><!-- #footer -->
 	<div id="fundo-modal">	<img id="ajax-loader" style="display:none" src="<?php echo get_template_directory_uri(); ?>/assets/images/ajax-loader.gif">
 	</div>
+	<div class="clearfix"></div>
+
 	<div id="modal-conteudo">
 		<a href="#">
 			<div style="display:none" id="botao-fechar">x</div>
@@ -106,6 +118,7 @@
 		<div style="display:none;" class="animated fadeIn" id="html">
 			<?php echo do_shortcode('[contact-form-7 id="182" title="Encomenda"]' ); ?>
 		</div>		
+		<div class="clearfix"></div>
 	</div>
 	<?php wp_footer(); ?>
 </body>

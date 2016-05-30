@@ -29,5 +29,7 @@ global $product;
 	<meta itemprop="price" content="<?php echo esc_attr( $product->get_price() ); ?>" />
 	<meta itemprop="priceCurrency" content="<?php echo esc_attr( get_woocommerce_currency() ); ?>" />
 	<link itemprop="availability" href="http://schema.org/<?php echo $product->is_in_stock() ? 'InStock' : 'OutOfStock'; ?>" />
+	<h5 id="parcelamento">  <?php 	echo get_field('parcelamento'); ?></h5>
+
 
 </div>

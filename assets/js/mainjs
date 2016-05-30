@@ -17,59 +17,61 @@ jQuery(document).ready(function($) {
 	});
 	$('#slider-2').owlCarousel({
  
-	    // Most important owl features
-	    items : 2,
-	    itemsDesktop : [1000,2], //5 items between 1000px and 901px
-	    itemsDesktopSmall : [900,2], // betweem 900px and 601px
-	     
-	    autoPlay : false,
-	    navigation : true,
-	    navigationText : ["<div class='prev-slider-2 nav-slider'></div>","<div class='prox-slider-2 nav-slider'></div>"],
-	    pagination:false
+    // Most important owl features
+    items : 2,
+    itemsDesktop : [1000,2], //5 items between 1000px and 901px
+      itemsDesktopSmall : [900,2], // betweem 900px and 601px
+     
+    autoPlay : false,
+    navigation : true,
+    navigationText : ["<div class='prev-slider-2 nav-slider'></div>","<div class='prox-slider-2 nav-slider'></div>"],
+    pagination:false
 
     
  
+});
+	$('#slider-prod').owlCarousel({
+ 
+    // Most important owl features
+    items : 1,
+    itemsDesktop : [1000,1], //5 items between 1000px and 901px
+      itemsDesktopSmall : [900,1], // betweem 900px and 601px
+    autoPlay : true,
+    navigation : false,
+    pagination:true
+
+    
+ 
+});
+	$('#slider-1').owlCarousel({
+ 
+  
+    items : 1,
+    autoPlay:8000,
+    itemsDesktop : [1000,1], //5 items between 1000px and 901px
+      itemsDesktopSmall : [900,1], // betweem 900px and 601px
+      itemsTablet: [600,1], //2 items between 600 and 0
+      itemsMobile : false // itemsMobile disabled - inherit from itemsTablet option
+    
+ 
 	});
-		$('#slider-prod').owlCarousel({
-	 
-	    // Most important owl features
-	    items : 1,
-	    itemsDesktop : [1000,1], //5 items between 1000px and 901px
-	      itemsDesktopSmall : [900,1], // betweem 900px and 601px
-	    autoPlay : true,
-	    navigation : false,
-	    pagination:true
-
-	    
-	 
-	});
-		$('#slider-1').owlCarousel({
-	 
-	  
-	    items : 1,
-	    autoPlay:8000,
-	    itemsDesktop : [1000,1], //5 items between 1000px and 901px
-	      itemsDesktopSmall : [900,1], // betweem 900px and 601px
-	      itemsTablet: [600,1], //2 items between 600 and 0
-	      itemsMobile : false // itemsMobile disabled - inherit from itemsTablet option
-	    
-	 
-		});
-		
-		$('#slider-3').owlCarousel({
-	     itemsDesktop : [1000,1], //5 items between 1000px and 901px
-	     itemsDesktopSmall : [900,1], // betweem 900px and 601px
-	     itemsTablet: [600,1], //2 items between 600 and 0
+	
+	$('#slider-3').owlCarousel({
+     itemsDesktop : [1000,1], //5 items between 1000px and 901px
+     itemsDesktopSmall : [900,1], // betweem 900px and 601px
+     itemsTablet: [600,1], //2 items between 600 and 0
 
 
-	    // Most important owl features
-	    items : 1,
-	    autoPlay:false,
-	    navigation : true,
+    // Most important owl features
+    items : 1,
+    autoPlay:false,
+    navigation : true,
+    navigationText : ["<div class='prev-slider-2 nav-slider'></div>","<div class='prox-slider-2 nav-slider'></div>"],
+    pagination:false
 
-	    navigationText : ["<div class='prev-slider-3 '></div>","<div class='nav-slider prox-slider-3'></div>"],
-	    pagination:false
-	});
+    
+ 
+});
 
 	// Tooltip.
 	$( '.odin-tooltip' ).tooltip();

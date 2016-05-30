@@ -25,22 +25,70 @@ get_sidebar('taxonomy');
 ?>
  <main id="content" class="col-sm-9" tabindex="-1" role="main">
  	<?php $term = $_GET['s'];?>
-	<h1>Resultados da busca por:<b><?php echo $term; ?></b></h1>
+	<h1>Resultados da busca por: <b><?php echo $term; ?></b></h1>
 
 	<?php 
-	echo "<h2>Produtos:</h2>";?>
-	<div class="busca-produtos">
-		<?php
-	echo do_shortcode('[ajax_load_more repeater="repeater1" post_type="product"  posts_per_page="3" search="'. $term .'" scroll="false" button_label="Mais resultados"]');
+	global $wpdb;
+	// If you use a custom search form
+	// $keyword = sanitize_text_field( $_POST['keyword'] );
+	// If you use default WordPress search form
+	$keyword = $term;
+	$keyword ='%'. $keyword .'%';// Thanks Manny Fleurmond
+	// Search in all custom fields
+	$post_ids_meta = $wpdb->get_col( $wpdb->prepare("
+	SELECT DISTINCT post_id FROM {$wpdb->postmeta}
+	WHERE meta_value LIKE '%s'
+	", $keyword ));
+	// Search in post_title and post_content
+	$post_ids_post = $wpdb->get_col( $wpdb->prepare("
+	SELECT DISTINCT ID FROM {$wpdb->posts}
+	WHERE post_title LIKE '%s'
+	OR post_content LIKE '%s'
+	", $keyword, $keyword ));
+	$post_ids = array_merge( $post_ids_meta, $post_ids_post );
+	// Query arguments
+	$args = array(
+	'post_type'=>'product',
+	'posts_per_page'=>'-1',
+	'post__in'=> $post_ids,
+	);
+	$post_ids = implode(",", $post_ids);
+	// echo $post_ids;
+		
+		$mySearch = new WP_Query($args);
+		$NumResults = $mySearch->found_posts;
+		if ($NumResults == 0) {
+			
+			echo '<h4>Nenhum produto encontrado</h4>';
+		}
+		else{
+			echo "<h2>Produtos:</h2>";?>
+			<div class="busca-produtos">
+			<?php
+		
+			echo do_shortcode('[ajax_load_more post__in="'.$post_ids.'" post_type="product"  posts_per_page="3"  scroll="false" button_label="Mais resultados"]');
+			?>	</div>
+		<?php 
+		}
 	?>
-	</div>
 
 	<!-- busca-produtos -->
 	<?php 
-	echo '<h2>Páginas:</h2>
-	<div class="busca-paginas">';
-	echo do_shortcode('[ajax_load_more repeater="repeater2" post_type="page"  posts_per_page="3" search="'. $term .'" scroll="false" button_label="Mais resultados"]');
-	echo '</div>';
+		$mySearch = new WP_Query(array( 's' => $term, 'post_type'=>'page', 'posts_per_page'=>'-1' ));
+		$NumResults = $mySearch->found_posts;
+		if ($NumResults == 0) {
+			
+			echo '<h4>Nenhuma página encontrada</h4>';
+		}
+		else{
+			echo '<h2>Páginas:</h2>
+			<div class="busca-paginas">';
+			echo do_shortcode('[ajax_load_more repeater="repeater2" post_type="page"  posts_per_page="3" search="'. $term .'" scroll="false" button_label="Mais resultados"]');
+			echo '</div>';	}
+			
+	
+		
+	
 
 ?>
 </main>
