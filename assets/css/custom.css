@@ -1301,7 +1301,7 @@ body{
 	background-color: transparent!important;
 }
 .woocommerce-checkout #payment ul.payment_methods li{
-	width: 33%;
+	width: 25%;
 	float: left;
 	vertical-align: top;
 }
@@ -1362,7 +1362,7 @@ html .woocommerce-checkout #payment div.payment_box{
     z-index: 9;
 
 }
-html .wc_payment_method input{
+html .wc_payment_method input.input-radio{
 	display: none;
 }
 html .wc_payment_method  label{
