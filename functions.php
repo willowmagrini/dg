@@ -211,7 +211,11 @@ add_action( 'after_switch_theme', 'odin_flush_rewrite' );
  * @since 2.2.0
  */
 function odin_enqueue_scripts() {
+
 	$template_url = get_template_directory_uri();
+
+
+
 	wp_enqueue_style( 'odin-custom-style', $template_url . '/assets/css/custom.css', array(), null, 'all' );
 	wp_enqueue_style( 'google-fonts', 'https://fonts.googleapis.com/css?family=Roboto+Condensed:700,400,300|Roboto:400,700,300', array(), null, 'all' );
 
@@ -224,6 +228,9 @@ function odin_enqueue_scripts() {
 
 	// jQuery.
 	wp_enqueue_script( 'jquery' );
+
+	wp_enqueue_script( 'attrchange',$template_url .'/assets/js/attrchange.js', array('jquery'), null, true );
+	wp_enqueue_script( 'attrchange_ext-js',$template_url .'/assets/js/attrchange_ext.js', array('jquery'), null, true );
 
 	// General scripts.
 		// Bootstrap.

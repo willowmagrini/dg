@@ -34,7 +34,9 @@ if ( ! is_ajax() ) {
 					echo '<li>' . apply_filters( 'woocommerce_no_available_payment_methods_message', WC()->customer->get_country() ? __( 'Sorry, it seems that there are no available payment methods for your state. Please contact us if you require assistance or wish to make alternate arrangements.', 'woocommerce' ) : __( 'Please fill in your details above to see available payment methods.', 'woocommerce' ) ) . '</li>';
 				}
 			?>
+		<div id="conteudo-pagamento"></div>
 		</ul>
+
 	<?php endif; ?>
 	<div class="form-row place-order">
 		<noscript>

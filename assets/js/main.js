@@ -1,3 +1,4 @@
+
 jQuery(document).ready(function($) {
 	
 	// fitVids.
@@ -5,6 +6,26 @@ jQuery(document).ready(function($) {
 
 	// Responsive wp_video_shortcode().
 	$( '.wp-video-shortcode' ).parent( 'div' ).css( 'width', 'auto' );
+	
+	
+	$(document).on("click",".wc_payment_method", function () {
+		var elemento = $(this).children('.payment_box');
+		if ($(this).attr('data-conteudo')=='') {
+			$(this).attr('data-conteudo', elemento.html());
+			$('#conteudo-pagamento').html(elemento.html());
+			 elemento.html('teste');
+			 // elemento.css('display','none');
+		}
+		else{
+			$('#conteudo-pagamento').html($(this).attr('data-conteudo'));
+				elemento.html('');
+				elemento.css('display','none');
+		} 		 
+		
+	});
+	// $('#payment_method_pagseguro').click();
+		
+
 
 	/**
 	 * Odin Core shortcodes

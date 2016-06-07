@@ -7,6 +7,11 @@ Copyright (C) 2013-2014 Selvakumar Arumugam
 You may use attrchange ext plugin under the terms of the MIT Licese.
 https://github.com/meetselva/attrchange/blob/master/MIT-License.txt
  */
+(function ( $ ) { 
+
+    // put all that "wl_alert" code here   
+
+
 $.fn.attrchange.extensions = { /*attrchange option/extension*/
 	disconnect: function (o) {
 		if (typeof o !== 'undefined' && o.isPhysicalDisconnect) {
@@ -95,3 +100,4 @@ $.fn.attrchange.extensions = { /*attrchange option/extension*/
 		}
 	}
 }
+}( jQuery ));

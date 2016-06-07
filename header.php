@@ -24,8 +24,6 @@
 	<script src="<?php echo get_template_directory_uri(); ?>/assets/js/html5.js"></script>
 	<![endif]-->
 	<?php wp_head(); ?>
-	<script src="<?php echo get_template_directory_uri(); ?>/assets//js/attrchange.js"></script>
-	<script src="<?php echo get_template_directory_uri(); ?>/assets//js/attrchange_ext.js"></script>
 	<script async defer src="//assets.pinterest.com/js/pinit.js"></script>
 
 

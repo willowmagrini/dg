@@ -16,6 +16,10 @@ html .woocommerce input.button, html .woocommerce button.button, html .woocommer
 	border:none!important;
 	outline: none;
 }
+html .woocommerce-order-pay .order_details a.button{
+    width: auto;
+    padding: 11px;
+}
 *{
 font-family: 'Roboto Condensed', sans-serif!important;
 }
@@ -1289,6 +1293,10 @@ body{
 }
 
 }
+html .woocommerce table.my_account_orders .order-actions .button {
+ 
+    padding: 10px;
+}
 .woocommerce-account .addresses .address{
 	border: 1px solid rgba(0, 0, 0, 0.22);
     padding: 20px;
@@ -1301,7 +1309,7 @@ body{
 	background-color: transparent!important;
 }
 .woocommerce-checkout #payment ul.payment_methods li{
-	width: 25%;
+	width: 20%;
 	float: left;
 	vertical-align: top;
 }
@@ -1367,6 +1375,7 @@ html .wc_payment_method input.input-radio{
 }
 html .wc_payment_method  label{
 	padding:20px;
+	padding-bottom: 40px;
 
 }
 html .wc_payment_method input[type="radio"]:checked+label{
@@ -1375,10 +1384,21 @@ html .wc_payment_method input[type="radio"]:checked+label{
 	z-index: 99;
 	background-color: #fff;
 	border-bottom: 0;
-}	
+	height: 121px;
+
+}
+html #add_payment_method #payment ul.payment_methods li, html .woocommerce-checkout #payment ul.payment_methods li {
+    height: 120px;
+}
 html .wc_payment_methods.payment_methods{
-	height: 200px;
+	/*height: 200px;*/
 }	
+#conteudo-pagamento{
+	border: 1px dashed #7E7F84;
+	clear: both;
+	padding:20px;
+}
+
 .container{
 	margin-bottom: 40px;
 }
