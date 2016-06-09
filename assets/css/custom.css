@@ -50,7 +50,7 @@ h1, h2, h3{
 	/*header*//*header*//*header*/
 #top-navigation{
 	border:none;
-	background-color: #F2F2F2;
+	background-color: #e5e5e5;
 	    min-height: 45px;
 
 }
@@ -115,7 +115,7 @@ main.col-sm-12, #wrapper{
 	margin-bottom:0;
 }
 #header .container #main-navigation{
-	background-color:#fff;
+	background-color:#F2F2F2;
 	border: none;
    margin: 33px 0;
 
@@ -138,7 +138,7 @@ main.col-sm-12, #wrapper{
 }
 .navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:hover, .navbar-default .navbar-nav>.open>a:focus{
 	text-decoration: underline;
-	background-color: #fff!important;
+	background-color: #F2F2F2!important;
 }
 .navbar-main-navigation {
 	position: relative;
@@ -152,10 +152,14 @@ main.col-sm-12, #wrapper{
     transition: border 0.3s;
     margin-bottom: 10px;
     padding-left: 5px;
+    background-color: #F2F2F2;
     font-weight: 700;
     padding-right: 14px;
 
 
+}
+.btn-default:focus, input[type="submit"]:focus, input[type="reset"]:focus, button:focus, .btn-default.focus, input.focus[type="submit"], input.focus[type="reset"], button.focus{
+	background-color:#fff!important; 
 }
 ::-webkit-input-placeholder {
 	color:#fff;
@@ -384,7 +388,7 @@ input::-webkit-input-placeholder {
 	padding-right: 10px;
 }
 .produto-fundo{
-	background-color:#F2F2F2;
+	background-color:#e5e5e5;
 	padding-top:15px;
 }
 .produto-fundo h4{
@@ -736,7 +740,7 @@ html .woocommerce-cart table.cart img {
 /*carrinho*/
 
 .single-product .control-prod, .cart_item .control-prod{
-	background-color: #F2F2F2;
+	background-color: #fff;
     vertical-align: top;
     float: left;
 
@@ -1250,6 +1254,7 @@ html .woocommerce .related button.button{
 	z-index: 9999;
 }
 body{
+	background-color: #F2F2F2!important;
 	margin-top:45px!important;
 	display: none;
 	}
@@ -1282,9 +1287,9 @@ body{
 .single-product div.product .related form.cart div.quantity{
 	margin:0!important;
 }
-@media (min-width: 768px){
+@media (max-width: 992px){
 	.woocommerce-cart main, .woocommerce-checkout main, .woocommerce-account main{
-	width: 75%;
+	width: 100%;
 	}	
 	.slide-2:hover .borda{
 	-webkit-box-shadow:inset 0px 0px 0px 10px #FCEA0D!important;
@@ -1313,6 +1318,7 @@ html .woocommerce table.my_account_orders .order-actions .button {
 	float: left;
 	vertical-align: top;
 }
+
 html .woocommerce form.checkout_coupon{
 
     border: none;
@@ -1351,7 +1357,7 @@ html .checkout_coupon{
 	margin-top:0;
 }
 html .woocommerce-checkout #payment{
-	background-color: #fff
+	background-color: #F2F2F2
 }
 .about_paypal{
 	display: none;
@@ -1361,7 +1367,7 @@ html .woocommerce-checkout #payment div.payment_box:before{
 }
 
 html .woocommerce-checkout #payment div.payment_box{
-	background-color:#fff!important;
+	background-color:#F2F2F2!important;
 	border: 1px dashed #7E7F84;
     margin-top: -6px!important;
     position: absolute;
@@ -1376,20 +1382,65 @@ html .wc_payment_method input.input-radio{
 html .wc_payment_method  label{
 	padding:20px;
 	padding-bottom: 40px;
+    font-size: 13px;
+
+    text-align: center;
+
+
+}
+html .payment_method_pagseguro label img,
+html .payment_method_paypal label img {
+	display: none;
+}
+/*html .payment_method_pagseguro label:after{
+ 	content: 'PagSeguro';
+ 	display: block;
+ }
+html .payment_method_paypal label:after{
+ 	content: 'Paypal';
+ 	display: block;
+ }*/
+ html .payment_method_wc_traycheckout_tef label{
+     background: url('../images/cartao-debito.png');
+ }
+ html .payment_method_wc_traycheckout_cc label{
+     background: url('../images/cartao-credito.png');
+ }
+ html .payment_method_wc_traycheckout_bs label{
+     background: url('../images/boleto.png');
+ }
+ html .payment_method_paypal label{
+ 	background: url('../images/paypal.png');
+
+ }
+ html .payment_method_pagseguro label{
+ 	background: url('../images/pagseguro.png');
+ 	    background-position: 50% 39%!important;
+
+
+ }
+html .payment_method_pagseguro label,html .payment_method_paypal label, html .payment_method_wc_traycheckout_cc label, html .payment_method_wc_traycheckout_tef label, html .payment_method_wc_traycheckout_bs label {
+	width: 100%;
+    background-repeat: no-repeat;
+    background-position: 50% 22%;
+    background-size: 56%;
+    padding: 82px 20px 40px;
 
 }
 html .wc_payment_method input[type="radio"]:checked+label{
 	border: 1px dashed #7E7F84;
 	position: relative;
 	z-index: 99;
-	background-color: #fff;
+	background-color: #F2F2F2;
 	border-bottom: 0;
 	height: 121px;
 
 }
+
 html #add_payment_method #payment ul.payment_methods li, html .woocommerce-checkout #payment ul.payment_methods li {
     height: 120px;
 }
+
 html .wc_payment_methods.payment_methods{
 	/*height: 200px;*/
 }	
@@ -1760,6 +1811,10 @@ svg:active, svg:focus{
 
 }
 @media (max-width: 992px){
+	html .payment_method_pagseguro label, html .payment_method_paypal label, html .payment_method_wc_traycheckout_cc label, html .payment_method_wc_traycheckout_tef label, html .payment_method_wc_traycheckout_bs label{
+		font-size: 12px;
+	}
+
 	#sidebar{
 		display: none;
 	}
@@ -1791,10 +1846,10 @@ svg:active, svg:focus{
 		width: 90%;
 	}
 	html .wc_payment_methods.payment_methods {
-    height: 238px;
+    /*height: 238px;*/
 }
 	html .wc_payment_method label {
-    padding: 29px;
+    /*padding: 29px;*/
 }
 	 .woocommerce-cart a.button.checkout-button, .button.wc-backward, .button.wc-forward{
 	 	width: initial!important;
@@ -1869,6 +1924,44 @@ svg:active, svg:focus{
 /*viweport 768*/
 /*viweport 768*/
 @media (max-width: 768px){
+	html #wc-traycheckout-bs-payment-form label,html #wc-traycheckout-bs-payment-form ul{
+		display: none;
+	}
+	.woocommerce-checkout #payment ul.payment_methods > li.payment_method_pagseguro,html .woocommerce-checkout #payment ul.payment_methods> li.payment_method_pagseguro label{
+		height: 57px
+	}
+	html .wc_payment_method input[type="radio"]:checked+label, html .wc_payment_method input[type="radio"] label {
+    border: 0;
+    
+	}
+	.wc_payment_method input[type="radio"]+label{
+		    opacity: 0.7;
+
+	}
+	html .wc_payment_method input[type="radio"]:checked+label{
+		opacity: 1;
+	}
+	.woocommerce-checkout #payment ul.payment_methods > li, html .woocommerce-checkout #payment ul.payment_methods > li, html .woocommerce-checkout #payment ul.payment_methods > li label{
+	width: 100%;
+    height: 70px;
+    position: relative;
+    background-size: 150px auto;
+    height: 130px;
+    padding: 0;    width: 100%;
+    height: 128px;
+    margin-bottom: 34px;
+    background-size: 150px auto;
+    padding: 0;
+    background-position: 50% 100%!important;
+	}
+	html .payment_method_paypal label:after {
+    content: 'Paypal';
+    display: block;
+    bottom: 0;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+}
 	.woocommerce-cart .product-quantity .quantity{
 		float: right;
 	}
@@ -1922,7 +2015,6 @@ svg:active, svg:focus{
 		width: 88%;
 	}
 	html .wc_payment_methods.payment_methods {
-	    height: 280px;
 	}
 	html .checkout_coupon p.form-row-first{
 		width: 100%!important;

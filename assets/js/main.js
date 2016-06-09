@@ -14,7 +14,7 @@ jQuery(document).ready(function($) {
 			$(this).attr('data-conteudo', elemento.html());
 			$('#conteudo-pagamento').html(elemento.html());
 			 elemento.html('teste');
-			 // elemento.css('display','none');
+			 elemento.css('display','none');
 		}
 		else{
 			$('#conteudo-pagamento').html($(this).attr('data-conteudo'));
@@ -94,6 +94,25 @@ jQuery(document).ready(function($) {
 
 	// Tooltip.
 	$( '.odin-tooltip' ).tooltip();
+
+	$(document).on("click",".control-prod", function (e) {
+		e.preventDefault();
+		$(this).siblings('input').val(ver_qtd($(this)));
+
+		
+	});
+	$(document).on("focusout",".produto .qty", function (e) {
+		$(this).siblings('input').val(ver_qtd($(this)));
+		max=parseInt($(this).attr('max'));
+		min=parseInt($(this).attr('min'));
+		if ($(this).val() > max){
+			$(this).val(max)
+		}
+		if ($(this).val() < min){
+			$(this).val(min);
+		}
+		
+	});
 	function ver_qtd(elemento){
 		valor=parseInt($(elemento).siblings('input').val());
 		num=parseInt($(elemento).attr('data-value'));
@@ -107,21 +126,22 @@ jQuery(document).ready(function($) {
 			return valor
 		}
 	}
-	$('.control-prod').click(function(e){
-		e.preventDefault();
-		$(this).siblings('input').val(ver_qtd($(this)));
-	});
-	$( ".produto .qty" ).focusout(function() {
-		max=parseInt($(this).attr('max'));
-		min=parseInt($(this).attr('min'));
-		if ($(this).val() > max){
-			$(this).val(max)
-		}
-		if ($(this).val() < min){
-			$(this).val(min);
-		}
 
-	});
+	// $('.control-prod').click(function(e){
+	// 	e.preventDefault();
+	// 	$(this).siblings('input').val(ver_qtd($(this)));
+	// });
+	// $( ".produto .qty" ).focusout(function() {
+	// 	max=parseInt($(this).attr('max'));
+	// 	min=parseInt($(this).attr('min'));
+	// 	if ($(this).val() > max){
+	// 		$(this).val(max)
+	// 	}
+	// 	if ($(this).val() < min){
+	// 		$(this).val(min);
+	// 	}
+
+	// });
 	
 	var ativa=$('.menu-item.active a').attr('href');
 	var variavel = $('#menu-menu-categorias a[href="' + ativa + '"]');
