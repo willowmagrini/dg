@@ -12,51 +12,40 @@ function ordena_prod_func(){
 	// echo $post['ordem'];
 	$resposta=array();
 	$resposta['html']="";
-
-	$args = array(
-					'posts_per_page' => 8,
-					'post_type' => 'product',
-					'tax_query' => array(
-						array(
-							'taxonomy' => 'product_cat',
-							'field'    => 'slug',
-							'terms'    => $post['tax'],
-						),
-					),	
-				);
+	$tax=$post['tax'];
 	switch ($post['ordem']) {
 		case '0':
-			# code...
+		echo do_shortcode('[ajax_load_more  taxonomy="product_cat" taxonomy_terms="'.$tax.'" button_loading_label="carregando" scroll_distance ="-200" button_label="Mais" repeater="repeater1" post_type="product"  posts_per_page="12"  scroll="true"]');
 			break;
 		
 		case '1':
-			$args['orderby']= 'title';
-			$args['order']= 'ASC';
-
+		echo do_shortcode('[ajax_load_more  taxonomy="product_cat"  taxonomy_terms="'.$tax.'" orderby="title" order="ASC" button_loading_label="carregando" scroll_distance ="-200" button_label="Mais" repeater="repeater1" post_type="product"  posts_per_page="12"  scroll="true"]');
 		break;
 		
 		case '2':
-			$args['orderby']= 'meta_value_num';
-			$args['meta_key']= '_price';
-			$args['order']= 'ASC';
-			break;
-		
+		echo do_shortcode('[ajax_load_more  taxonomy="product_cat"  taxonomy_terms="'.$tax.'" orderby="meta_value_num" meta_key="_price" order="ASC" button_loading_label="carregando" scroll_distance ="-200" button_label="Mais" repeater="repeater1" post_type="product"  posts_per_page="12"  scroll="true"]');
+		break;
+
+		case '3':
+		echo do_shortcode('[ajax_load_more  taxonomy="product_cat"  taxonomy_terms="'.$tax.'" orderby="meta_value_num" meta_key="_price" order="DESC" button_loading_label="carregando" scroll_distance ="-200" button_label="Mais" repeater="repeater1" post_type="product"  posts_per_page="12"  scroll="true"]');
+		break;
+
 		default:
 			# code...
 			break;
 	}
-		$WP_Query_produtos = new WP_Query( $args );
+	// 	$WP_Query_produtos = new WP_Query( $args );
 	
-		if( $WP_Query_produtos->have_posts()  )
-		{
-				while ( $WP_Query_produtos->have_posts() ) 
-				{
-					$WP_Query_produtos->the_post();
-					$resposta['html'] .=load_template_part( 'content', 'prod-lista' );
-				}			
-		wp_reset_postdata(); // IMPORTANT - reset the $post object so the rest of the page works correctly
-	}
-	echo $resposta['html'];
+	// 	if( $WP_Query_produtos->have_posts()  )
+	// 	{
+	// 			while ( $WP_Query_produtos->have_posts() ) 
+	// 			{
+	// 				$WP_Query_produtos->the_post();
+	// 				$resposta['html'] .=load_template_part( 'content', 'prod-lista' );
+	// 			}			
+	// 	wp_reset_postdata(); // IMPORTANT - reset the $post object so the rest of the page works correctly
+	// }
+	// echo $resposta['html'];
 
 	wp_die();
 }

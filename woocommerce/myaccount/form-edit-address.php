@@ -18,7 +18,8 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
-
+?>			<a class="voltar-conta button" href="../../" >Voltar para Minha conta</a>
+<?php 
 $page_title   = ( $load_address === 'billing' ) ? __( 'Billing Address', 'woocommerce' ) : __( 'Shipping Address', 'woocommerce' );
 ?>
 
@@ -48,7 +49,6 @@ $page_title   = ( $load_address === 'billing' ) ? __( 'Billing Address', 'woocom
 			<input type="submit" class="button" name="save_address" value="<?php esc_attr_e( 'Save Address', 'woocommerce' ); ?>" />
 			<?php wp_nonce_field( 'woocommerce-edit_address' ); ?>
 			<input type="hidden" name="action" value="edit_address" />
-			<a class="voltar-conta button" href="../../" >Ir para Minha conta</a>
 
 		</p>
 

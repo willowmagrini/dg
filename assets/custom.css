@@ -458,7 +458,15 @@ input::-webkit-input-placeholder {
     text-decoration: line-through;
 	background-color:#E5332A;
 }
-
+.produto-imagem{
+	overflow: hidden;
+}
+.produto-home:nth-child(4n+1){
+	clear:left;
+}
+.produto-imagem img:hover{
+	max-width:102%;
+}
 .produto-imagem{
 	position:relative;
 }
@@ -469,7 +477,7 @@ input::-webkit-input-placeholder {
 	clear:initial;
 }
 .tax-product_cat .produto:nth-child(3n+1), .archive .produto:nth-child(3n+1){
-	clear:left;
+	/*clear:left;*/
 }
 .produto .quantity{
 	display:inline-block;
@@ -872,7 +880,6 @@ html .woocommerce-cart table.cart img {
 }
 .my_account_orders .order-actions a, .button[name="save_account_details"],.button[name="save_address"]{
 	width: initial!important;
-	font-size: 13px!important;
 }
 
 .shop_table_responsive.cart, .shop_table{
@@ -884,21 +891,9 @@ html .woocommerce-cart table.cart img {
 .button.view{
 	padding: 10px!important;
 }
-.person-type-field{
-	float: left;
-    width: 47%;
-    overflow: visible;
-}
-#billing_persontype_field{
-	display: inline-block;
-	float: none;
-}
-.person-type-field:nth-child(2n){
-	float:right;
-}
 .voltar-conta{
-	clear: both;
-    float: none!important;
+	    clear: both;
+    float: right;
     width: initial!important;
     font-size: 10px!important;
     padding: 10px!important;
@@ -977,12 +972,8 @@ input, textarea{
 	padding:5px;
 }
 #ship-to-different-address label{
-	font-size: 18px!important;
+	font-size: 16px!important;
 	font-weight: 200!important;
-	display: inline-block;
-}
-#ship-to-different-address-checkbox{
-	margin:0 0 0 4px;
 }
 .checkout label{
 	font-weight: 200!important;

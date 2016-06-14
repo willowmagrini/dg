@@ -87,7 +87,7 @@ else{
 						<?php bloginfo( 'name' ); ?>
 					</a>
 				</div>
-				<nav class="collapse navbar-collapse navbar-main-navigation" role="navigation">
+				<nav class="collapse dropdown navbar-collapse navbar-main-navigation" role="navigation">
 					<?php
 						wp_nav_menu(
 							array(

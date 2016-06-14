@@ -47,17 +47,23 @@ get_sidebar('taxonomy');
 	", $keyword, $keyword ));
 	$post_ids = array_merge( $post_ids_meta, $post_ids_post );
 	// Query arguments
+	$args = array(
+	'post_type'=>'product',
+	'posts_per_page'=>'-1',
+	'post__in'=> $post_ids,
+	);
 	$post_ids = implode(",", $post_ids);
-	$NumResultsProducts = $post_ids;
-		// echo $post_ids;
+	// echo $post_ids;
 		
+		$products = new WP_Query($args);
 		$pages = new WP_Query(array( 's' => $term, 'post_type'=>'page', 'posts_per_page'=>'-1' ));
+		$NumResultsProducts = $products->found_posts;
 		$NumResultsPage = $pages->found_posts;
-		if ($NumResultsProducts == '' && $NumResultsPage ==0) {
+		if ($NumResultsProducts == 0 && $NumResultsPage ==0) {
 			echo '<h4>Nenhum resultado para a busca: <b>'.$term.'</b></h4>';
 		}
 		else{
-			if ($NumResultsProducts !== '') {
+			if ($NumResultsProducts !== 0) {
 				echo "<h2>Produtos:</h2>";?>
 				<div class="busca-produtos">
 				<?php

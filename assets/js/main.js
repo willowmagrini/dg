@@ -143,10 +143,14 @@ jQuery(document).ready(function($) {
 
 	// });
 	
-	var ativa=$('.menu-item.active a').attr('href');
-	var variavel = $('#menu-menu-categorias a[href="' + ativa + '"]');
+	// var ativa=$('.menu-item.active a').attr('href');
+	ativa =  window.location.href ;
+	console.log('ativa:'+ativa);
+	var variavel = $('#sidebar a[href="' + ativa + '"]');
+	// console.log('variavel'+variavel);
 	variavel.addClass('ativo');
-		console.log(variavel);
+		// console.log(variavel);
+
 
 $('body').on("load", function() {
 	var h = document.getElementById("slider-2").offsetHeight;
@@ -182,8 +186,10 @@ $('#ordem').change(function(e) {
 				'ordem': $(this).val()
 		};		
 		$.post(odin_main.ajaxurl, data, function(response) {
-			// console.log(response);
+			console.log(response);
 			$('#produtos-home').html(response);
+      $(".ajax-load-more-wrap").ajaxloadmore(); // re-initiate Ajax Load More
+
 		});
 
 	});

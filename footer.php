@@ -94,18 +94,21 @@
 					echo do_shortcode( '[contact-form-7 id="45" title="Footer"]' );;
 
 					?>
+
+
 				</p>
 						<div class="clearfix"></div>
 
 			</div>
 		<div class="clearfix"></div>
-
+			<div class=" rodape ">
+				<p>&copy; 2015  SUPE - startup e commerce comercial.</p>
+			</div><!-- .container -->
 		</div>
+
 		<div class="clearfix"></div>
 
-		<div class=" rodape container">
-			<p>&copy; 2015  SUPE - startup e commerce comercial.</p>
-		</div><!-- .container -->
+		
 	</footer><!-- #footer -->
 	<div id="fundo-modal">	<img id="ajax-loader" style="display:none" src="<?php echo get_template_directory_uri(); ?>/assets/images/ajax-loader.gif">
 	</div>

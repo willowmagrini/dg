@@ -24,6 +24,7 @@ get_header(); ?>
 			<option value="0">Mais recentes</option>
 			<option value="1">Ordem alfabética</option>
 			<option value="2">Menor preço</option>
+			<option value="3">Maior preço</option>
 		</select>
 		<input type='hidden' name='tax' id="taxAjax" value='<?php echo $term->slug; ?>'>
 		<div class="clearfix"></div>

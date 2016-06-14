@@ -365,7 +365,7 @@ add_filter( 'wp_nav_menu_items', 'add_loginout_link', 10, 2 );
 function add_loginout_link( $items, $args ) {
     if (is_user_logged_in() && ($args->theme_location == 'menu-topo' OR  $args->theme_location == 'menu-footer-2')) {
         $items .= '<li class="menu-item menu-item-type-post_type menu-item-object-page carrinho-menu"><a href="'. wp_logout_url( get_permalink( woocommerce_get_page_id( 'myaccount' ) ) ) .'">Sair</a></li>';
-         $items .= '<li class="menu-item menu-item-type-post_type menu-item-object-page page_item page-item-9  menu-item-28"><a title="Minha conta" href="' . get_permalink( wc_get_page_id( 'myaccount' )).' ">Minha conta</a></li>';
+         $items .= '<li class="menu-item menu-item-type-post_type menu-item-object-page page_item page-item-9  menu-item-28"><a title="Minha conta" href="' . get_permalink( wc_get_page_id( 'myaccount' )).'">Minha conta</a></li>';
     }
     elseif (!is_user_logged_in() && ($args->theme_location == 'menu-topo' OR  $args->theme_location == 'menu-footer-2')) {
         $items .= '<li class="menu-item menu-item-type-post_type menu-item-object-page carrinho-menu"><a href="' . get_permalink( wc_get_page_id( 'myaccount' ) ) . '">Entrar</a></li>
@@ -927,3 +927,12 @@ function wcs_custom_get_availability( $availability, $_product ) {
  */
 // add_action( 'woocommerce_after_single_product_summary', 'woocommerce_template_single_add_to_cart', 12 );
 // remove_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_price', 10 ); 
+
+
+function my_woocommerce_add_error( $error ) {
+    if( 'Que feio! O e-mail ou token do PagSeguro são inválidos amiguinho!' == $error ) {
+        $error = 'O e-mail ou token do PagSeguro são inválidos.';
+    }
+    return $error;
+}
+add_filter( 'woocommerce_add_error', 'my_woocommerce_add_error' );

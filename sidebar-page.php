@@ -10,9 +10,13 @@
 ?>
 
 <aside id="sidebar" class="col-sm-3" role="complementary">
+	<div class="lateral">
+		<div class="menus-lateral">
 	<?php
 		wp_nav_menu(array('theme_location' => 'menu-footer',));
 
-		wp_nav_menu(array('theme_location' => 'menu-footer-2',));
+		wp_nav_menu(array('theme_location' => 'menu-footer-2'));
 	?>
+		</div>
+	</div>
 </aside><!-- #sidebar -->

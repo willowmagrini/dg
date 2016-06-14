@@ -46,7 +46,7 @@
 								>	
 									<img src="<?php echo get_template_directory_uri(); ?>/assets/images/twitter-prod.png" alt="">
 								</a>
-								<a data-pin-do="buttonPin" data-pin-count="above" data-pin-custom="true" href="http://www.pinterest.com/pin/create/button/?url=<?php echo urlencode(get_permalink( )) ;?>&media=<?php echo wp_get_attachment_url($product->get_image_id());?>&description=<?php echo $product->get_title();?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/pinterest-prod.png" class="pin-btn"height="25"/></a>
+								<a data-pin-do="buttonPin" data-pin-count="above" data-pin-custom="true" target="_blank" href="http://www.pinterest.com/pin/create/button/?url=<?php echo urlencode(get_permalink( )) ;?>&media=<?php echo wp_get_attachment_url($product->get_image_id());?>&description=<?php echo $product->get_title();?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/pinterest-prod.png" class="pin-btn"height="25"/></a>
 								<div class="clearfix"></div>
 							</div>
 							<div class="clearfix"></div>
