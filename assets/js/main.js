@@ -186,14 +186,14 @@ $('#ordem').change(function(e) {
 				'ordem': $(this).val()
 		};		
 		$.post(odin_main.ajaxurl, data, function(response) {
-			console.log(response);
+			// console.log(response);
 			$('#produtos-home').html(response);
       $(".ajax-load-more-wrap").ajaxloadmore(); // re-initiate Ajax Load More
 
 		});
 
 	});
-	$('.encomendarAdd').click(function(e){
+	$(document).on("click",".encomendarAdd", function (e) {
 		e.preventDefault();
 	 	$('#fundo-modal').attr('modal-estado','ativo');
 	 	$('#modal-conteudo').attr('modal-estado','ativo');

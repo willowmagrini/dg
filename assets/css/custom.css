@@ -542,7 +542,7 @@ input::-webkit-input-placeholder {
 .dropdown li:hover>ul {
 	display:block;
 }
-.sociais a:hover{
+.sociais a:hover, .sociais a:focus{
 	text-decoration: none;
 }
 .produto .sociais, .single-product .sociais{
