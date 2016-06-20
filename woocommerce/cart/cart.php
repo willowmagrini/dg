@@ -152,7 +152,7 @@ wc_print_notices();
 	<?php
 
 	 do_action( 'woocommerce_cart_collaterals' ); ?>
-	 
+	 <div class="clearfix"></div>
 </div>
 <div id="compre-avisos">
 	<p id="aviso"><b>Atenção: </b>O prazo começa a contar a partir da aprovação do pagamento.</p>

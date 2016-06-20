@@ -22,6 +22,23 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 ?>
 
-<a href="<?php echo esc_url( wc_get_checkout_url() ) ;?>" class="checkout-button button alt wc-forward">
-	<?php echo __( 'Comprar', 'woocommerce' ); ?>
+<button href="http://rede.com.br/deepgeek/teste-de-login/" class="checkout-button cliente button alt wc-forward">
+	<?php echo __( 'Já sou cliente', 'woocommerce' ); ?>
+
+</button>
+<a href="<?php echo esc_url( wc_get_checkout_url() ) ;?>" class="checkout-button estranho button alt wc-forward">
+	<?php echo __( 'Não sou cliente', 'woocommerce' ); ?>
+
 </a>
+<a href="<?php echo esc_url( wc_get_checkout_url() ) ;?>" class="checkout-button comprar button alt wc-forward">
+	<?php echo __( 'Comprar', 'woocommerce' ); ?>
+
+</a>
+<div id="resultado-login"></div> <!-- To hold validation results -->  
+<form id="wp_login_form" class="form-login-carrinho"action="" method="post">  
+	<input id='email' placeholder="E-mail" type="text" name="username" class="text" value="">
+	<input id='senha' placeholder="Senha" type="password" name="password" class="text" value="">  
+	<input class="button login" type="submit" id="submitbtn" name="submit" value="Login">
+	<input type="hidden" name="checkout-url" id="checkout-url"value='<?php echo esc_url( wc_get_checkout_url() ) ?>' >  
+</form>  
+	<div class="clearfix"></div>

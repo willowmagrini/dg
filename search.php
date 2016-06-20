@@ -61,14 +61,14 @@ get_sidebar('taxonomy');
 				echo "<h2>Produtos:</h2>";?>
 				<div class="busca-produtos">
 				<?php
-				echo do_shortcode('[ajax_load_more post__in="'.$post_ids.'" post_type="product"  posts_per_page="30"  scroll="false" button_label="Mais resultados"]');
+				echo do_shortcode('[ajax_load_more post__in="'.$post_ids.'" post_type="product"  posts_per_page="30"  scroll="true" button_label="Mais resultados"]');
 				?>
 				</div>
 			<?php 			}
 			if ($NumResultsPage !== 0) {
 				echo '<h2>Páginas:</h2>
 				<div class="busca-paginas">';
-				echo do_shortcode('[ajax_load_more repeater="repeater2" post_type="page"  posts_per_page="3" search="'. $term .'" scroll="false" button_label="Mais resultados"]');
+				echo do_shortcode('[ajax_load_more repeater="repeater2" post_type="page"  posts_per_page="3" search="'. $term .'" scroll="true" button_label="Mais resultados"]');
 				echo '</div>';	
 			}			
 		}

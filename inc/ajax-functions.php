@@ -49,3 +49,37 @@ function ordena_prod_func(){
 
 	wp_die();
 }
+
+// login no carrinho
+add_action( 'wp_ajax_login_carrinho', 'login_carrinho_func' );
+add_action( 'wp_ajax_nopriv_login_carrinho', 'login_carrinho_func' );
+function login_carrinho_func(){
+	global $user_ID;  
+	global $woocommerce;  
+	$resposta=array();
+	$post=$_POST;
+	$nome = esc_sql($post['nome']);
+	$senha = esc_sql($post['senha']);
+	$lembrar=false;
+	$login_data = array();  
+	$login_data['user_login'] = $nome;  
+	$login_data['user_password'] = $senha;  
+	$login_data['remember'] = $lembrar;  
+	$user_verify = wp_signon( $login_data, true );   
+	if ( is_wp_error($user_verify) )   
+		{  
+  		$resposta['html']= "<span class='error'>".__( 'E-mail ou Senha Inválidos', 'woocommerce' ) ." </span>";  
+   		$resposta['ok'] = 0;
+ 	}
+ 	else   {    
+   		$resposta['html']="Login efetuado";  
+   		$resposta['ok'] = 1;
+
+ 	}  
+
+	echo json_encode($resposta);
+	wp_die( ); 
+
+}
+
+//login no carrinho

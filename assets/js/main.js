@@ -222,37 +222,64 @@ $('#ordem').change(function(e) {
   	});
   	if ($("body").hasClass('single-product')){
   		$('.single_add_to_cart_button').attrchange({
-  	trackValues: true, 
- 	 callback: function (event) {
- 	 	if (event.attributeName == 'disabled'){
- 	 		if(event.newValue=='disabled'){
-	 	 		$(' #encomenda').fadeIn();
-	 	 		if ($('.single_add_to_cart_button').attr('title')===undefined) {
-	 	 			$('#encomenda').html('');
-	 	 		}
-	 	 		else{
-		 	 		$('#encomenda').html($('.single_add_to_cart_button').attr('title'));
-	 	 		}
- 	 		}
- 	 		else if(event.newValue===undefined){
- 	 			if ($('.single_add_to_cart_button').attr('title')===undefined) {
-	 	 			$('#encomenda').html('');
-	 	 		}
-	 	 		else{
+		  	trackValues: true, 
+		 	 callback: function (event) {
+		 	 	if (event.attributeName == 'disabled'){
+ 	 				if(event.newValue=='disabled'){
+	 	 				$(' #encomenda').fadeIn();
+	 	 				if ($('.single_add_to_cart_button').attr('title')===undefined) {
+	 	 					$('#encomenda').html('');
+	 	 				}
+	 	 				else{
+		 	 				$('#encomenda').html($('.single_add_to_cart_button').attr('title'));
+	 	 				}
+ 	 				}
+ 	 				else if(event.newValue===undefined){
+ 	 					if ($('.single_add_to_cart_button').attr('title')===undefined) {
+	 	 					$('#encomenda').html('');
+	 	 				}
+	 	 				else{
 
-	 	 			$('#encomenda').html($('.single_add_to_cart_button').attr('title'));
-	 	 		}
- 	 		}
+	 	 					$('#encomenda').html($('.single_add_to_cart_button').attr('title'));
+	 	 				}
+ 	 				}
  	 		
- 	 	}
+ 			 	}
  	 	
 	//event.attributeName - Attribute Name
 	//event.oldValue - Prev Value
 	//event.newValue - New Value
+  			}
+		});
   	}
-	});
-  	}
-  	
-  
+
+
+
+	$(document).on("click",".wc-proceed-to-checkout .cliente", function (e) {
+
+  		e.preventDefault();
+  		$(".form-login-carrinho").fadeIn();
+  		$(this).prop('disabled', 'disabled');
+  	});
+
+  	$(document).on("click","#submitbtn", function (e) {
+  		e.preventDefault();
+  		var data = {
+				'action': 'login_carrinho',
+				'nome':$('#email').val(),
+				'senha': $('#senha').val(),
+		};		
+		$.post(odin_main.ajaxurl, data, function(response) {
+           	response=jQuery.parseJSON(response)
+           	console.log(response)
+           	$("#resultado-login").html(response.html)
+           	if (response.ok == 1){
+           		$('body').fadeOut();
+           		window.location.href = $('#checkout-url').val();
+
+           	}
+		});
+  	});
+
 });
 
