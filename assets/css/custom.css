@@ -762,6 +762,12 @@ html .woocommerce-page.woocommerce-cart .wc-proceed-to-checkout .button.comprar{
 html .logged-in.woocommerce-page.woocommerce-cart .wc-proceed-to-checkout .button.comprar{
 	display: block;
 } 
+#resultado-login{
+    float: right;
+    clear: both;
+    margin-top: 10px;
+
+}
 .form-login-carrinho{
 	display: none;
 	float:right;
@@ -992,10 +998,9 @@ html .woocommerce-page.woocommerce-cart .wc-proceed-to-checkout button, html .wo
 	display: block;
     text-align: center;
     margin: 10px 0 0 10px;
-    font-size: 1.25em!important;
+    font-size: 13px!important;
     padding: 10px 30px!important;
     background-color: #E5332A!important;
-    font-weight: 400;
     height: initial;
     width: initial;
     color: #fff!important;
@@ -1005,6 +1010,8 @@ html .woocommerce-page.woocommerce-cart .wc-proceed-to-checkout button, html .wo
 }
 .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, html .woocommerce #respond input#submit, .woocommerce a.button, html .woocommerce button.button, html .woocommerce input.button{
 	background-color: #E5332A!important;
+    font-size: 13px!important;
+
 	font-weight:400;
 	color: #fff!important;
 }

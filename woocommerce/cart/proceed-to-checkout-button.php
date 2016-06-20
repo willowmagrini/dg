@@ -34,11 +34,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<?php echo __( 'Comprar', 'woocommerce' ); ?>
 
 </a>
-<div id="resultado-login"></div> <!-- To hold validation results -->  
 <form id="wp_login_form" class="form-login-carrinho"action="" method="post">  
 	<input id='email' placeholder="E-mail" type="text" name="username" class="text" value="">
 	<input id='senha' placeholder="Senha" type="password" name="password" class="text" value="">  
 	<input class="button login" type="submit" id="submitbtn" name="submit" value="Login">
 	<input type="hidden" name="checkout-url" id="checkout-url"value='<?php echo esc_url( wc_get_checkout_url() ) ?>' >  
 </form>  
+<div id="resultado-login"></div> <!-- To hold validation results -->  
+
 	<div class="clearfix"></div>
