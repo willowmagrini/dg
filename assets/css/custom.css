@@ -461,6 +461,18 @@ input::-webkit-input-placeholder {
 
 .produto-imagem{
 	position:relative;
+	overflow: hidden;
+}
+.produto-imagem img{
+	 transition: all 0.3s ease;
+}
+.produto-imagem img.expandido{
+	width: 104%;
+	 transition: all 0.3s ease;
+
+	position: relative;
+	max-width: 104%;
+
 }
 .produto:nth-child(4n+1){
 	/*clear:left;*/
@@ -751,7 +763,14 @@ html .woocommerce-cart table.cart img {
 	height: initial;
 }
 .wc-proceed-to-checkout .checkout-button.button.alt.wc-forward{
-
+    font-family: 'Roboto Condensed', sans-serif!important;
+    font-weight: 700!important;
+}
+#billing_country_field{
+	clear:both;
+}
+html #wcbcf-mailsuggest{
+	display: none;
 }
 html .woocommerce-page.woocommerce-cart .wc-proceed-to-checkout .button.comprar{
 	display: none;
@@ -922,11 +941,14 @@ html .logged-in.woocommerce-page.woocommerce-cart .wc-proceed-to-checkout .butto
     overflow: visible;
 }
 #billing_persontype_field{
-	display: inline-block;
-	float: none;
+	float: left;
+    width: 47%;
+    overflow: visible;
 }
-.person-type-field:nth-child(2n){
+.person-type-field:nth-child(2n), #billing_cnpj_field{
 	float:right;
+	clear: none!important;
+
 }
 .voltar-conta{
 	clear: both;

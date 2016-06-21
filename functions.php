@@ -1040,7 +1040,7 @@ add_action( 'woocommerce_save_account_details', 'action_woocommerce_save_account
 // customizacao data de aniversario
 
 function my_enqueue($hook) {
-    if ( 'profile.php' != $hook ) {
+    if ( 'profile.php' != $hook AND 'user-edit.php'!= $hook) {
         return;
     }
 	$template_url = get_template_directory_uri();

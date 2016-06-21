@@ -10,6 +10,7 @@ jQuery(document).ready(function($) {
 	
 	$(document).on("click",".wc_payment_method", function () {
 		var elemento = $(this).children('.payment_box');
+
 		if ($(this).attr('data-conteudo')=='') {
 			$(this).attr('data-conteudo', elemento.html());
 			$('#conteudo-pagamento').html(elemento.html());
@@ -20,7 +21,8 @@ jQuery(document).ready(function($) {
 			$('#conteudo-pagamento').html($(this).attr('data-conteudo'));
 				elemento.html('');
 				elemento.css('display','none');
-		} 		 
+		}
+		$('#wc-traycheckout-cc-card-expiry').mask('99/9999');		 		 
 		
 	});
 	// $('#payment_method_pagseguro').click();
@@ -280,7 +282,5 @@ $('#ordem').change(function(e) {
            	}
 		});
   	});
-	
-	$('#wc-traycheckout-cc-card-expiry').mask('99/9999');
 });
 
