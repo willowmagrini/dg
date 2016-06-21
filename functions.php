@@ -241,6 +241,7 @@ function odin_enqueue_scripts() {
 
 		// Main jQuery.
 wp_enqueue_script( 'odin-main', $template_url . '/assets/js/main.js', array(), null, true );
+wp_enqueue_script( 'mask-js', $template_url . '/assets/js/mask.js', array(), null, true );
 
 	wp_localize_script( 'odin-main', 'odin_main', array('ajaxurl' => admin_url( 'admin-ajax.php' ) ) );
 
@@ -940,35 +941,63 @@ add_filter( 'woocommerce_add_error', 'my_woocommerce_add_error' );
 
 
 // customizacao data de aniversario
-function reigel_woocommerce_checkout_fields( $checkout_fields = array() ) {
+// adiciona campo nascimento no checkout
+// adiciona campo nascimento no checkout
 
-    $checkout_fields['order']['date_of_birth'] = array(	
-        'type'          => 'text',
-        'class'         => array('my-field-class form-row-wide'),
-        'label'         => __('Data de Nascimento'),
-        'placeholder'   => __('dd/mm/aaaa'),
-        'required'      => false, 
-        'value'			=>'bla'
-        );
+/**
+ * Add the field to the checkout
+ **/
+add_action('woocommerce_checkout_billing', 'my_custom_checkout_field', 20);
 
-    return $checkout_fields;
+function my_custom_checkout_field( $user ) {
+	?>
+ <p class="form-row form-row form-row-first " id="nascimento_field">
+ 	<label for="billing_postcode" class="">Data de nascimento</label>
+ 	<input type="text" class="input-text " name="nascimento" id="nascimento" placeholder="" value="<?php echo get_user_meta( get_current_user_id(), 'date_of_birth', true ) ?>">
+ </p>
+	<?php 
+	
+	
 }
-add_filter( 'woocommerce_checkout_fields', 'reigel_woocommerce_checkout_fields' );
+
+// function reigel_woocommerce_checkout_fields( $checkout_fields = array() ) {
+
+//     $checkout_fields['order']['date_of_birth'] = array(	
+//         'type'          => 'text',
+//         'class'         => array('my-field-class form-row-wide'),
+//         'label'         => __('Data de Nascimento'),
+//         'placeholder'   => __('dd/mm/aaaa'),
+//         'required'      => false, 
+//         'value'			=>'bla'
+//         );
+
+//     return $checkout_fields;
+// }
+// add_filter( 'woocommerce_checkout_fields', 'reigel_woocommerce_checkout_fields' );
+
+// adiciona campo nascimento no checkout
+// adiciona campo nascimento no checkout
+
+// salva campo nascimento no checkout
+// salva campo nascimento no checkout
 
 function reigel_woocommerce_checkout_update_user_meta( $customer_id, $posted ) {
-    if (isset($posted['date_of_birth'])) {
-        $dob = sanitize_text_field( $posted['date_of_birth'] );
+    print_r($posted);	
+    if (isset($_POST['nascimento'])) {
+        $dob = sanitize_text_field( $_POST['nascimento'] );
         update_user_meta( $customer_id, 'date_of_birth', $dob);
     }
 }
 add_action( 'woocommerce_checkout_update_user_meta', 'reigel_woocommerce_checkout_update_user_meta', 10, 2 );
+// salva campo nascimento no checkout
+// salva campo nascimento no checkout
 
-
-
-add_action( 'show_user_profile', 'social_fields' );
-add_action( 'edit_user_profile', 'social_fields' );
+// adiciona campo nascimento no painel
+// adiciona campo nascimento no painel
+add_action( 'show_user_profile', 'nascimento_painel' );
+add_action( 'edit_user_profile', 'nascimento_painel' );
  
-function social_fields( $user ) { ?>
+function nascimento_painel( $user ) { ?>
  
 	<table class="form-table">
 		<tr>
@@ -979,25 +1008,44 @@ function social_fields( $user ) { ?>
 		</tr>
 	</table><?php 
 }
-add_action( 'personal_options_update', 'save_social_fields' );
-add_action( 'edit_user_profile_update', 'save_social_fields' );
 
+// adiciona campo nascimento no painel
+// adiciona campo nascimento no painel
 
-// define the woocommerce_save_account_details callback 
-function action_woocommerce_save_account_details( $user_id ) { 
-	// print_r($_POST);
-	update_user_meta( $user_id, 'date_of_birth', $_POST['date_of_birth'] );}; 
-         
-// add the action 
-add_action( 'woocommerce_save_account_details', 'action_woocommerce_save_account_details', 10, 1 ); 
+// salva campo nascimento no painel
+// salva campo nascimento no painel
 
+function save_nascimento_painel( $user_id ) {
+	 
+	if ( !current_user_can( 'edit_user', $user_id ) )
+	return false;
+	 
 
-
-function save_social_fields( $user_id ) {
- 
-if ( !current_user_can( 'edit_user', $user_id ) )
-return false;
- 
-
-update_user_meta( $user_id, 'date_of_birth', $_POST['nascimento'] );
+	update_user_meta( $user_id, 'date_of_birth', $_POST['nascimento'] );
 }
+add_action( 'personal_options_update', 'save_nascimento_painel' );
+add_action( 'edit_user_profile_update', 'save_nascimento_painel' );
+// salva campo nascimento no painel
+// salva campo nascimento no painel
+
+// salva campo nascimento na edição de conta no front
+// salva campo nascimento na edição de conta no front
+function action_woocommerce_save_account_details( $user_id ) { 
+
+	update_user_meta( $user_id, 'date_of_birth', $_POST['nascimento'] );}; 
+         
+add_action( 'woocommerce_save_account_details', 'action_woocommerce_save_account_details', 10, 1 ); 
+// salva campo nascimento na edição de conta no front
+// salva campo nascimento na edição de conta no front
+// customizacao data de aniversario
+
+function my_enqueue($hook) {
+    if ( 'profile.php' != $hook ) {
+        return;
+    }
+	$template_url = get_template_directory_uri();
+
+    wp_enqueue_script( 'mask-js', $template_url . '/assets/js/mask.js', array(), null, true );
+
+}
+add_action( 'admin_enqueue_scripts', 'my_enqueue' );

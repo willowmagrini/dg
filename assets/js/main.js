@@ -280,6 +280,7 @@ $('#ordem').change(function(e) {
            	}
 		});
   	});
-
+	
+	$('#wc-traycheckout-cc-card-expiry').mask('99/9999');
 });
 

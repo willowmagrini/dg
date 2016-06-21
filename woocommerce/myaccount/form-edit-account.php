@@ -71,7 +71,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				<label for="date_of_birth" class="">
 					Data de nascimento
 				</label>
-				<input type="text" class="input-text " name="date_of_birth" id="date_of_birth" placeholder="<?php echo $placeholder ?>" value="">
+				<input type="text" class="input-text " name="nascimento" id="nascimento" placeholder="<?php echo $placeholder ?>" value="">
 			</p>
 	</fieldset>
 	<div class="clear"></div>
