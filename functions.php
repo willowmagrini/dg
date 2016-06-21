@@ -936,3 +936,68 @@ function my_woocommerce_add_error( $error ) {
     return $error;
 }
 add_filter( 'woocommerce_add_error', 'my_woocommerce_add_error' );
+
+
+
+// customizacao data de aniversario
+function reigel_woocommerce_checkout_fields( $checkout_fields = array() ) {
+
+    $checkout_fields['order']['date_of_birth'] = array(	
+        'type'          => 'text',
+        'class'         => array('my-field-class form-row-wide'),
+        'label'         => __('Data de Nascimento'),
+        'placeholder'   => __('dd/mm/aaaa'),
+        'required'      => false, 
+        'value'			=>'bla'
+        );
+
+    return $checkout_fields;
+}
+add_filter( 'woocommerce_checkout_fields', 'reigel_woocommerce_checkout_fields' );
+
+function reigel_woocommerce_checkout_update_user_meta( $customer_id, $posted ) {
+    if (isset($posted['date_of_birth'])) {
+        $dob = sanitize_text_field( $posted['date_of_birth'] );
+        update_user_meta( $customer_id, 'date_of_birth', $dob);
+    }
+}
+add_action( 'woocommerce_checkout_update_user_meta', 'reigel_woocommerce_checkout_update_user_meta', 10, 2 );
+
+
+
+add_action( 'show_user_profile', 'social_fields' );
+add_action( 'edit_user_profile', 'social_fields' );
+ 
+function social_fields( $user ) { ?>
+ 
+	<table class="form-table">
+		<tr>
+			<th><label for="social">Data de nascimento: </label></th>
+			<td>
+				<input type="text" name="nascimento" id="nascimento" value="<?php echo get_user_meta( $user->ID, 'date_of_birth', true ) ?>" class="regular-text" />
+			</td>
+		</tr>
+	</table><?php 
+}
+add_action( 'personal_options_update', 'save_social_fields' );
+add_action( 'edit_user_profile_update', 'save_social_fields' );
+
+
+// define the woocommerce_save_account_details callback 
+function action_woocommerce_save_account_details( $user_id ) { 
+	// print_r($_POST);
+	update_user_meta( $user_id, 'date_of_birth', $_POST['date_of_birth'] );}; 
+         
+// add the action 
+add_action( 'woocommerce_save_account_details', 'action_woocommerce_save_account_details', 10, 1 ); 
+
+
+
+function save_social_fields( $user_id ) {
+ 
+if ( !current_user_can( 'edit_user', $user_id ) )
+return false;
+ 
+
+update_user_meta( $user_id, 'date_of_birth', $_POST['nascimento'] );
+}

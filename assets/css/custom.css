@@ -516,11 +516,11 @@ input::-webkit-input-placeholder {
     border-radius: 0;
 
 }
-.produto-fundo a.button, .archive .produto .add_to_cart_button, .produto .button.product_type_variable, .produto .add_to_cart_button, html .woocommerce #respond input#submit, .woocommerce a.button, html  .woocommerce button.button, html  .woocommerce input.button, .related.products .add_to_cart_butto{
+.produto-fundo a.button, .archive .produto .add_to_cart_button, .produto .button.product_type_variable, .produto .add_to_cart_button, html .woocommerce #respond input#submit, .woocommerce a.button, html  .woocommerce button.button, html  .woocommerce input.button, .related.products .add_to_cart_butto, html .woocommerce button.button.add_to_cart_button{
 	background-color:#000!important;
 	color: #fff;
 	height: 30px;
-	font-size: 10px;
+	font-size: 10px!important;
     text-transform: uppercase;
     margin-left:0;
     float: right;
@@ -713,7 +713,7 @@ html #footer{
 
 }
 #menu-menu-categorias a:hover, .lateral a:hover{
-	color: #E5332A;
+	color: #E5332A!important;
 }
 #menu-menu-categorias a, .lateral a{
 	text-transform: uppercase;
@@ -1158,6 +1158,9 @@ top: -15px;
 	border-radius: 0;
 	font-weight: 800;
     font-size: 15px;
+
+}
+html .woocommerce .add_to_cart_button{
 
 }
 .single-product div.product form.cart div.quantity{

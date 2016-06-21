@@ -57,6 +57,23 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<input type="password" class="input-text" name="password_2" id="password_2" />
 		</p>
 	</fieldset>
+	<fieldset>
+		<?php 
+			if (get_user_meta( $user->ID, 'date_of_birth', true ) !="") {
+				$placeholder =  get_user_meta( $user->ID, 'date_of_birth', true );
+
+			}
+			else{
+				$placeholder =  'dd/mm/aaaa';				
+			};
+		 ?>
+			<p class="form-row form-row my-field-class form-row-first " id="date_of_birth_field">
+				<label for="date_of_birth" class="">
+					Data de nascimento
+				</label>
+				<input type="text" class="input-text " name="date_of_birth" id="date_of_birth" placeholder="<?php echo $placeholder ?>" value="">
+			</p>
+	</fieldset>
 	<div class="clear"></div>
 
 	<?php do_action( 'woocommerce_edit_account_form' ); ?>
