@@ -22,18 +22,23 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 ?>
 
-<button href="http://rede.com.br/deepgeek/teste-de-login/" class="checkout-button cliente button alt wc-forward">
-	<?php echo __( 'Já sou cliente', 'woocommerce' ); ?>
-
+<button class="checkout cliente">
+	<a  class="" href="http://rede.com.br/deepgeek/teste-de-login/">
+		<?php echo __( 'Já sou cliente', 'woocommerce' ); ?>
+	</a>
 </button>
-<a href="<?php echo esc_url( wc_get_checkout_url() ) ;?>" class="checkout-button estranho button alt wc-forward">
-	<?php echo __( 'Não sou cliente', 'woocommerce' ); ?>
-
+<button class="checkout estranho">
+	<a href="<?php echo esc_url( wc_get_checkout_url() ) ;?>" class="">
+		<?php echo __( 'Não sou cliente', 'woocommerce' ); ?>
 </a>
-<a href="<?php echo esc_url( wc_get_checkout_url() ) ;?>" class="checkout-button comprar button alt wc-forward">
-	<?php echo __( 'Comprar', 'woocommerce' ); ?>
+</button>
+<button class="checkout comprar">
+	<a href="<?php echo esc_url( wc_get_checkout_url() ) ;?>" class="">
+		<?php echo __( 'Comprar', 'woocommerce' ); ?>
+	</a>
+</button>
 
-</a>
+
 <form id="wp_login_form" class="form-login-carrinho"action="" method="post">  
 	<input id='email' placeholder="E-mail" type="text" name="username" class="text" value="">
 	<input id='senha' placeholder="Senha" type="password" name="password" class="text" value="">  

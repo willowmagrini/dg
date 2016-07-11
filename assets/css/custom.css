@@ -584,6 +584,10 @@ input::-webkit-input-placeholder {
     width: 58%;
 
 }
+#footer .email-footer{
+	color:#fff;
+
+}
 html #footer{
 	position: relative;
 	    background-color: #E5332A;
@@ -631,15 +635,17 @@ html #footer{
 	text-align: center;
 }
 #cadastro-footer .wpcf7-submit{
-	width: 130px;
-	margin-left:20px;
-	background: #000;
-	border:none;
-	border-radius: 0;
-	box-shadow: none;
-	outline: none;
-	color:#fff;
-	height: 30px;
+	    width: 130px;
+    margin-left: 20px;
+    background: #000;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    outline: none;
+    color: #fff;
+    height: 32px;
+    text-transform: uppercase;
+    font-weight: 700;
 }
 #fale{
 	color:#FCEA0D;
@@ -679,14 +685,15 @@ html #footer{
 	height:112px;
 }
 #footer input[type="submit"]{
-	width:initial;
-	background-color: #000;
-	color: #fff;
-	text-transform: uppercase;
-	font-size: 13px;
-	width:130px;
-	padding:10px 0;
-	border-radius: 0
+    width: initial;
+    background-color: #000;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 13px;
+    width: 130px;
+    padding: 10px 0;
+    font-weight: 700;
+    border-radius: 0;
 }
 #footer .sociais img{
 	margin:0 8px;
@@ -772,15 +779,28 @@ html .woocommerce-cart table.cart img {
 html #wcbcf-mailsuggest{
 	display: none;
 }
-html .woocommerce-page.woocommerce-cart .wc-proceed-to-checkout .button.comprar{
+button.checkout{
+	float: right
+}
+button.checkout a, button.checkout a:hover, button.checkout a:active,button.checkout a:focus,button.comprar-mais a:hover, button.comprar-mais a:focus{
+	text-decoration: none;
+	color:#fff;
+}
+html .woocommerce-page.woocommerce-cart .wc-proceed-to-checkout button.comprar{
 	display: none;
 }
-.logged-in .wc-proceed-to-checkout .checkout-button.button.alt.wc-forward, .logged-in.woocommerce-cart .wc-proceed-to-checkout a.checkout-button.cliente, .logged-in.woocommerce-cart .wc-proceed-to-checkout a.checkout-button.estranho{
+.logged-in .wc-proceed-to-checkout .checkout-button.button.alt.wc-forward, .logged-in.woocommerce-page.woocommerce-cart .wc-proceed-to-checkout  button.cliente, .logged-in.woocommerce-page.woocommerce-cart .wc-proceed-to-checkout  button.estranho{
 	display: none;
 }
-html .logged-in.woocommerce-page.woocommerce-cart .wc-proceed-to-checkout .button.comprar{
+html .logged-in.woocommerce-page.woocommerce-cart .wc-proceed-to-checkout button.comprar{
 	display: block;
 } 
+button.comprar-mais:focus{
+    background-color: #E5332A!important;
+}
+ button.comprar-mais:hover, button.checkout:hover, .woocommerce #respond input#submit.alt:hover, .woocommerce a.button.alt:hover, .woocommerce button.button.alt:hover, .woocommerce input.button.alt:hover, html .woocommerce #respond input#submit:hover, .woocommerce a.button:hover, html .woocommerce button.button:hover, html .woocommerce input.button:hover{
+	opacity: 0.8;
+}
 #resultado-login{
     float: right;
     clear: both;
@@ -925,7 +945,9 @@ html .logged-in.woocommerce-page.woocommerce-cart .wc-proceed-to-checkout .butto
 	width: initial!important;
 	font-size: 13px!important;
 }
-
+.woocommerce-account .addresses .col-2.address{
+	display: none;
+}
 .shop_table_responsive.cart, .shop_table{
 	border:none!important;
 }
@@ -991,6 +1013,7 @@ html .logged-in.woocommerce-page.woocommerce-cart .wc-proceed-to-checkout .butto
     padding: 10px 30px!important;
     background-color: #E5332A;
     color: #fff;
+    font-weight: 700!important;
     border-radius: 0;
 }
 .cart_totals {
@@ -1016,6 +1039,12 @@ button.comprar-mais a:hover{
     position: relative;
 	/*top: -40px;*/
 }
+.checkout a{
+	font-size: 13px!important;
+    font-weight: 700!important;
+    text-transform: uppercase;
+    color: white;
+}
 html .woocommerce-page.woocommerce-cart .wc-proceed-to-checkout button, html .woocommerce-page.woocommerce-cart .wc-proceed-to-checkout .button{
 	display: block;
     text-align: center;
@@ -1025,7 +1054,9 @@ html .woocommerce-page.woocommerce-cart .wc-proceed-to-checkout button, html .wo
     background-color: #E5332A!important;
     height: initial;
     width: initial;
+    border-radius: 0;
     color: #fff!important;
+    font-weight: 700!important;
 }
 .woocommerce-info a{
 	color:#000;
@@ -1034,7 +1065,7 @@ html .woocommerce-page.woocommerce-cart .wc-proceed-to-checkout button, html .wo
 	background-color: #E5332A!important;
     font-size: 13px!important;
 
-	font-weight:400;
+	font-weight:700;
 	color: #fff!important;
 }
 input, textarea{
@@ -1513,6 +1544,9 @@ html .payment_method_paypal label:after{
  html .payment_method_paypal label{
  	background: url('../images/paypal.png');
 
+ }
+ html .wc_payment_method.payment_method_wc_traycheckout_bs #conteudo-pagamento img, html .wc_payment_method.payment_method_wc_traycheckout_bs #conteudo-pagamento label{
+ 	display: none;
  }
  html .payment_method_pagseguro label{
  	background: url('../images/pagseguro.png');

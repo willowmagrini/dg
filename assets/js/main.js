@@ -175,7 +175,7 @@ function fecha(){
 
 			$('#fundo-modal').attr('modal-estado','inativo');
 	 		$('#modal-conteudo').attr('modal-estado','inativo');
-			$('#modal-conteudo #html').fadeOut();
+			// $('#modal-conteudo').fadeOut();
 			$(' #botao-fechar').fadeOut();
 			$('#modal-conteudo .wpcf7-response-output').hide();
 		}
@@ -199,7 +199,7 @@ $('#ordem').change(function(e) {
 		e.preventDefault();
 	 	$('#fundo-modal').attr('modal-estado','ativo');
 	 	$('#modal-conteudo').attr('modal-estado','ativo');
-		$('#modal-conteudo #html').fadeIn();
+		// $('#modal-conteudo').fadeIn();
 		$(' #botao-fechar').fadeIn();
 		$('#encomendaLink').val($(this).attr('data-link'));
 		$('#encomendaNome').val($(this).attr('data-nome'));

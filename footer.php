@@ -14,7 +14,9 @@
 	<div id="cadastro-footer" class="">
 		<div>
 			<h3 class="inline-block">cadastre-se para receber nossas <span>novidades</span> e <span>promoções</span></h3> 
-		<?php echo do_shortcode( '[contact-form-7 id="116" title="cadastro" class=inline-block]' );?>
+		<?php 
+			// echo do_shortcode( '[contact-form-7 id="116" title="cadastro" class=inline-block]' );
+			echo do_shortcode( '[contact-form-7 id="174"  class=inline-block]' );?>
 		</div>
 	</div>
 	<footer id="footer" role="contentinfo">
@@ -22,11 +24,13 @@
 			<div class="col-sm-3">
 				<h2>DEEP GEEK</h2>
 				<p>Uma empresa do grupo SUPE
-				<br>R. Estavão Lopes, 49 - Butantã
+				<br>Rua Estevão Lopes, 49 - Butantã
 				<br>São Paulo, SP, Brasil</p>
 				<h3 id="fale">FALE CONOSCO:</h3>
-				<p>Whats App (11) 9 8757 3800 
-				<br>Tel. (11)3097 8443</p>
+				<p>Whats App (11) 9 8152 2479
+				<br>Tel. (11)3097 8443
+				<br><a class="email-footer" href="mailto:atendimento@deepgeek.com.br">atendimento@deepgeek.com.br</a>
+				</p>
 				<p>STARTUP E COMMERCE COMERCIAL LTDA - ME<br> CNPJ. 22.968.470/0001-86</p>
 				<div id="logos-footer">
 					<img src="<?php echo get_template_directory_uri(); ?>/assets/images/pay.png" alt="">
@@ -91,7 +95,8 @@
 				<h3>CONTATE-NOS</h3>
 				<p>
 					<?php
-					echo do_shortcode( '[contact-form-7 id="45" title="Footer"]' );;
+					// echo do_shortcode( '[contact-form-7 id="45" title="Footer"]' );
+					echo do_shortcode( '[contact-form-7 id="173" title="Footer"]' );
 
 					?>
 
@@ -118,8 +123,12 @@
 		<a href="#">
 			<div style="display:none" id="botao-fechar">x</div>
 		</a>
-		<div style="display:none;" class="animated fadeIn" id="html">
-			<?php echo do_shortcode('[contact-form-7 id="182" title="Encomenda"]' ); ?>
+		<div class="animated fadeIn" id="html">
+			<?php 
+				// echo do_shortcode('[contact-form-7 id="182" title="Encomenda"]' ); 
+				echo do_shortcode('[contact-form-7 id="284" title="Encomenda"]' ); ?>
+
+			?>
 		</div>		
 		<div class="clearfix"></div>
 	</div>

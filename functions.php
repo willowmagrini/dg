@@ -1032,8 +1032,10 @@ add_action( 'edit_user_profile_update', 'save_nascimento_painel' );
 // salva campo nascimento na edição de conta no front
 function action_woocommerce_save_account_details( $user_id ) { 
 
-	update_user_meta( $user_id, 'date_of_birth', $_POST['nascimento'] );}; 
-         
+	update_user_meta( $user_id, 'date_of_birth', $_POST['nascimento'] );
+}; 
+
+add_action( 'woocommerce_customer_save_address', 'action_woocommerce_save_account_details' ,10, 1 ); // WC 2.2-
 add_action( 'woocommerce_save_account_details', 'action_woocommerce_save_account_details', 10, 1 ); 
 // salva campo nascimento na edição de conta no front
 // salva campo nascimento na edição de conta no front
