@@ -773,7 +773,7 @@ html .woocommerce-cart table.cart img {
     font-family: 'Roboto Condensed', sans-serif!important;
     font-weight: 700!important;
 }
-#billing_country_field{
+#billing_country_field,#billing_address_1_field{
 	clear:both;
 }
 html #wcbcf-mailsuggest{
@@ -945,7 +945,7 @@ button.comprar-mais:focus{
 	width: initial!important;
 	font-size: 13px!important;
 }
-.woocommerce-account .addresses .col-2.address{
+.woocommerce-account .addresses .col-2.address,.woocommerce-account .addresses .u-column2.col-2{
 	display: none;
 }
 .shop_table_responsive.cart, .shop_table{

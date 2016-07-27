@@ -37,9 +37,42 @@ $page_title   = ( $load_address === 'billing' ) ? __( 'Billing Address', 'woocom
 
 		<?php do_action( "woocommerce_before_edit_address_form_{$load_address}" ); ?>
 
-		<?php foreach ( $address as $key => $field ) : ?>
+		<?php 
+		// print_r($address);
+
+		foreach ( $address as $key => $field ) : ?>
+			<?php if ($key=='billing_postcode' OR $key == 'shipping_postcode'): ?>
+
+			<?php elseif ($key=='billing_country'): ?>
 				
-			<?php woocommerce_form_field( $key, $field, ! empty( $_POST[ $key ] ) ? wc_clean( $_POST[ $key ] ) : $field['value'] ); ?>
+				<?php 
+				$field['class'][0]="form-row-first";
+				woocommerce_form_field( $key, $field, ! empty( $_POST[ $key ] ) ? wc_clean( $_POST[ $key ] ) : $field['value'] ); ?>
+				<p class="form-row form-row form-row-last  validate-postcode validate-required" id="" data-o_class="form-row form-row form-row-last address-field validate-required validate-postcode"><label for="billing_postcode" class="">CEP <abbr class="required" title="obrigatório">*</abbr></label><input type="text" class="input-text " name="billing_postcode" id="billing_postcode" placeholder="" autocomplete="postal-code" value="<?php echo $address['billing_postcode']['value'] ?>"></p>
+
+				<?php
+					// $address['billing_postcode']['clear'] = 0;
+					// $address['billing_postcode']['class'] = '';
+
+					// print_r($address['billing_postcode']);
+				 	// woocommerce_form_field( 'billing_postcode', $address['billing_postcode'], ! empty( $_POST[ 'billing_postcode' ] ) ? wc_clean( $_POST[ 'billing_postcode' ] ) : $address['billing_postcode']['value'] ); 
+				 ?>
+			<?php elseif ($key=='shipping_country'): ?>
+				
+				<?php 
+				$field['class'][0]="form-row-first";
+				woocommerce_form_field( $key, $field, ! empty( $_POST[ $key ] ) ? wc_clean( $_POST[ $key ] ) : $field['value'] ); ?>
+				<p class="form-row form-row form-row-last  validate-postcode validate-required" id="shipping_postcode_postcode" data-o_class="form-row form-row form-row-last address-field validate-required validate-postcode"><label for="shipping_postcode" class="">CEP <abbr class="required" title="obrigatório">*</abbr></label><input type="text" class="input-text " name="shipping_postcode" id="shipping_postcode" placeholder="" autocomplete="postal-code" value="<?php echo $address['shipping_postcode']['value'] ?>"></p>
+				<?php
+					// $address['billing_postcode']['clear'] = 0;
+					// $address['billing_postcode']['class'] = '';
+
+					// print_r($address['billing_postcode']);
+				 	// woocommerce_form_field( 'billing_postcode', $address['billing_postcode'], ! empty( $_POST[ 'billing_postcode' ] ) ? wc_clean( $_POST[ 'billing_postcode' ] ) : $address['billing_postcode']['value'] ); 
+				 ?>
+			<?php else: ?>
+				<?php woocommerce_form_field( $key, $field, ! empty( $_POST[ $key ] ) ? wc_clean( $_POST[ $key ] ) : $field['value'] ); ?>
+			<?php endif ?>	
 
 		<?php endforeach; ?>
 		<?php     
@@ -59,6 +92,7 @@ $page_title   = ( $load_address === 'billing' ) ? __( 'Billing Address', 'woocom
 			</label>
 			<input type="text" class="input-text " name="nascimento" id="nascimento" placeholder="<?php echo $placeholder ?>" value="">
 		</p>
+		<div class="clear"></div>
 		<?php do_action( "woocommerce_after_edit_address_form_{$load_address}" ); ?>
 
 		<p>

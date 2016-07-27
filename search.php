@@ -43,11 +43,10 @@ get_sidebar('taxonomy');
 	$post_ids_post = $wpdb->get_col( $wpdb->prepare("
 	SELECT DISTINCT ID FROM {$wpdb->posts}
 	WHERE post_title LIKE '%s'
-	OR post_content LIKE '%s'
 	", $keyword, $keyword ));
-	$post_ids = array_merge( $post_ids_meta, $post_ids_post );
+	// $post_ids = array_merge( $post_ids_meta, $post_ids_post );
 	// Query arguments
-	$post_ids = implode(",", $post_ids);
+	$post_ids = implode(",", $post_ids_post);
 	$NumResultsProducts = $post_ids;
 		// echo $post_ids;
 		
