@@ -941,12 +941,18 @@ button.comprar-mais:focus{
 }
 .woocommerce-cart .coupon input{
 }
+.woocommerce-view-order .woocommerce-MyAccount-content .pedidos, .woocommerce-edit-address .woocommerce-MyAccount-content .pedidos, .woocommerce-orders .pedidos{
+	display: none;
+}
+html .woocommerce-account .woocommerce-MyAccount-content{
+	width:100%;
+}
 .my_account_orders .order-actions a, .button[name="save_account_details"],.button[name="save_address"]{
 	width: initial!important;
 	font-size: 13px!important;
 }
 .woocommerce-account .addresses .col-2.address,.woocommerce-account .addresses .u-column2.col-2{
-	display: none;
+	/*display: none;*/
 }
 .shop_table_responsive.cart, .shop_table{
 	border:none!important;
