@@ -941,8 +941,16 @@ button.comprar-mais:focus{
 }
 .woocommerce-cart .coupon input{
 }
+.woocommerce-MyAccount-content .pedidos table{
+	margin-bottom:5px!important;
+}
 .woocommerce-view-order .woocommerce-MyAccount-content .pedidos, .woocommerce-edit-address .woocommerce-MyAccount-content .pedidos, .woocommerce-orders .pedidos{
-	display: none;
+	/*display: none;*/
+}
+html .woocommerce-account .addresses .title .edit, .woocommerce-account ul.digital-downloads li .count {
+    float: left;
+    margin-top: 20px;
+    margin-left: 40px;
 }
 html .woocommerce-account .woocommerce-MyAccount-content{
 	width:100%;
@@ -952,7 +960,7 @@ html .woocommerce-account .woocommerce-MyAccount-content{
 	font-size: 13px!important;
 }
 .woocommerce-account .addresses .col-2.address,.woocommerce-account .addresses .u-column2.col-2{
-	/*display: none;*/
+	display: none;
 }
 .shop_table_responsive.cart, .shop_table{
 	border:none!important;
@@ -973,10 +981,15 @@ html .woocommerce-account .woocommerce-MyAccount-content{
     width: 47%;
     overflow: visible;
 }
-.person-type-field:nth-child(2n), #billing_cnpj_field{
+.person-type-field:nth-child(2n), #billing_cnpj_field, #billing_company_field{
 	float:right;
 	clear: none!important;
+	    width: 47%;
 
+
+}
+#billing_cnpj_field{
+	float:left;
 }
 .voltar-conta{
 	clear: both;

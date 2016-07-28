@@ -1068,7 +1068,7 @@ function wc_get_customer_orders() {
     
     // Get all customer orders
     $customer_orders = get_posts( array(
-        'numberposts' => -1,
+        'numberposts' => 4,
         'meta_key'    => '_customer_user',
         'meta_value'  => get_current_user_id(),
         'post_type'   => wc_get_order_types(),
@@ -1170,6 +1170,9 @@ do_action( 'woocommerce_before_account_orders', $has_orders ); ?>
 
 <?php endif; ?>
 
+<?php 
+	echo '<p><a href="' . esc_url( wc_get_endpoint_url( 'orders' ) ) . '">Ver Todos</a></p>';
+  ?>
 <?php do_action( 'woocommerce_after_account_orders', $has_orders ); 
 
 
@@ -1190,17 +1193,13 @@ $oldcol = 1;
 $col    = 1;
 ?>
 
-<p>
-	<?php echo apply_filters( 'woocommerce_my_account_my_address_description', __( 'The following addresses will be used on the checkout page by default.', 'woocommerce' ) ); ?>
-</p>
-
 <?php if ( ! wc_ship_to_billing_address_only() && wc_shipping_enabled() ) echo '<div class="u-columns woocommerce-Addresses col2-set addresses">'; ?>
 
 <?php foreach ( $get_addresses as $name => $title ) : ?>
 
 	<div class="u-column<?php echo ( ( $col = $col * -1 ) < 0 ) ? 1 : 2; ?> col-<?php echo ( ( $oldcol = $oldcol * -1 ) < 0 ) ? 1 : 2; ?> woocommerce-Address">
 		<header class="woocommerce-Address-title title">
-			<h3><?php echo $title; ?></h3>
+			<h3>Cadastro</h3>
 			<a href="<?php echo esc_url( wc_get_endpoint_url( 'edit-address', $name ) ); ?>" class="edit"><?php _e( 'Edit', 'woocommerce' ); ?></a>
 		</header>
 		<address>
@@ -1236,7 +1235,7 @@ $col    = 1;
 <?php 
 }
 
-add_action( 'woocommerce_account_content', 'wc_get_customer_orders' );
+add_action( 'woocommerce_account_dashboard', 'wc_get_customer_orders' );
 //////////////
 // adiciona pedidos na minha pagina
 // 

@@ -39,24 +39,7 @@ do_action( 'woocommerce_before_edit_account_address_form' ); ?>
 			<?php woocommerce_form_field( $key, $field, ! empty( $_POST[ $key ] ) ? wc_clean( $_POST[ $key ] ) : $field['value'] ); ?>
 
 		<?php endforeach; ?>
-		<?php     
-				$current_user = wp_get_current_user();
 
-			if (get_user_meta( $current_user->ID, 'date_of_birth', true ) !="") {
-				$placeholder =  get_user_meta( $current_user->ID, 'date_of_birth', true );
-
-			}
-			else{
-				$placeholder =  'dd/mm/aaaa';				
-			};
-		 ?>
-		<p class="form-row form-row my-field-class form-row-first " id="date_of_birth_field">
-			<label for="date_of_birth" class="">
-				Data de nascimento
-			</label>
-			<input type="text" class="input-text " name="nascimento" id="nascimento" placeholder="<?php echo $placeholder ?>" value="">
-		</p>
-		<div class="clear"></div>
 		<?php do_action( "woocommerce_after_edit_address_form_{$load_address}" ); ?>
 
 		<p>
@@ -64,7 +47,6 @@ do_action( 'woocommerce_before_edit_account_address_form' ); ?>
 			<?php wp_nonce_field( 'woocommerce-edit_address' ); ?>
 			<input type="hidden" name="action" value="edit_address" />
 		</p>
-
 
 	</form>
 
