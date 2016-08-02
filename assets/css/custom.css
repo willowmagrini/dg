@@ -526,8 +526,8 @@ input::-webkit-input-placeholder {
 	width: 30px;
 	border:none;
     border-radius: 0;
-
 }
+
 .produto-fundo a.button, .archive .produto .add_to_cart_button, .produto .button.product_type_variable, .produto .add_to_cart_button, html .woocommerce #respond input#submit, .woocommerce a.button, html  .woocommerce button.button, html  .woocommerce input.button, .related.products .add_to_cart_butto, html .woocommerce button.button.add_to_cart_button{
 	background-color:#000!important;
 	color: #fff;

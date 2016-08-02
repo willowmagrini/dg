@@ -282,5 +282,7 @@ $('#ordem').change(function(e) {
            	}
 		});
   	});
+	$(document).on("click",".woocommerce-cart .control-prod", function (e) {
+  		$('input[name="update_cart"]' ).removeProp( 'disabled');
+	});
 });
-
