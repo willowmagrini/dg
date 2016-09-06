@@ -56,7 +56,14 @@ do_action( 'woocommerce_before_edit_account_address_form' ); ?>
 			</label>
 			<input type="text" class="input-text " name="nascimento" id="nascimento" placeholder="<?php echo $placeholder ?>" value="">
 		</p>
+		<p class="form-row form-row my-field-class form-row-last " id="sexo_field">
+			<label for="sexo" class="">
+				Sexo
+			</label>
+			<input type="text" class="input-text " name="sexo" id="sexo" placeholder="" value="">
+		</p>
 		<div class="clear"></div>
+
 		<?php do_action( "woocommerce_after_edit_address_form_{$load_address}" ); ?>
 
 		<p>
