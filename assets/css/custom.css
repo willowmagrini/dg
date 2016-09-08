@@ -531,7 +531,14 @@ input[type=number] {
 	border:none;
     border-radius: 0;
 }
+html .woocommerce-cart .coupon .button, html .woocommerce-cart .actions .button[name="update_cart"]{
+	width:initial;
+    padding: 10px 30px;
+    margin-left: 10px;
+ 
+    height: 34px;
 
+}
 .produto-fundo a.button, .archive .produto .add_to_cart_button, .produto .button.product_type_variable, .produto .add_to_cart_button, html .woocommerce #respond input#submit, .woocommerce a.button, html  .woocommerce button.button, html  .woocommerce input.button, .related.products .add_to_cart_butto, html .woocommerce button.button.add_to_cart_button{
 	background-color:#000!important;
 	color: #fff;
@@ -786,24 +793,34 @@ html #wcbcf-mailsuggest{
 button.checkout{
 	float: right
 }
-button.checkout a, button.checkout a:hover, button.checkout a:active,button.checkout a:focus,button.comprar-mais a:hover, button.comprar-mais a:focus{
+button.checkout a, button.checkout a:hover, button.checkout a:active,button.checkout a:focus, a.comprar-mais:hover,  a.comprar-mais:focus{
 	text-decoration: none;
 	color:#fff;
 }
-html .woocommerce-page.woocommerce-cart .wc-proceed-to-checkout button.comprar{
+html .woocommerce-page.woocommerce-cart .wc-proceed-to-checkout .comprar{
 	display: none;
 }
-.logged-in .wc-proceed-to-checkout .checkout-button.button.alt.wc-forward, .logged-in.woocommerce-page.woocommerce-cart .wc-proceed-to-checkout  button.cliente, .logged-in.woocommerce-page.woocommerce-cart .wc-proceed-to-checkout  button.estranho{
+.logged-in .wc-proceed-to-checkout .checkout-button.button.alt.wc-forward, .logged-in.woocommerce-page.woocommerce-cart .wc-proceed-to-checkout  .cliente, .logged-in.woocommerce-page.woocommerce-cart .wc-proceed-to-checkout  .estranho{
 	display: none;
 }
-html .logged-in.woocommerce-page.woocommerce-cart .wc-proceed-to-checkout button.comprar{
+html .logged-in.woocommerce-page.woocommerce-cart .wc-proceed-to-checkout .comprar{
 	display: block;
 } 
-button.comprar-mais:focus{
+a.comprar-mais:focus{
     background-color: #E5332A!important;
 }
- button.comprar-mais:hover, button.checkout:hover, .woocommerce #respond input#submit.alt:hover, .woocommerce a.button.alt:hover, .woocommerce button.button.alt:hover, .woocommerce input.button.alt:hover, html .woocommerce #respond input#submit:hover, .woocommerce a.button:hover, html .woocommerce button.button:hover, html .woocommerce input.button:hover{
+ a.comprar-mais:hover, button.checkout:hover, .woocommerce #respond input#submit.alt:hover, .woocommerce a.button.alt:hover, .woocommerce button.button.alt:hover, .woocommerce input.button.alt:hover, html .woocommerce #respond input#submit:hover, .woocommerce a.button:hover, html .woocommerce button.button:hover, html .woocommerce input.button:hover{
 	opacity: 0.8;
+}
+html .woocommerce .estranho, html .woocommerce .cliente, html .woocommerce .comprar{
+	width: initial!important;
+    padding: 12px 30px!important;
+	height: 37px!important;
+
+}
+.estranho{
+    margin-right: 10px!important;
+
 }
 #resultado-login{
     float: right;
@@ -823,6 +840,15 @@ button.comprar-mais:focus{
 	display: inline-block;
 	margin-top: 10px;
     padding: 8px 6px;
+
+}
+html .woocommerce  .form-login-carrinho input.login{
+	width: initial;
+
+    padding: 10px 30px;
+    margin-left: 10px;
+    margin-top: 10px;
+    height: 37px;
 
 }
 /*carrinho*/
@@ -859,6 +885,12 @@ button.comprar-mais:focus{
 
 .woocommerce-cart.woocommerce-page #content table.cart td.actions #coupon_code{
 	width:initial;
+	  width: initial;
+    padding: 10px 30px;
+    margin-left: 10px;
+ 
+    height: 34px;
+
 }
 .woocommerce .cart-collaterals .cart_totals, .woocommerce-page .cart-collaterals .cart_totals{
 	width:100%!important;
@@ -1032,12 +1064,15 @@ html .woocommerce-account .woocommerce-MyAccount-content{
 	border-top:none!important;
     border-bottom: 1px solid rgba(126, 127, 132, 0.34)!important;
 }
-.comprar-mais{
-    padding: 10px 30px!important;
+html .woocommerce .button.comprar-mais{
+	height: 37px;
+	width: initial!important;
+    padding: 12px 30px!important;
     background-color: #E5332A;
     color: #fff;
     font-weight: 700!important;
     border-radius: 0;
+    float:left;
 }
 .cart_totals {
 	position: relative;
@@ -1045,15 +1080,15 @@ html .woocommerce-account .woocommerce-MyAccount-content{
 #aviso{
 	
 }
-button.comprar-mais:hover {
+a.comprar-mais:hover {
     color: #fff;
     background-color: #E5332A;
     border-color: #E5332A;
 }
-button.comprar-mais a{
+a.comprar-mais a{
 	color: #fff;
 }
-button.comprar-mais a:hover{
+a.comprar-mais:hover{
 	text-decoration: none;
 }
 #compre-avisos{
@@ -1068,7 +1103,7 @@ button.comprar-mais a:hover{
     text-transform: uppercase;
     color: white;
 }
-html .woocommerce-page.woocommerce-cart .wc-proceed-to-checkout button, html .woocommerce-page.woocommerce-cart .wc-proceed-to-checkout .button{
+html .woocommerce-page.woocommerce-cart .wc-proceed-to-checkout button, html .woocommerce-page.woocommerce-cart .wc-proceed-to-checkout .button html a.comprar-mais{
 	display: block;
     text-align: center;
     margin: 10px 0 0 10px;

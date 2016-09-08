@@ -156,7 +156,7 @@ wc_print_notices();
 </div>
 <div id="compre-avisos">
 	<p id="aviso"><b>Atenção: </b>O prazo começa a contar a partir da aprovação do pagamento.</p>
-	<button class="comprar-mais"><a href="<?php echo get_home_url(); ?>"> COMPRAR MAIS PRODUTOS</a></button>
+	<a class="comprar-mais button" href="<?php echo get_home_url(); ?>"> COMPRAR MAIS PRODUTOS</a>
 </div>
 
 <?php 

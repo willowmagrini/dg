@@ -22,21 +22,19 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 ?>
 
-<button class="checkout cliente">
-	<a  class="" href="http://rede.com.br/deepgeek/teste-de-login/">
-		<?php echo __( 'Já sou cliente', 'woocommerce' ); ?>
-	</a>
-</button>
-<button class="checkout estranho">
-	<a href="<?php echo esc_url( wc_get_checkout_url() ) ;?>" class="">
+
+<a  class="checkout cliente button" href="http://rede.com.br/deepgeek/teste-de-login/">
+	<?php echo __( 'Já sou cliente', 'woocommerce' ); ?>
+</a>
+<a class="checkout estranho button" href="<?php echo esc_url( wc_get_checkout_url() ) ;?>" class="">
 		<?php echo __( 'Não sou cliente', 'woocommerce' ); ?>
 </a>
-</button>
-<button class="checkout comprar">
-	<a href="<?php echo esc_url( wc_get_checkout_url() ) ;?>" class="">
-		<?php echo __( 'Comprar', 'woocommerce' ); ?>
-	</a>
-</button>
+
+
+<a class="checkout comprar button" href="<?php echo esc_url( wc_get_checkout_url() ) ;?>" class="">
+	<?php echo __( 'Comprar', 'woocommerce' ); ?>
+</a>
+
 
 
 <form id="wp_login_form" class="form-login-carrinho"action="" method="post">  
