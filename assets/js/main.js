@@ -285,4 +285,31 @@ $('#ordem').change(function(e) {
 	$(document).on("click",".woocommerce-cart .control-prod", function (e) {
   		$('input[name="update_cart"]' ).removeProp( 'disabled');
 	});
+	
+
+
+	$('#shipping_postcode').change(function(e) {
+		$("#shipping_city").attr('disabled','disabled');
+        $("#shipping_neighborhood").attr('disabled','disabled');
+        $("#shipping_address_1").attr('disabled','disabled');
+    	var cep_code = $(this).val();
+	    if( cep_code.length <= 0 ) return;
+    	$.get("http://apps.widenet.com.br/busca-cep/api/cep.json", { code: cep_code }, function(result){
+            if( result.status!=1 ){
+	           alert(result.message || "Houve um erro desconhecido");
+    	       return;
+        	}
+
+        	$("#shipping_postcode").val( result.code );
+        	var estado = result.state;
+            $("#shipping_state option[value="+estado+"]").attr('selected','selected');
+            $("#shipping_city").val( result.city );
+            $("#shipping_neighborhood").val( result.district );
+            $("#shipping_address_1").val( result.address );
+            $("#shipping_city").removeProp( 'disabled');
+        	$("#shipping_neighborhood").removeProp( 'disabled');
+        	$("#shipping_address_1").removeProp( 'disabled');
+        });
+   	});
+	
 });

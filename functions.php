@@ -952,8 +952,12 @@ add_action('woocommerce_checkout_billing', 'my_custom_checkout_field', 20);
 function my_custom_checkout_field( $user ) {
 	?>
  <p class="form-row form-row form-row-first " id="nascimento_field">
- 	<label for="billing_postcode" class="">Data de nascimento</label>
+ 	<label for="nascimento" class="">Data de nascimento</label>
  	<input type="text" class="input-text " name="nascimento" id="nascimento" placeholder="" value="<?php echo get_user_meta( get_current_user_id(), 'date_of_birth', true ) ?>">
+ </p>
+ <p class="form-row form-row form-row-last " id="sexo_field">
+ 	<label for="sexo" class="">Sexo</label>
+ 	<input type="text" class="input-text " name="sexo" id="sexo" placeholder="" value="<?php echo get_user_meta( get_current_user_id(), 'sexo', true ) ?>">
  </p>
 	<?php 
 	
@@ -987,6 +991,10 @@ function reigel_woocommerce_checkout_update_user_meta( $customer_id, $posted ) {
         $dob = sanitize_text_field( $_POST['nascimento'] );
         update_user_meta( $customer_id, 'date_of_birth', $dob);
     }
+    if (isset($_POST['sexo'])) {
+        $dob = sanitize_text_field( $_POST['sexo'] );
+        update_user_meta( $customer_id, 'sexo', $dob);
+    }
 }
 add_action( 'woocommerce_checkout_update_user_meta', 'reigel_woocommerce_checkout_update_user_meta', 10, 2 );
 // salva campo nascimento no checkout
@@ -1006,7 +1014,16 @@ function nascimento_painel( $user ) { ?>
 				<input type="text" name="nascimento" id="nascimento" value="<?php echo get_user_meta( $user->ID, 'date_of_birth', true ) ?>" class="regular-text" />
 			</td>
 		</tr>
-	</table><?php 
+	</table>
+	<table class="form-table">
+		<tr>
+			<th><label for="social">Sexo: </label></th>
+			<td>
+				<input type="text" name="sexo" id="sexo" value="<?php echo get_user_meta( $user->ID, 'sexo', true ) ?>" class="regular-text" />
+			</td>
+		</tr>
+	</table>
+	<?php 
 }
 
 // adiciona campo nascimento no painel
@@ -1020,7 +1037,7 @@ function save_nascimento_painel( $user_id ) {
 	if ( !current_user_can( 'edit_user', $user_id ) )
 	return false;
 	 
-
+	update_user_meta( $user_id, 'sexo', $_POST['sexo'] );
 	update_user_meta( $user_id, 'date_of_birth', $_POST['nascimento'] );
 }
 add_action( 'personal_options_update', 'save_nascimento_painel' );
@@ -1031,8 +1048,13 @@ add_action( 'edit_user_profile_update', 'save_nascimento_painel' );
 // salva campo nascimento na edição de conta no front
 // salva campo nascimento na edição de conta no front
 function action_woocommerce_save_account_details( $user_id ) { 
+	if ($_POST['nascimento'] !='') {
+		update_user_meta( $user_id, 'date_of_birth', $_POST['nascimento'] );
+	}
+	if ($_POST['sexo'] !='') {
+	update_user_meta( $user_id, 'sexo', $_POST['sexo'] );
+	}
 
-	update_user_meta( $user_id, 'date_of_birth', $_POST['nascimento'] );
 }; 
 
 add_action( 'woocommerce_customer_save_address', 'action_woocommerce_save_account_details' ,10, 1 ); // WC 2.2-

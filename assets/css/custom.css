@@ -505,6 +505,10 @@ input::-webkit-input-placeholder {
 	margin:0;
 	float: left;
 }
+input[type=number] {
+    -moz-appearance:textfield;
+}
+
 .single-product .quantity input::-webkit-outer-spin-button,
 .single-product .quantity input::-webkit-inner-spin-button,
 .produto input::-webkit-outer-spin-button,

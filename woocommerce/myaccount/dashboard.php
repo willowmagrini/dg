@@ -25,7 +25,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <p>
 	<?php
-		echo sprintf( esc_attr__( 'Hello %s%s%s (not %2$s? %sSign out%s)', 'woocommerce' ), '<strong>', esc_html( $current_user->display_name ), '</strong>', '<a href="' . esc_url( wc_get_endpoint_url( 'customer-logout', '', wc_get_page_permalink( 'myaccount' ) ) ) . '">', '</a>' );
+		// print_r($current_user);
+		echo sprintf( esc_attr__( 'Seu e-mail é %s%s%s (%sSair%s)', 'woocommerce' ), '<strong>', esc_html( $current_user->user_email ), '</strong>', '<a href="' . esc_url( wc_get_endpoint_url( 'customer-logout', '', wc_get_page_permalink( 'myaccount' ) ) ) . '">', '</a>' );
 	?>
 </p>
 

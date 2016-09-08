@@ -56,11 +56,21 @@ do_action( 'woocommerce_before_edit_account_address_form' ); ?>
 			</label>
 			<input type="text" class="input-text " name="nascimento" id="nascimento" placeholder="<?php echo $placeholder ?>" value="">
 		</p>
+		<?php     
+
+			if (get_user_meta( $current_user->ID, 'sexo', true ) !="") {
+				$sexo =  get_user_meta( $current_user->ID, 'sexo', true );
+
+			}
+			else{
+				$sexo =  'Sexo';				
+			};
+		 ?>
 		<p class="form-row form-row my-field-class form-row-last " id="sexo_field">
 			<label for="sexo" class="">
 				Sexo
 			</label>
-			<input type="text" class="input-text " name="sexo" id="sexo" placeholder="" value="">
+			<input type="text" class="input-text " name="sexo" id="sexo" placeholder="<?php echo $sexo ?>" value="">
 		</p>
 		<div class="clear"></div>
 
