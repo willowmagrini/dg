@@ -101,7 +101,7 @@ ob_start();
 		<?php if ( $product->has_dimensions() ) : $has_row = true; ?>
 			<tr class="<?php if ( ( $alt = $alt * -1 ) === 1 ) echo 'alt'; ?>">
 				<th><?php _e( 'Dimensions', 'woocommerce' ) ?></th>
-				<td class="product_dimensions"><?php echo $product->get_dimensions(); ?><span> (altura x largura x profundidade)</span></td>
+				<td class="product_dimensions"><?php echo $product->get_dimensions(); ?><span> (comprimento x largura x altura)</span></td>
 			</tr>
 		<?php endif; ?>
 
@@ -112,9 +112,9 @@ ob_start();
 	<?php
 	if (get_field('dimensoes')!="") { ?>
 	<tr>			
-		<th>Dimensões da embalagem</th>
+		<th>Dimensões do produto</th>
 		<td>
-			<?php echo get_field( 'dimensoes'); ?><span> (altura x largura x profundidade)</span>
+			<?php echo get_field( 'dimensoes'); ?><span> (comprimento x largura x altura)</span>
 		</td>
 	</tr>
 	<?php } ?>

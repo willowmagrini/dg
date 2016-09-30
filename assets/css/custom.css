@@ -421,15 +421,19 @@ input::-webkit-input-placeholder {
 
 
 }
-.price .amount:nth-child(2){
+.produto-imagem .price .woocommerce-Price-amount.amount{
 	width:33%;
+	float:left;
+}
+.produto-imagem .price del .woocommerce-Price-amount.amount,.produto-imagem .price ins .woocommerce-Price-amount.amount{
+	width: 100%;
 }
 .produto ins, .produto del{
 	text-decoration:none;
 	float:left;
 	width: 33%;
 }
-.produto .amount span{
+.produto .sem-bold .amount span{
 	display:none;
 }
 .produto del{
@@ -2449,7 +2453,7 @@ html .dropdown-menu {
 	.carrinho-valor{
 		font-size: 13px;
 	}
-
+	
 
 	.single-product .produto-home.produto{
 		padding-left: 0;
