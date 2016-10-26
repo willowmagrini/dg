@@ -58,28 +58,72 @@ function login_carrinho_func(){
 	global $woocommerce;  
 	$resposta=array();
 	$post=$_POST;
-	$nome = esc_sql($post['nome']);
 	$senha = esc_sql($post['senha']);
-	$lembrar=false;
-	$login_data = array();  
-	$login_data['user_login'] = $nome;  
-	$login_data['user_password'] = $senha;  
-	$login_data['remember'] = $lembrar;  
-	$user_verify = wp_signon( $login_data, true );   
-	if ( is_wp_error($user_verify) )   
-		{  
-  		$resposta['html']= "<span class='error'>".__( 'E-mail ou Senha Inválidos', 'woocommerce' ) ." </span>";  
-   		$resposta['ok'] = 0;
- 	}
- 	else   {    
-   		$resposta['html']="Login efetuado";  
-   		$resposta['ok'] = 1;
+	$nome = esc_sql($post['nome']);
+	$id_produto=esc_sql($post['id_produto']);
 
- 	}  
+	if( username_exists($nome) OR email_exists($nome ) ){
+		$lembrar=false;
+		$login_data = array();  
+		$login_data['user_login'] = $nome;  
+		$login_data['user_password'] = $senha;  
+		$login_data['remember'] = $lembrar;  
+		$user_verify = wp_signon( $login_data, true );   
+		if ( is_wp_error($user_verify) )   
+			{  
+	  		$resposta['html']= "<span class='error'>".__( 'E-mail ou Senha Inválidos', 'woocommerce' ) ." </span>";  
+	   		$resposta['ok'] = 0;
+	 	}
+	 	else   {  
+	 		if ($id_produto != "") {
 
+
+
+	 			$resposta['html']=encomenda($id_produto, $user_verify->user_email, $user_verify->ID);
+		   		$resposta['ok'] = 2;
+
+	 			echo json_encode($resposta);
+
+				wp_die( ); 
+	 		}  
+	   		$resposta['html']="Login efetuado";  
+	   		$resposta['ok'] = 1;
+
+	 	}  
+
+		
+  	}
+  	elseif ($senha != '' AND $nome !='') {
+	
+		// Generate the password and create the user
+		$user_id = wp_create_user( $nome, $senha, $nome );
+		// Set the role
+		$user = new WP_User( $user_id );
+		$user->set_role( 'customer' );
+		
+		$resposta['html']= encomenda( $id_produto, $user->user_email, $user->ID);
+		$resposta['ok'] = 2;
+
+  	}
+  	else{
+  		$resposta['html']= "<span class='error'>".__( 'Algo não foi preenchido'.$id_produto, 'woocommerce' ) ." </span>";  
+		$resposta['ok'] = 0;
+  	}
 	echo json_encode($resposta);
 	wp_die( ); 
 
 }
 
 //login no carrinho
+function encomenda($id_produto, $usuario, $id_usuario){
+	// $resposta['html']='user:'.$user_verify->user_email.'id_prod: '.$id_produto;  
+	$emails = get_post_meta($id_produto,'encomenda')[0];
+	add_post_meta($id_produto, 'encomenda', $usuario);  
+	// $produtos = get_user_meta($id_produto,'encomendas',1);
+	// update_user_meta(  $user_verify->ID, 'encomendas', $id_produto);
+	return implode(',',array_unique(get_post_meta($id_produto,'encomenda' )));
+}
+add_filter('wp_insert_post_data', 'notificacao_estoque', 10, 2);
+function notificacao_estoque(){
+	
+}

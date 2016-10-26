@@ -28,6 +28,7 @@ require_once get_template_directory() . '/core/classes/class-shortcodes.php';
 require_once get_template_directory() . '/core/classes/class-thumbnail-resizer.php';
 require_once get_template_directory() . '/core/classes/class-theme-options.php';
 require_once get_template_directory() . '/inc/ajax-functions.php';
+// require_once get_template_directory() . '/inc/pre-venda.php';
 
 // require_once get_template_directory() . '/core/classes/class-options-helper.php';
 // require_once get_template_directory() . '/core/classes/class-post-type.php';
@@ -736,7 +737,7 @@ add_action('admin_head', 'my_custom_fonts');
 function my_custom_fonts() {
   echo '<style>
     
-    .advanced_options, #product-type option[value="external"], #product-type option[value="grouped"], ._sold_individually_field, .options_group:nth-child(2) .dimensions_field, #tagsdiv-product_tag, .linked_product_tab, #commentsdiv{
+    .advanced_options, #product-type option[value="external"], #product-type option[value="grouped"], ._sold_individually_field, .options_group:nth-child(2) .dimensions_field,  .linked_product_tab, #commentsdiv{
 		display:none!important;
     } 
     #product-type option[value="external"]{
@@ -799,7 +800,7 @@ function replace_add_to_cart() {
 	global $product;
 	if ($product->get_stock_quantity()==0 && $product->get_type() !='variable' ){
 		$link = $product->get_permalink();
-		echo '<a data-link="'.$link.'" data-nome="'.$product->get_title().'"class="encomendarAdd button" href="#" class="button addtocartbutton">Encomendar</a>';
+		echo '<a data-prod-id="'.$product->get_id().'" data-link="'.$link.'" data-nome="'.$product->get_title().'"class="encomendarAdd button" href="#" class="button addtocartbutton">Esgotago</a>';
 	}
 	elseif($product->get_type() =='variable'){
 		$filhas=$product->get_children();
@@ -817,7 +818,7 @@ function replace_add_to_cart() {
 		}
 		if ($estoque ==0) {
 			$link = $product->get_permalink();
-			echo '<a data-link="'.$link.'" data-nome="'.$product->get_title().'"class="encomendarAdd button" href="#" class="button addtocartbutton">Encomendar</a>';
+			echo '<a data-prod-id="'.$product->get_id().'" data-link="'.$link.'" data-nome="'.$product->get_title().'"class="encomendarAdd button" href="#" class="button addtocartbutton">Esgotago</a>';
 		}
 		else{
 		woocommerce_template_loop_add_to_cart();
@@ -1275,4 +1276,26 @@ function add_googleanalytics() { ?>
   ga('send', 'pageview');
 
 </script>
-<?php } ?>
+<?php } 
+// $ch = curl_init();
+// curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+// curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+// curl_setopt($ch, CURLOPT_URL, 'https://painel02.allinmail.com.br/allinapi/?method=get_token&output=json&username=seulogin&password=suasenha');
+// $result = curl_exec($ch);
+// curl_close($ch);
+
+// $obj = json_decode($result);
+// print_r($obj);
+
+// add_filter('wpcf7_form_action_url', 'wpcf7_custom_form_action_url');
+// function wpcf7_custom_form_action_url($url)
+// {
+//     global $post;
+//     $id_to_change = 1;
+//     if($post->ID === $id_to_change)
+//         return 'wheretopost.asp';
+//     else
+//         return $url;
+// }
+
+?>

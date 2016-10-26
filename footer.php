@@ -112,7 +112,7 @@
 		</div>
 
 		<div class="clearfix"></div>
-
+		
 		
 	</footer><!-- #footer -->
 	<div id="fundo-modal">	<img id="ajax-loader" style="display:none" src="<?php echo get_template_directory_uri(); ?>/assets/images/ajax-loader.gif">
@@ -125,10 +125,61 @@
 		</a>
 		<div class="animated fadeIn" id="html">
 			<?php 
+			
+			if (is_user_logged_in()) {
+				$user=wp_get_current_user(); 
+				?>
+				<div class="aviso-encomenda" >
+					<h2>Produto Esgotado</h2>
+					<p>Você sera notificado no e-mail <?php echo $user->user_email ?> quando o produto <a id="encomendaNome"></a> entrar no estoque.
+				</div>
+				<?php 
+				
+			}
+			else{
+				?>
+			<div class="encomenda-form wpcf7">
+				<h2>Entre ou cadastre-se:</h2>
+				<form id="wp_login_form" class="form-login-esgotado"action="" method="post">  
+					<input id='email' placeholder="E-mail" type="text" name="username" class="text" value="">
+					<input id='senha' placeholder="Senha" type="password" name="password" class="text" value="">  
+					<input class="button login" type="submit" id="submitbtn" name="submit" value="Login">
+					<input type="hidden" name="checkout-url" id="checkout-url"value='<?php echo esc_url( wc_get_checkout_url() ) ?>' >  
+				</form>  
+
+			</div>
+
+		<?php 
+				}
+		?>
+			<?php 
 				// echo do_shortcode('[contact-form-7 id="182" title="Encomenda"]' ); 
-				echo do_shortcode('[contact-form-7 id="284" title="Encomenda"]' ); ?>
+				// echo do_shortcode('[contact-form-7 id="284" title="Encomenda"]' ); 
 
 			?>
+		</div>		
+		<div class="clearfix"></div>
+	</div>
+	<div id="modal-conteudo-2">
+		<a href="#">
+			<div style="display:none" id="botao-fechar-2"></div>
+		</a>
+		<div class="animated fadeIn" id="html">
+			<div class="popup">
+				<img src="<?php echo get_template_directory_uri(); ?>/assets/images/deepgeek.png" alt="">
+				<h4>CADASTRE-SE PARA RECEBER NOSSAS <b>NOVIDADES</b> E<b> PROMOÇÕES</b></h4>	
+				<?php 
+					// echo do_shortcode('[contact-form-7 id="182" title="Encomenda"]' ); 
+					// echo do_shortcode('[contact-form-7 id="116" title="cadastro"]' ); 
+					echo do_shortcode('[contact-form-7 id="174" title="newsletter"]' ); 
+				?>
+				
+				<p>USE O <b>CUPOM</b></p>
+				<img src="<?php echo get_template_directory_uri(); ?>/assets/images/DG20.png" alt=""/>	
+				<h5>E GANHE <b>20% DE DESCONTO</b> NA PRIMEIRA COMPRA</h5>
+					
+			</div>
+
 		</div>		
 		<div class="clearfix"></div>
 	</div>

@@ -1843,10 +1843,18 @@ html .wpcf7-not-valid-tip{
 	-webkit-transform: translate(0,-100%);
 	transform: translate(0,-100%);
 }
-#modal-conteudo{
+#modal-conteudo-2 .wpcf7-validation-errors{
+	display: none!important;
+}
+#modal-conteudo-2 div.wpcf7-mail-sent-ok{
+	border-color: #FCEA0D;
+	color: #fff;
+}
+#modal-conteudo, 
+#modal-conteudo-2{
 	width: initial;
 }
-#modal-conteudo .wpcf7{
+#modal-conteudo .wpcf{
 	width: initial;
     background: #fff;
     padding: 20px;
@@ -1854,13 +1862,17 @@ html .wpcf7-not-valid-tip{
 
 
 }
-#modal-conteudo .wpcf7 h2{
+#modal-conteudo .wpcf7 h2, 
+#modal-conteudo-2 .wpcf7 h2{
 	margin-top:0;
 }
 #modal-conteudo .wpcf7-form{
 	width: 261px;
 }
-#modal-conteudo[modal-estado="ativo"]{
+#modal-conteudo[modal-estado="ativo"], 
+#modal-conteudo-2[modal-estado="ativo"]{
+		visibility: visible;
+
 	-ms-transform: translate(-50%,-50%);
 	-webkit-transform: translate(-50%,-50%);
 	transform: translate(-50%,-50%);
@@ -1870,7 +1882,8 @@ html .wpcf7-not-valid-tip{
 	    transition: all  ease-out 0.5s;
 	
 }
-#modal-conteudo .btn-default,#modal-conteudo input[type="submit"], #modal-conteudo input[type="reset"]{
+#modal-conteudo .btn-default,#modal-conteudo input[type="submit"], #modal-conteudo input[type="reset"],
+#modal-conteudo-2 .btn-default,#modal-conteudo-2 input[type="submit"], #modal-conteudo-2 input[type="reset"]{
     color: white;
     background-color: black;
     border: none!important;
@@ -1881,14 +1894,17 @@ html .wpcf7-not-valid-tip{
 	    top: 25vh;
 	    left: 47%;
 }
-#modal-conteudo a, #modal-conteudo a:hover,#modal-conteudo a:active{
+#modal-conteudo a, #modal-conteudo a:hover,#modal-conteudo a:active,
+#modal-conteudo-2 a, #modal-conteudo-2 a:hover,#modal-conteudo-2 a:active{
+
 	text-decoration:none;
 }
-#modal-conteudo .attachment-thumbnail{
+#modal-conteudo .attachment-thumbnail,
+#modal-conteudo-2 .attachment-thumbnail{
 	border-radius:200px;
 	margin-bottom:30px;
 }
-#botao-fechar{
+#botao-fechar,#botao-fechar-2{
     font-weight: 100;
     position: relative;
     right: -20px;
@@ -1896,7 +1912,19 @@ html .wpcf7-not-valid-tip{
     font-size: 35px;
 	color:#fff;
 }
-#modal-conteudo{
+#botao-fechar-2{
+	background: url('../images/fechar.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 25px;
+    width: 25px;
+    float: right;
+    position: absolute;
+    right: -31px;
+    top: -1px;
+	}
+#modal-conteudo,
+#modal-conteudo-2{
     z-index: 9999999;
     top: 50%;
     left: 50%;
@@ -1912,12 +1940,56 @@ html .wpcf7-not-valid-tip{
     transform: translate(0,300%);
     max-width: 900px;
 }
-#modal-conteudo img{
-    display: block;
+#modal-conteudo img,
+#modal-conteudo-2 img{
+	display: block;
     margin: 0 auto;
 	max-width:100%;
 	max-height: 90vh;
     
+}
+#modal-conteudo {
+	visibility: hidden;
+}
+#modal-conteudo-2 {
+	background: url('../images/fundo-modal.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 383px;
+    width: 435px;
+    padding: 48px 30px;
+}
+#modal-conteudo-2 h4, #modal-conteudo-2 h5, #modal-conteudo-2 p{
+    text-align: center;
+    color: #fff;
+    font-weight: 100;
+ }
+ #modal-conteudo-2 h5{
+    font-size: 18px;
+    padding: 2px 56px;
+ }
+#modal-conteudo-2 h4{
+	margin-top: 20px;
+	font-size: 22px;
+}
+#modal-conteudo-2 .wpcf7-email{
+	width: 50%;
+	margin-right: 10px;
+	height: 25px;
+	color: #000;
+
+}
+#modal-conteudo-2 .wpcf7-submit{
+	width: 30%;
+	height: 25px; 
+	padding: 0;
+	vertical-align: top;
+}
+#modal-conteudo-2 form p, #modal-conteudo-2 form{
+	text-align: center;
+}
+#modal-conteudo-2 input[type="submit"]:focus{
+	background-color: #000!important;
 }
 svg:active, svg:focus{
 	outline:none;
@@ -1935,6 +2007,37 @@ svg:active, svg:focus{
     background: transparent;
     filter: Alpha(Opacity=50);
     opacity: 0.5;
+}
+#modal-conteudo #botao-fechar{
+	font-weight: 100;
+    position: absolute;
+    right: -23px;
+    text-align: right;
+    font-size: 22px;
+    color: #fff;
+    color: yellow;
+    top: -23px;
+}
+#modal-conteudo h2{
+	margin-bottom: 15px;
+}
+#modal-conteudo p{
+	font-size: 16px
+}
+#modal-conteudo input{
+	width: 100%;
+	margin-bottom:10px;
+}
+#modal-conteudo input[type="submit"]:focus{
+	    background-color: #000!important;
+
+}
+#modal-conteudo{
+	padding: 20px 44px 25px;
+    background-color: #fff;
+    border: solid 6px #FCEA0D;
+    max-width: 432px;
+    text-align: center;
 }
 .pag-modal{
 	position:absolute;
